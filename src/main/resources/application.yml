@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/corpusrole
+      username: root
+      password: 123456
+  servlet:
+    multipart: #对上传的文件大小进行设置
+      max-file-size: 20MB
+      max-request-size: 100MB
+#到时候可以根据实际情况更改端口号
+server:
+  port: 8080
+#  servlet:
+#    context-path: /api
+logging:
+  file:
+    name: server.log
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      file-name-pattern: server.%d.%i.log
+#存放密钥信息
+api:
+  key: myself_123456
+#存放语料的url
+strapi:
+  #上线前只需要更改这里的strapi的url就可以将整改代码的url更改
+  url: http://localhost:1337/
+  #  url: http://8.137.53.253:1337/
+  #  url: http://localhost:1337/corpuses
+
+  AuthToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzMjA2OTQzLCJleHAiOjE2OTU3OTg5NDN9.5X0WYCnCoIsLa5eHofQGpPrQtln94xnDRFMP4liB1uQ
+  strapiUploadUrl: http://localhost:1337/upload
