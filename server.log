@@ -1,542 +1,99 @@
-2023-08-28 09:53:57.822  INFO 82732 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 82732 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 09:53:57.844  INFO 82732 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 09:53:58.701  INFO 82732 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 09:53:58.980  INFO 82732 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 09:53:59.922  WARN 82732 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 09:54:00.026  WARN 82732 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 09:54:00.081  WARN 82732 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 09:54:00.130  WARN 82732 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 09:54:00.164  WARN 82732 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 09:54:00.235  WARN 82732 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 09:54:00.235  WARN 82732 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 09:54:00.921  INFO 82732 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.387 seconds (JVM running for 4.348)
-2023-08-28 09:54:01.206  INFO 82732 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 09:54:41.221  INFO 86704 --- [main] com.lt.service.CorpusServiceTest         : Starting CorpusServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 86704 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 09:54:41.223  INFO 86704 --- [main] com.lt.service.CorpusServiceTest         : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 09:54:42.080  INFO 86704 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 09:54:42.337  INFO 86704 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 09:54:43.211  WARN 86704 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 09:54:43.308  WARN 86704 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 09:54:43.355  WARN 86704 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 09:54:43.396  WARN 86704 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 09:54:43.425  WARN 86704 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 09:54:43.491  WARN 86704 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 09:54:43.491  WARN 86704 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 09:54:44.150  INFO 86704 --- [main] com.lt.service.CorpusServiceTest         : Started CorpusServiceTest in 3.191 seconds (JVM running for 4.073)
-2023-08-28 09:54:44.502  INFO 86704 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 09:56:10.653  INFO 104752 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 104752 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 09:56:10.670  INFO 104752 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 09:56:11.445  INFO 104752 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 09:56:11.680  INFO 104752 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 09:56:12.560  WARN 104752 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 09:56:12.657  WARN 104752 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 09:56:12.703  WARN 104752 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 09:56:12.748  WARN 104752 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 09:56:12.780  WARN 104752 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 09:56:12.849  WARN 104752 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 09:56:12.849  WARN 104752 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 09:56:13.562  INFO 104752 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.175 seconds (JVM running for 4.066)
-2023-08-28 09:56:13.821  INFO 104752 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 09:58:47.659  INFO 103292 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 103292 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 09:58:47.660  INFO 103292 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 09:58:48.414  INFO 103292 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 09:58:48.660  INFO 103292 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 09:58:49.548  WARN 103292 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 09:58:49.644  WARN 103292 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 09:58:49.692  WARN 103292 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 09:58:49.735  WARN 103292 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 09:58:49.769  WARN 103292 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 09:58:49.844  WARN 103292 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 09:58:49.844  WARN 103292 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 09:58:50.547  INFO 103292 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.142 seconds (JVM running for 4.013)
-2023-08-28 09:58:50.934  INFO 103292 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 10:44:10.340  INFO 100592 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 100592 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 10:44:10.341  INFO 100592 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 10:44:11.174  INFO 100592 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 10:44:11.436  INFO 100592 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 10:44:12.341  WARN 100592 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 10:44:12.441  WARN 100592 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 10:44:12.489  WARN 100592 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 10:44:12.536  WARN 100592 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 10:44:12.566  WARN 100592 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 10:44:12.633  WARN 100592 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 10:44:12.633  WARN 100592 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 10:44:13.306  INFO 100592 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.246 seconds (JVM running for 4.199)
-2023-08-28 10:44:13.683  INFO 100592 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 10:46:23.577  INFO 105116 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 105116 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 10:46:23.578  INFO 105116 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 10:46:24.345  INFO 105116 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 10:46:24.578  INFO 105116 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 10:46:25.467  WARN 105116 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 10:46:25.561  WARN 105116 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 10:46:25.607  WARN 105116 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 10:46:25.649  WARN 105116 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 10:46:25.681  WARN 105116 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 10:46:25.750  WARN 105116 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 10:46:25.750  WARN 105116 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 10:46:26.398  INFO 105116 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.071 seconds (JVM running for 3.955)
-2023-08-28 10:46:26.737  INFO 105116 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 11:35:22.985  INFO 58992 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 58992 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 11:35:22.986  INFO 58992 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 11:35:23.834  INFO 58992 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 11:35:24.095  INFO 58992 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 11:35:25.107  WARN 58992 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 11:35:25.212  WARN 58992 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 11:35:25.264  WARN 58992 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 11:35:25.313  WARN 58992 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 11:35:25.349  WARN 58992 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 11:35:25.414  WARN 58992 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 11:35:25.414  WARN 58992 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 11:35:26.137  INFO 58992 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.447 seconds (JVM running for 4.405)
-2023-08-28 11:35:27.131  INFO 58992 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 11:37:41.022  INFO 101048 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 101048 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 11:37:41.023  INFO 101048 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 11:37:41.790  INFO 101048 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 11:37:42.025  INFO 101048 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 11:37:42.899  WARN 101048 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 11:37:42.996  WARN 101048 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 11:37:43.044  WARN 101048 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 11:37:43.090  WARN 101048 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 11:37:43.122  WARN 101048 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 11:37:43.192  WARN 101048 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 11:37:43.193  WARN 101048 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 11:37:43.887  INFO 101048 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.114 seconds (JVM running for 4.016)
-2023-08-28 11:37:44.735  INFO 101048 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 11:38:10.119  INFO 106220 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 106220 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 11:38:10.121  INFO 106220 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 11:38:10.876  INFO 106220 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 11:38:11.108  INFO 106220 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 11:38:11.981  WARN 106220 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 11:38:12.081  WARN 106220 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 11:38:12.126  WARN 106220 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 11:38:12.169  WARN 106220 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 11:38:12.201  WARN 106220 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 11:38:12.273  WARN 106220 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 11:38:12.273  WARN 106220 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 11:38:12.928  INFO 106220 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.061 seconds (JVM running for 3.926)
-2023-08-28 11:38:13.785  INFO 106220 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 11:38:50.418  INFO 95852 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 95852 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 11:38:50.419  INFO 95852 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 11:38:51.159  INFO 95852 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 11:38:51.397  INFO 95852 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 11:38:52.286  WARN 95852 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 11:38:52.380  WARN 95852 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 11:38:52.427  WARN 95852 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 11:38:52.472  WARN 95852 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 11:38:52.501  WARN 95852 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 11:38:52.569  WARN 95852 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 11:38:52.570  WARN 95852 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 11:38:53.211  INFO 95852 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.048 seconds (JVM running for 3.92)
-2023-08-28 11:38:54.102  INFO 95852 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 15:16:04.672  INFO 84872 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 84872 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 15:16:04.674  INFO 84872 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 15:16:05.526  INFO 84872 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 15:16:05.775  INFO 84872 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 15:16:06.729  WARN 84872 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 15:16:06.833  WARN 84872 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 15:16:06.884  WARN 84872 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 15:16:06.931  WARN 84872 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 15:16:06.965  WARN 84872 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 15:16:07.037  WARN 84872 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 15:16:07.037  WARN 84872 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 15:16:07.768  INFO 84872 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.389 seconds (JVM running for 4.34)
-2023-08-28 15:16:08.714  INFO 84872 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 15:17:16.419  INFO 107448 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 107448 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 15:17:16.420  INFO 107448 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 15:17:17.186  INFO 107448 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 15:17:17.430  INFO 107448 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 15:17:18.310  WARN 107448 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 15:17:18.408  WARN 107448 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 15:17:18.455  WARN 107448 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 15:17:18.499  WARN 107448 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 15:17:18.532  WARN 107448 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 15:17:18.601  WARN 107448 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 15:17:18.601  WARN 107448 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 15:17:19.272  INFO 107448 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.126 seconds (JVM running for 4.014)
-2023-08-28 15:17:20.159  INFO 107448 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 15:20:11.089  INFO 107568 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 107568 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 15:20:11.091  INFO 107568 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 15:20:11.840  INFO 107568 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-08-28 15:20:11.845  INFO 107568 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-28 15:20:11.846  INFO 107568 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2023-08-28 15:20:11.937  INFO 107568 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-28 15:20:11.938  INFO 107568 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 819 ms
-2023-08-28 15:20:12.019  INFO 107568 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 15:20:12.128  INFO 107568 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 15:20:13.053  WARN 107568 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 15:20:13.177  WARN 107568 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 15:20:13.215  WARN 107568 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 15:20:13.246  WARN 107568 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 15:20:13.268  WARN 107568 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 15:20:13.317  WARN 107568 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 15:20:13.317  WARN 107568 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 15:20:13.585  INFO 107568 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-08-28 15:20:13.592  INFO 107568 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.805 seconds (JVM running for 3.762)
-2023-08-28 15:20:13.898  INFO 107568 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-28 15:20:13.898  INFO 107568 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-28 15:20:13.899  INFO 107568 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-08-28 15:22:46.658  INFO 107568 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 15:22:49.401  INFO 101756 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 101756 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 15:22:49.403  INFO 101756 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 15:22:50.117  INFO 101756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-08-28 15:22:50.124  INFO 101756 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-28 15:22:50.124  INFO 101756 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2023-08-28 15:22:50.233  INFO 101756 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-28 15:22:50.234  INFO 101756 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 805 ms
-2023-08-28 15:22:50.318  INFO 101756 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 15:22:50.431  INFO 101756 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 15:22:51.321  WARN 101756 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 15:22:51.460  WARN 101756 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 15:22:51.495  WARN 101756 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 15:22:51.524  WARN 101756 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 15:22:51.548  WARN 101756 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 15:22:51.595  WARN 101756 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 15:22:51.595  WARN 101756 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 15:22:51.848  INFO 101756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-08-28 15:22:51.856  INFO 101756 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.734 seconds (JVM running for 3.698)
-2023-08-28 15:22:56.441  INFO 101756 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-28 15:22:56.442  INFO 101756 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-28 15:22:56.443  INFO 101756 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-08-28 15:23:00.229  INFO 101756 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 15:23:10.098  INFO 107832 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 107832 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 15:23:10.099  INFO 107832 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 15:23:10.897  INFO 107832 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 15:23:11.148  INFO 107832 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 15:23:12.028  WARN 107832 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 15:23:12.131  WARN 107832 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 15:23:12.178  WARN 107832 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 15:23:12.222  WARN 107832 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 15:23:12.254  WARN 107832 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 15:23:12.324  WARN 107832 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 15:23:12.324  WARN 107832 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 15:23:12.993  INFO 107832 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.161 seconds (JVM running for 4.081)
-2023-08-28 15:23:13.978  INFO 107832 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 15:26:28.052  INFO 108760 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 108760 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 15:26:28.054  INFO 108760 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 15:26:28.806  INFO 108760 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 15:26:29.038  INFO 108760 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 15:26:30.074  WARN 108760 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 15:26:30.177  WARN 108760 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 15:26:30.222  WARN 108760 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 15:26:30.265  WARN 108760 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 15:26:30.294  WARN 108760 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 15:26:30.358  WARN 108760 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 15:26:30.358  WARN 108760 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 15:26:31.029  INFO 108760 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.224 seconds (JVM running for 4.087)
-2023-08-28 15:26:32.046  INFO 108760 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 15:27:21.598  INFO 64576 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 64576 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 15:27:21.599  INFO 64576 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 15:27:22.344  INFO 64576 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 15:27:22.568  INFO 64576 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 15:27:23.447  WARN 64576 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 15:27:23.544  WARN 64576 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 15:27:23.591  WARN 64576 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 15:27:23.633  WARN 64576 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 15:27:23.666  WARN 64576 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 15:27:23.732  WARN 64576 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 15:27:23.732  WARN 64576 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 15:27:24.390  INFO 64576 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.046 seconds (JVM running for 3.913)
-2023-08-28 15:27:25.274  INFO 64576 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 15:27:34.855  INFO 108152 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 108152 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 15:27:34.856  INFO 108152 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 15:27:35.604  INFO 108152 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 15:27:35.844  INFO 108152 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 15:27:36.747  WARN 108152 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 15:27:36.844  WARN 108152 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 15:27:36.891  WARN 108152 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 15:27:36.935  WARN 108152 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 15:27:36.967  WARN 108152 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 15:27:37.035  WARN 108152 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 15:27:37.036  WARN 108152 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 15:27:37.742  INFO 108152 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.136 seconds (JVM running for 4.012)
-2023-08-28 15:27:38.657  INFO 108152 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 15:54:17.337  INFO 105852 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 105852 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 15:54:17.339  INFO 105852 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 15:54:18.162  INFO 105852 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-08-28 15:54:18.168  INFO 105852 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-28 15:54:18.169  INFO 105852 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2023-08-28 15:54:18.260  INFO 105852 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-28 15:54:18.260  INFO 105852 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 891 ms
-2023-08-28 15:54:18.339  INFO 105852 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 15:54:18.441  INFO 105852 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 15:54:19.339  WARN 105852 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 15:54:19.464  WARN 105852 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 15:54:19.495  WARN 105852 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 15:54:19.522  WARN 105852 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 15:54:19.545  WARN 105852 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 15:54:19.585  WARN 105852 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 15:54:19.585  WARN 105852 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 15:54:19.817  INFO 105852 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-08-28 15:54:19.824  INFO 105852 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.768 seconds (JVM running for 3.831)
-2023-08-28 15:54:29.108  INFO 105852 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-28 15:54:29.108  INFO 105852 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-28 15:54:29.109  INFO 105852 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-08-28 15:57:22.308  INFO 105852 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 15:58:32.263  INFO 86396 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 86396 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 15:58:32.264  INFO 86396 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 15:58:32.939  INFO 86396 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-08-28 15:58:32.944  INFO 86396 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-28 15:58:32.945  INFO 86396 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2023-08-28 15:58:33.033  INFO 86396 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-28 15:58:33.034  INFO 86396 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 743 ms
-2023-08-28 15:58:33.110  INFO 86396 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 15:58:33.209  INFO 86396 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 15:58:34.141  WARN 86396 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 15:58:34.254  WARN 86396 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 15:58:34.288  WARN 86396 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 15:58:34.316  WARN 86396 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 15:58:34.339  WARN 86396 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 15:58:34.382  WARN 86396 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 15:58:34.382  WARN 86396 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 15:58:34.622  INFO 86396 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-08-28 15:58:34.629  INFO 86396 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.624 seconds (JVM running for 3.577)
-2023-08-28 15:58:37.251  INFO 86396 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-28 15:58:37.252  INFO 86396 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-28 15:58:37.252  INFO 86396 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2023-08-28 16:00:03.226  INFO 86396 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 16:00:09.132  INFO 109000 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 109000 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 16:00:09.134  INFO 109000 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 16:00:09.785  INFO 109000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-08-28 16:00:09.790  INFO 109000 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-28 16:00:09.790  INFO 109000 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2023-08-28 16:00:09.875  INFO 109000 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-28 16:00:09.876  INFO 109000 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 718 ms
-2023-08-28 16:00:09.946  INFO 109000 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 16:00:10.046  INFO 109000 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 16:00:10.936  WARN 109000 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 16:00:11.054  WARN 109000 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 16:00:11.085  WARN 109000 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 16:00:11.111  WARN 109000 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 16:00:11.132  WARN 109000 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 16:00:11.172  WARN 109000 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 16:00:11.172  WARN 109000 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 16:00:11.402  INFO 109000 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-08-28 16:00:11.409  INFO 109000 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.535 seconds (JVM running for 3.466)
-2023-08-28 16:00:17.672  INFO 109000 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-28 16:00:17.673  INFO 109000 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-28 16:00:17.674  INFO 109000 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-08-28 16:01:32.662  INFO 109000 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 16:05:16.820  INFO 104520 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 104520 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 16:05:16.821  INFO 104520 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 16:05:17.600  INFO 104520 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 16:05:17.841  INFO 104520 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 16:05:18.748  WARN 104520 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 16:05:18.852  WARN 104520 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 16:05:18.901  WARN 104520 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 16:05:18.946  WARN 104520 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 16:05:18.984  WARN 104520 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 16:05:19.051  WARN 104520 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 16:05:19.051  WARN 104520 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 16:05:19.717  INFO 104520 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.162 seconds (JVM running for 4.082)
-2023-08-28 16:05:20.087  INFO 104520 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 16:05:52.292  INFO 106756 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 106756 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 16:05:52.294  INFO 106756 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 16:05:52.962  INFO 106756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-08-28 16:05:52.968  INFO 106756 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-28 16:05:52.968  INFO 106756 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2023-08-28 16:05:53.058  INFO 106756 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-28 16:05:53.058  INFO 106756 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 738 ms
-2023-08-28 16:05:53.131  INFO 106756 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 16:05:53.231  INFO 106756 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 16:05:54.035  WARN 106756 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 16:05:54.145  WARN 106756 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 16:05:54.178  WARN 106756 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 16:05:54.205  WARN 106756 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 16:05:54.227  WARN 106756 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 16:05:54.267  WARN 106756 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 16:05:54.267  WARN 106756 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 16:05:54.506  INFO 106756 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-08-28 16:05:54.512  INFO 106756 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.489 seconds (JVM running for 3.378)
-2023-08-28 16:06:15.217  INFO 106756 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-28 16:06:15.217  INFO 106756 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-28 16:06:15.218  INFO 106756 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-08-28 16:09:18.101  INFO 106756 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 16:09:23.733  INFO 105224 --- [main] com.lt.service.ExercisesServiceTest      : Starting ExercisesServiceTest using Java 1.8.0_352 on LAPTOP-16U262QG with PID 105224 (started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 16:09:23.734  INFO 105224 --- [main] com.lt.service.ExercisesServiceTest      : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 16:09:24.539  INFO 105224 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 16:09:24.796  INFO 105224 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 16:09:25.716  WARN 105224 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 16:09:25.815  WARN 105224 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 16:09:25.864  WARN 105224 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 16:09:25.909  WARN 105224 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 16:09:25.945  WARN 105224 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 16:09:26.014  WARN 105224 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 16:09:26.014  WARN 105224 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 16:09:26.742  INFO 105224 --- [main] com.lt.service.ExercisesServiceTest      : Started ExercisesServiceTest in 3.266 seconds (JVM running for 4.135)
-2023-08-28 16:09:27.087  INFO 105224 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 16:12:46.081  INFO 106900 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 106900 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 16:12:46.083  INFO 106900 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 16:12:46.749  INFO 106900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-08-28 16:12:46.755  INFO 106900 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-28 16:12:46.755  INFO 106900 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2023-08-28 16:12:46.847  INFO 106900 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-28 16:12:46.847  INFO 106900 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 738 ms
-2023-08-28 16:12:46.928  INFO 106900 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 16:12:47.039  INFO 106900 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 16:12:47.955  WARN 106900 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 16:12:48.062  WARN 106900 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 16:12:48.095  WARN 106900 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 16:12:48.122  WARN 106900 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 16:12:48.146  WARN 106900 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 16:12:48.191  WARN 106900 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 16:12:48.191  WARN 106900 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 16:12:48.470  INFO 106900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-08-28 16:12:48.477  INFO 106900 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.665 seconds (JVM running for 3.591)
-2023-08-28 16:12:48.879  INFO 106900 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-28 16:12:48.879  INFO 106900 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-28 16:12:48.880  INFO 106900 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-08-28 16:18:07.426  INFO 106900 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 16:18:11.589  INFO 110752 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 110752 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 16:18:11.591  INFO 110752 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 16:18:12.278  INFO 110752 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-08-28 16:18:12.284  INFO 110752 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-28 16:18:12.284  INFO 110752 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2023-08-28 16:18:12.382  INFO 110752 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-28 16:18:12.382  INFO 110752 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 764 ms
-2023-08-28 16:18:12.456  INFO 110752 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 16:18:12.563  INFO 110752 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 16:18:13.450  WARN 110752 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 16:18:13.597  WARN 110752 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 16:18:13.629  WARN 110752 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 16:18:13.657  WARN 110752 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 16:18:13.681  WARN 110752 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 16:18:13.723  WARN 110752 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 16:18:13.724  WARN 110752 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 16:18:13.966  INFO 110752 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-08-28 16:18:13.973  INFO 110752 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.677 seconds (JVM running for 3.629)
-2023-08-28 16:18:21.287  INFO 110752 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-28 16:18:21.288  INFO 110752 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-28 16:18:21.288  INFO 110752 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2023-08-28 16:18:41.697  INFO 110752 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 16:18:47.379  INFO 111320 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 111320 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 16:18:47.381  INFO 111320 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 16:18:48.045  INFO 111320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-08-28 16:18:48.050  INFO 111320 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-28 16:18:48.050  INFO 111320 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2023-08-28 16:18:48.134  INFO 111320 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-28 16:18:48.135  INFO 111320 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 730 ms
-2023-08-28 16:18:48.206  INFO 111320 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 16:18:48.308  INFO 111320 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 16:18:49.091  WARN 111320 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 16:18:49.198  WARN 111320 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 16:18:49.231  WARN 111320 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 16:18:49.258  WARN 111320 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 16:18:49.280  WARN 111320 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 16:18:49.323  WARN 111320 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 16:18:49.323  WARN 111320 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 16:18:49.567  INFO 111320 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-08-28 16:18:49.573  INFO 111320 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.456 seconds (JVM running for 3.331)
-2023-08-28 16:18:53.459  INFO 111320 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-28 16:18:53.459  INFO 111320 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-28 16:18:53.460  INFO 111320 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-08-28 16:19:26.358  INFO 111320 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 16:21:44.088  INFO 107884 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 107884 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 16:21:44.090  INFO 107884 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 16:21:44.737  INFO 107884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-08-28 16:21:44.742  INFO 107884 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-28 16:21:44.743  INFO 107884 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2023-08-28 16:21:44.830  INFO 107884 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-28 16:21:44.830  INFO 107884 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 714 ms
-2023-08-28 16:21:44.911  INFO 107884 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 16:21:45.010  INFO 107884 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 16:21:45.989  WARN 107884 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 16:21:46.112  WARN 107884 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 16:21:46.152  WARN 107884 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 16:21:46.182  WARN 107884 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 16:21:46.206  WARN 107884 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 16:21:46.248  WARN 107884 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 16:21:46.248  WARN 107884 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 16:21:46.510  INFO 107884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-08-28 16:21:46.518  INFO 107884 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.691 seconds (JVM running for 3.556)
-2023-08-28 16:21:46.809  INFO 107884 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-28 16:21:46.809  INFO 107884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-28 16:21:46.810  INFO 107884 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-08-28 16:22:44.733  INFO 107884 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 16:22:56.192  INFO 104700 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 104700 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 16:22:56.194  INFO 104700 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 16:22:56.869  INFO 104700 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-08-28 16:22:56.874  INFO 104700 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-28 16:22:56.874  INFO 104700 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2023-08-28 16:22:56.965  INFO 104700 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-28 16:22:56.966  INFO 104700 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 746 ms
-2023-08-28 16:22:57.049  INFO 104700 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 16:22:57.156  INFO 104700 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 16:22:57.989  WARN 104700 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 16:22:58.099  WARN 104700 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 16:22:58.140  WARN 104700 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 16:22:58.169  WARN 104700 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 16:22:58.196  WARN 104700 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 16:22:58.251  WARN 104700 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 16:22:58.251  WARN 104700 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 16:22:58.518  INFO 104700 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-08-28 16:22:58.525  INFO 104700 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.604 seconds (JVM running for 3.493)
-2023-08-28 16:22:58.778  INFO 104700 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-28 16:22:58.778  INFO 104700 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-28 16:22:58.779  INFO 104700 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-08-28 16:24:46.388  INFO 104700 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 16:25:10.074  INFO 110412 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 110412 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 16:25:10.076  INFO 110412 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 16:25:10.759  INFO 110412 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-08-28 16:25:10.765  INFO 110412 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-28 16:25:10.765  INFO 110412 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2023-08-28 16:25:10.858  INFO 110412 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-28 16:25:10.858  INFO 110412 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 755 ms
-2023-08-28 16:25:10.958  INFO 110412 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 16:25:11.063  INFO 110412 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 16:25:11.987  WARN 110412 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 16:25:12.098  WARN 110412 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 16:25:12.130  WARN 110412 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 16:25:12.157  WARN 110412 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 16:25:12.181  WARN 110412 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 16:25:12.231  WARN 110412 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 16:25:12.231  WARN 110412 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 16:25:12.494  INFO 110412 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-08-28 16:25:12.501  INFO 110412 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.7 seconds (JVM running for 3.618)
-2023-08-28 16:25:16.900  INFO 110412 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-28 16:25:16.900  INFO 110412 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-28 16:25:16.901  INFO 110412 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-08-28 16:26:40.559  INFO 110412 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 16:26:53.137  INFO 108056 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 108056 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 16:26:53.139  INFO 108056 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 16:26:53.810  INFO 108056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-08-28 16:26:53.816  INFO 108056 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-28 16:26:53.816  INFO 108056 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2023-08-28 16:26:53.906  INFO 108056 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-28 16:26:53.906  INFO 108056 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 741 ms
-2023-08-28 16:26:53.982  INFO 108056 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 16:26:54.083  INFO 108056 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 16:26:54.902  WARN 108056 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 16:26:55.027  WARN 108056 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 16:26:55.063  WARN 108056 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 16:26:55.093  WARN 108056 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 16:26:55.122  WARN 108056 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 16:26:55.175  WARN 108056 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 16:26:55.175  WARN 108056 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 16:26:55.447  INFO 108056 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-08-28 16:26:55.454  INFO 108056 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.59 seconds (JVM running for 3.491)
-2023-08-28 16:26:55.907  INFO 108056 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-28 16:26:55.907  INFO 108056 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-28 16:26:55.908  INFO 108056 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-08-28 16:48:33.695  INFO 108056 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2023-08-28 18:52:21.696  INFO 112248 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 112248 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
-2023-08-28 18:52:21.699  INFO 112248 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-08-28 18:52:22.501  INFO 112248 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-08-28 18:52:22.507  INFO 112248 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-08-28 18:52:22.508  INFO 112248 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
-2023-08-28 18:52:22.721  INFO 112248 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-08-28 18:52:22.721  INFO 112248 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 992 ms
-2023-08-28 18:52:22.839  INFO 112248 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-2023-08-28 18:52:22.978  INFO 112248 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-2023-08-28 18:52:23.798  WARN 112248 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
-2023-08-28 18:52:23.913  WARN 112248 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
-2023-08-28 18:52:23.947  WARN 112248 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
-2023-08-28 18:52:23.976  WARN 112248 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
-2023-08-28 18:52:24.001  WARN 112248 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
-2023-08-28 18:52:24.050  WARN 112248 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.lt.doadmin.teaclass".
-2023-08-28 18:52:24.050  WARN 112248 --- [main] c.b.m.core.injector.DefaultSqlInjector   : class com.lt.doadmin.teaclass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
-2023-08-28 18:52:24.388  INFO 112248 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-08-28 18:52:24.395  INFO 112248 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 3.01 seconds (JVM running for 3.965)
-2023-08-28 18:52:37.704  INFO 112248 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-08-28 18:52:37.704  INFO 112248 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-08-28 18:52:37.705  INFO 112248 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-08-28 20:10:37.539  INFO 112248 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2023-09-22 12:36:03.918  INFO 83252 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_352 on LAPTOP-16U262QG with PID 83252 (D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by 刘 in D:\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
+2023-09-22 12:36:03.926  INFO 83252 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-09-22 12:36:05.049  INFO 83252 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-09-22 12:36:05.059  INFO 83252 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-09-22 12:36:05.060  INFO 83252 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
+2023-09-22 12:36:05.219  INFO 83252 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-09-22 12:36:05.220  INFO 83252 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1252 ms
+2023-09-22 12:36:05.378  INFO 83252 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-09-22 12:36:05.610  INFO 83252 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-09-22 12:36:06.571  WARN 83252 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.admins"
+2023-09-22 12:36:06.773  WARN 83252 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.teachers"
+2023-09-22 12:36:06.866  WARN 83252 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Classes"
+2023-09-22 12:36:07.191  WARN 83252 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.download"
+2023-09-22 12:36:07.259  WARN 83252 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Favorites"
+2023-09-22 12:36:07.309  WARN 83252 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "mid" is primitive !不建议如此请使用包装类 in Class: "com.lt.doadmin.Mark"
+2023-09-22 12:36:07.891  INFO 83252 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-09-22 12:36:07.902  INFO 83252 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 4.409 seconds (JVM running for 5.441)
+2023-09-22 12:37:54.751  INFO 83252 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-09-22 12:37:54.751  INFO 83252 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-09-22 12:37:54.752  INFO 83252 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-09-22 12:41:20.303  WARN 83252 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Failure in @ExceptionHandler com.lt.controller.utils.ProjectExceptionAdvice#doOtherException(Exception)
+
+org.apache.catalina.connector.ClientAbortException: java.nio.channels.ClosedChannelException
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:351) ~[tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.connector.OutputBuffer.flushByteBuffer(OutputBuffer.java:784) ~[tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:298) ~[tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.connector.OutputBuffer.flush(OutputBuffer.java:271) ~[tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.connector.CoyoteOutputStream.flush(CoyoteOutputStream.java:120) ~[tomcat-embed-core-9.0.76.jar:9.0.76]
+	at java.io.FilterOutputStream.flush(FilterOutputStream.java:140) ~[na:na]
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator.flush(UTF8JsonGenerator.java:1187) ~[jackson-core-2.13.5.jar:2.13.5]
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1009) ~[jackson-databind-2.13.5.jar:2.13.5]
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:456) ~[spring-web-5.3.28.jar:5.3.28]
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:104) ~[spring-web-5.3.28.jar:5.3.28]
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:290) ~[spring-webmvc-5.3.28.jar:5.3.28]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:183) ~[spring-webmvc-5.3.28.jar:5.3.28]
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78) ~[spring-web-5.3.28.jar:5.3.28]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:135) ~[spring-webmvc-5.3.28.jar:5.3.28]
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:428) ~[spring-webmvc-5.3.28.jar:5.3.28]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:75) [spring-webmvc-5.3.28.jar:5.3.28]
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:142) [spring-webmvc-5.3.28.jar:5.3.28]
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80) [spring-webmvc-5.3.28.jar:5.3.28]
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1332) [spring-webmvc-5.3.28.jar:5.3.28]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1143) [spring-webmvc-5.3.28.jar:5.3.28]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) [spring-webmvc-5.3.28.jar:5.3.28]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) [spring-webmvc-5.3.28.jar:5.3.28]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.28.jar:5.3.28]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) [spring-webmvc-5.3.28.jar:5.3.28]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) [tomcat-embed-core-9.0.76.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.28.jar:5.3.28]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) [tomcat-embed-core-9.0.76.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) [tomcat-embed-websocket-9.0.76.jar:9.0.76]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) [druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.28.jar:5.3.28]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.28.jar:5.3.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.28.jar:5.3.28]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.28.jar:5.3.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.28.jar:5.3.28]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.28.jar:5.3.28]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.76.jar:9.0.76]
+	at java.lang.Thread.run(Thread.java:750) [na:na]
+Caused by: java.nio.channels.ClosedChannelException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1397) ~[tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:775) ~[tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.tomcat.util.net.SocketWrapperBase.writeBlocking(SocketWrapperBase.java:600) ~[tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.tomcat.util.net.SocketWrapperBase.write(SocketWrapperBase.java:544) ~[tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.doWrite(Http11OutputBuffer.java:540) ~[tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.doWrite(ChunkedOutputFilter.java:110) ~[tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.coyote.http11.Http11OutputBuffer.doWrite(Http11OutputBuffer.java:193) ~[tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.coyote.Response.doWrite(Response.java:603) ~[tomcat-embed-core-9.0.76.jar:9.0.76]
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:338) ~[tomcat-embed-core-9.0.76.jar:9.0.76]
+	... 62 common frames omitted
+
+2023-09-22 12:41:20.314  INFO 83252 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

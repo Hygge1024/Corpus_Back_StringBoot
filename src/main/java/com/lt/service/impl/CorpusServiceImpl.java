@@ -1,6 +1,5 @@
 package com.lt.service.impl;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -23,13 +22,10 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.util.UriComponentsBuilder;
-
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -98,6 +94,24 @@ public class CorpusServiceImpl implements CorpusService {
     }
 
     @Override
+    public List<Corpus> getByTnumber(int currentPage, int pageSize, String tnumber) {
+        CorpusOne_url = CorpusAll_url + "?AuthorID=";
+        CorpusOne_url += tnumber;
+        String jsonResponse = restTemplate.getForObject(CorpusOne_url, String.class);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);//将“未知属性异常”设置为false
+        try {
+            List<Corpus> corpusList = objectMapper.readValue(jsonResponse, new TypeReference<List<Corpus>>() {
+            });
+            int startIndex = (currentPage - 1) * pageSize;
+            int endIndex = Math.min(startIndex + pageSize, corpusList.size());
+            return corpusList.subList(startIndex, endIndex);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public List<Corpus> getByTag_ids(int id) {
         String CorpusByTag_ids = CorpusAll_url + "?Tag_ids=" + id;
         String jsonResponse = restTemplate.getForObject(CorpusByTag_ids, String.class);
@@ -111,6 +125,7 @@ public class CorpusServiceImpl implements CorpusService {
             throw new RuntimeException(e);//都在直接抛出异常
         }
     }
+
 
     @Override
     public List<Corpus> getByFactory(int currentPage, int pageSize, int Direction, int Difficulty, int Type, int Tag_ids, String Title_contains) {
@@ -151,7 +166,7 @@ public class CorpusServiceImpl implements CorpusService {
 
     //将文件上传
     @Override
-    public Long upload(MultipartFile file) {
+    public RcCorpus upload(MultipartFile file) {
         try {
             // 准备包含文件的多部分请求
             MultiValueMap<String, Object> bodyMap = new LinkedMultiValueMap<>();
@@ -174,14 +189,19 @@ public class CorpusServiceImpl implements CorpusService {
                 List<FileData> fileList = objectMapper.readValue(response.getBody(), new TypeReference<List<FileData>>() {
                 });
                 if (!fileList.isEmpty()) {
+                    String fileUrl = fileList.get(0).getUrl();
+                    System.out.println(fileUrl);
                     Long fileId = fileList.get(0).getId();
                     System.out.println("这个返回的fileId = " + fileId);
-                    return fileId;
+                    RcCorpus rcCorpus = new RcCorpus();
+                    rcCorpus.setFileUrl(fileUrl);
+                    rcCorpus.setFileId(fileId);
+                    return rcCorpus;
                 } else {
-                    return 0L;
+                    return null;
                 }
             } else {
-                return 0L;
+                return null;
             }
         } catch (Exception e) {
             e.printStackTrace();

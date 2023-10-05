@@ -11,32 +11,42 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class stuServiceTest {
     @Autowired
     private StudentsService studentsService;
+
     @Test
-    void getStuAll(){
+    void getStuAll() {
         System.out.println(studentsService.getStuAll());
     }
+
     @Test
-    void getBySid(){
+    void getBySid() {
         System.out.println(studentsService.getBySid(1));
     }
+
     @Test
-    void getByStunumber(){
+    void getByStunumber() {
         String num = "20230001";
         System.out.println(studentsService.getByStunumber(num));
     }
+
     @Test
-    void getPage(){
+    void getPage() {
         int cur = 1;
         int size = 2;
-        IPage<students> page = studentsService.getPage(cur,size);
+        IPage<students> page = studentsService.getPage(cur, size);
         System.out.println(page.getCurrent());
         System.out.println(page.getSize());
         System.out.println(page.getTotal());
         System.out.println(page.getPages());
         System.out.println(page.getRecords());
     }
+
     @Test
-    void registeTest(){
+    void getByClassPage() {
+        System.out.println(studentsService.getByClassPage("软件2102", 1, 2).getRecords());
+    }
+
+    @Test
+    void registeTest() {
         students newStu = new students();
         newStu.setStuname("测试对象");
         newStu.setStunumber("200211111");
@@ -47,19 +57,22 @@ public class stuServiceTest {
         Result rUser = studentsService.registe(newStu);
         System.out.println(rUser);
     }
+
     @Test
-    void loginCheck(){
+    void loginCheck() {
         students stu = new students();
         stu.setStunumber("2002110");
         stu.setStupassword("123456");
         System.out.println(studentsService.loginCheck(stu));
     }
+
     @Test
-    void delete(){
-        System.out.println(studentsService.deleteById(6));
+    void delete() {
+        System.out.println(studentsService.deleteByNumber("200211111"));
     }
+
     @Test
-    void update(){
+    void update() {
         students newStu = new students();
         newStu.setStuname("测试对象+更新");
         newStu.setStunumber("200211");

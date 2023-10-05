@@ -24,12 +24,18 @@ logging:
 #存放密钥信息
 api:
   key: myself_123456
+#存放百度密钥信息
+baidu:
+  BaiDuAPI_KEY: 1uoRnTwzQAD9Zh2dniw90HIH
+  BaiDuSECRET_KEY: b1dn5GiMqRglAGyGia23dD1nbXVb1Pri
 #存放语料的url
 strapi:
   #上线前只需要更改这里的strapi的url就可以将整改代码的url更改
-  url: http://localhost:1337/
-  #  url: http://8.137.53.253:1337/
-  #  url: http://localhost:1337/corpuses
+  #  url: http://localhost:1337/
+  url: http://8.137.53.253:1337/
 
+  #这个可能需要更新
   AuthToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzMjA2OTQzLCJleHAiOjE2OTU3OTg5NDN9.5X0WYCnCoIsLa5eHofQGpPrQtln94xnDRFMP4liB1uQ
-  strapiUploadUrl: http://localhost:1337/upload
+  #上传的语料资源的地址
+  #  strapiUploadUrl: http://localhost:1337/upload
+  strapiUploadUrl: http://8.137.53.253:1337/upload

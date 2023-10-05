@@ -25,9 +25,9 @@ public class CorpusServiceTest {
 
     @Test
     void getOneCorpus() {
-        int cid = 7;
+        int cid = 34;
         Corpus corpus = corpusService.getOneCorpus(cid);
-        System.out.println(corpus);
+        System.out.println(corpus.getDirection());
     }
 
     @Test
@@ -50,6 +50,11 @@ public class CorpusServiceTest {
         System.out.println("结果为");
         System.out.println(corpusList);
 
+    }
+
+    @Test
+    void getByTnumber() {
+        System.out.println(corpusService.getByTnumber(1, 2, "1995"));
     }
 
 }

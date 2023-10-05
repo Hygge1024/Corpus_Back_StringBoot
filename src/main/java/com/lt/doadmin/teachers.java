@@ -13,4 +13,5 @@ public class teachers {
     private String teapassword;
     private int tsex;
     private int teastate;
+    private String teaphone;
 }

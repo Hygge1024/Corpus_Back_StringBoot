@@ -2,6 +2,7 @@ package com.lt.service;
 
 import com.lt.doadmin.Corpus;
 import com.lt.doadmin.CorpusDao;
+import com.lt.doadmin.RcCorpus;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -19,11 +20,14 @@ public interface CorpusService {
     //根据标签类型查询
     List<Corpus> getByTag_ids(int Tag_ids);
 
+    //根据教师id查询所有语料
+    List<Corpus> getByTnumber(int currentPage, int pageSize, String tnumber);
+
     //综合查询——没进行分页处理（查询的数据不会太多）==>或许是个bug
     List<Corpus> getByFactory(int currentPage, int pageSize, int Direction, int Difficulty, int Type, int tags, String keyWord);
 
     //上传文件（语料资源.mp3 .mp4）
-    Long upload(MultipartFile file);
+    RcCorpus upload(MultipartFile file);
 
     //上传完整的语料
     int create(CorpusDao corpusDao);

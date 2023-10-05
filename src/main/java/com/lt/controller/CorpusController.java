@@ -4,12 +4,16 @@ import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
 import com.lt.doadmin.Corpus;
 import com.lt.doadmin.CorpusDao;
+import com.lt.doadmin.RcCorpus;
+import com.lt.service.BaiduService;
 import com.lt.service.CorpusService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -17,6 +21,27 @@ import java.util.List;
 public class CorpusController {
     @Autowired
     private CorpusService corpusService;
+    @Autowired
+    private BaiduService baiduService;
+
+    private static String BaiDuAPI_KEY;
+    private static String BaiDuSECRET_KEY;
+    private static String Url;
+
+    @Value("${baidu.BaiDuAPI_KEY}")
+    public void setBaiDuAPI_KEY(String BaiDuAPI_KEY) {
+        CorpusController.BaiDuAPI_KEY = BaiDuAPI_KEY;
+    }
+
+    @Value("${baidu.BaiDuSECRET_KEY}")
+    public void setBaiDuSECRET_KEY(String BaiDuSECRET_KEY) {
+        CorpusController.BaiDuSECRET_KEY = BaiDuSECRET_KEY;
+    }
+
+    @Value("${strapi.url}")
+    public void setUrl(String url) {
+        CorpusController.Url = url;
+    }
 
     @GetMapping
     public Result getAllCorpus() {
@@ -42,6 +67,14 @@ public class CorpusController {
         return new Result(code, msg, corpusList);
     }
 
+    @GetMapping("/byTnumber/{currentPage}/{pageSize}/{tnumber}")
+    public Result getByTnumber(@PathVariable int currentPage, @PathVariable int pageSize, @PathVariable String tnumber) {
+        List<Corpus> corpusList = corpusService.getByTnumber(currentPage, pageSize, tnumber);
+        Integer code = corpusList != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = corpusList != null ? "查询成功" : "数据查询失败，请重试!";
+        return new Result(code, msg, corpusList);
+    }
+
     @GetMapping("/ByTag_ids/{Tag_ids}")
     public Result getByTag_ids(@PathVariable int Tag_ids) {
         List<Corpus> corpusList = corpusService.getByTag_ids(Tag_ids);
@@ -50,13 +83,6 @@ public class CorpusController {
         return new Result(code, msg, corpusList);
     }
 
-    //    @GetMapping("/search/{Direction}/{Difficulty}/{Type}/{Tag_ids}/{Title_contains}")
-//    public Result getByfactor(@PathVariable(value = "Direction", required = false) int Direction, @PathVariable(value = "Difficulty", required = false) int Difficulty, @PathVariable(value = "Type", required = false) int Type, @PathVariable(value = "Tag_ids", required = false) int Tag_ids, @PathVariable(value = "Title_contains", required = false) String Title_contains) {
-//        List<Corpus> corpusList = corpusService.getByFactory(Direction, Difficulty, Type, Tag_ids, Title_contains);
-//        Integer code = corpusList != null ? Code.GET_OK : Code.GET_ERR;
-//        String msg = corpusList != null ? "查询成功" : "数据查询失败，请重试!";
-//        return new Result(code, msg, corpusList);
-//    }
     @GetMapping("/search/{currentPage}/{pageSize}/{Direction}/{Difficulty}/{Type}/{Tag_ids}/{Title_contains}")
     public Result getByfactor(
             @PathVariable(name = "currentPage") int currentPage,
@@ -96,14 +122,18 @@ public class CorpusController {
 
 
     @PostMapping(value = "/upload")
-    public Result uploadFile(@RequestParam("multipartFile") MultipartFile multipartFile, @ModelAttribute CorpusDao corpusDTO) {
-//        System.out.println("开始执行");
-        System.out.println(multipartFile);
-        Long fileId = corpusService.upload(multipartFile);//获取上传的文件的id
-        System.out.println(fileId);
-//        System.out.println("标签值为：" + corpusDTO.getTag_ids());
-        corpusDTO.setFile(fileId);
-//        System.out.println();
+    public Result uploadFile(@RequestParam("multipartFile") MultipartFile multipartFile, @ModelAttribute CorpusDao corpusDTO) throws IOException, InterruptedException {
+        RcCorpus rcCorpus = corpusService.upload(multipartFile);//获取上传的文件的id 和 线上地址，方便下面调用百度api
+        System.out.println(rcCorpus.getFileId());
+        corpusDTO.setFile(rcCorpus.getFileId());
+        //不需要调用————应该删除
+//       原文识别调用百度api，fileUrl在rcCorpus对象中
+//        System.out.println(Url.substring(0, Url.length() - 1) + rcCorpus.getFileUrl());
+//        String result = baiduService.Toriginaltext("http://8.137.53.253:1337/uploads/cancer_treatment_could_get_a_vaccine_b326cf9cd8.mp3", corpusDTO.getDirection(), BaiDuAPI_KEY, BaiDuSECRET_KEY);
+//        String result = baiduService.Toriginaltext(Url.substring(0, Url.length() - 1) + rcCorpus.getFileUrl(), corpusDTO.getDirection(), BaiDuAPI_KEY, BaiDuSECRET_KEY);
+//        corpusDTO.setOriginaltext(result);
+
+//        正式上传
         int flag = corpusService.create(corpusDTO);
         Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
         String msg = flag != 0 ? "上传成功" : "上传失败，出现重复属性";
@@ -112,8 +142,6 @@ public class CorpusController {
 
     @PutMapping
     public Result update(@ModelAttribute CorpusDao corpusDao) {
-//        System.out.println(corpusDao);
-//        System.out.println("成功进入！！！");
         int flag = corpusService.update(corpusDao);
 //        System.out.println("执行完毕");
         Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;

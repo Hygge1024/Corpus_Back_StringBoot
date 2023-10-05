@@ -3,8 +3,9 @@ package com.lt.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
+import com.lt.doadmin.Classes;
 import com.lt.doadmin.teachers;
-import com.lt.doadmin.teaclass;
+import com.lt.service.ClassesService;
 import com.lt.service.TeachersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,6 +18,9 @@ import java.util.List;
 public class TeacherController {
     @Autowired
     private TeachersService teachersService;
+    @Autowired
+    private ClassesService classesService;
+
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @GetMapping
@@ -98,27 +102,46 @@ public class TeacherController {
         return new Result(code, msg, flag);
     }
 
+    /*
+    教师管理班级部分
+     */
+    @GetMapping("/selfclass")
+    public Result getAllClass() {
+        List<Classes> classesList = classesService.getAllClass();
+        Integer code = classesList != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = classesList != null ? "查询成功" : "查询失败";
+        return new Result(code, msg, classesList);
+    }
+
     @GetMapping("/selfclass/{tunmber}")
     public Result getAllSelfClass(@PathVariable String tunmber) {
-        List<teaclass> teaclassList = teachersService.getAllSelfClass(tunmber);
-        Integer code = teaclassList != null ? Code.GET_OK : Code.GET_ERR;
-        String msg = teaclassList != null ? "查询成功" : "查询失败";
-        return new Result(code, msg, teaclassList);
+        List<Classes> classesList = classesService.getBySelf(tunmber);
+        Integer code = classesList != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = classesList != null ? "查询成功" : "查询失败";
+        return new Result(code, msg, classesList);
     }
 
     @PostMapping("/selfclass")
-    public Result insertSelfClass(@RequestBody teaclass teaclass) {
-        int flag = teachersService.insertSelfClass(teaclass);
+    public Result insertSelfClass(@RequestBody Classes classes) {
+        int flag = classesService.addClss(classes);
         Integer code = flag > 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
         String msg = flag > 0 ? "添加成功" : "添加失败";
         return new Result(code, msg, null);
     }
 
-    @DeleteMapping("/selfclass")
-    public Result deleteSelf(@RequestBody teaclass teaclass) {
-        int flag = teachersService.deleteSelf(teaclass);
+    @DeleteMapping("/selfclass/{cid}")
+    public Result deleteSelf(@PathVariable int cid) {
+        int flag = classesService.deleteByCid(cid);
         Integer code = flag > 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
         String msg = flag > 0 ? "删除成功" : "删除失败";
+        return new Result(code, msg, null);
+    }
+
+    @PutMapping("/selfclass")
+    public Result updateSelfClass(@RequestBody Classes classes) {
+        int flag = classesService.update(classes);
+        Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
+        String msg = flag != 0 ? "修改班级信息成功" : "修改失败，可能新班级已存在";
         return new Result(code, msg, null);
     }
 

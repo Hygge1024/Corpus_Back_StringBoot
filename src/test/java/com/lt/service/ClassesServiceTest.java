@@ -14,6 +14,39 @@ public class ClassesServiceTest {
     private ClassesService classesService;
 
     @Test
+    void getAllClass() {
+        System.out.println(classesService.getAllClass());
+    }
+
+    @Test
+    void getBySelf() {
+        System.out.println(classesService.getBySelf("100010"));
+    }
+
+    @Test
+    void addClss() {
+        Classes tep = new Classes();
+//        tep.setCid(13);
+        tep.setCname("哈哈哈");
+        tep.setTnumber("100010");
+        System.out.println(classesService.addClss(tep));
+    }
+
+    @Test
+    void deleteByCid() {
+        System.out.println(classesService.deleteByCid(12));
+    }
+
+    @Test
+    void updateClasses() {
+        Classes tep = new Classes();
+        tep.setCid(2);
+        tep.setCname("软件2102连带更新");
+        tep.setTnumber("100010");
+        System.out.println(classesService.update(tep));
+    }
+    /*
+    @Test
     void insert() {
         Classes classes = new Classes();
 //        classes.setCid(4);
@@ -24,6 +57,12 @@ public class ClassesServiceTest {
     @Test
     void getClassAll() {
         List<Classes> classesList = classesService.getAllClass(1, 3).getRecords();
+        System.out.println(classesList);
+    }
+
+    @Test
+    void getAllClass() {
+        List<Classes> classesList = classesService.getAllClass("123001");
         System.out.println(classesList);
     }
 
@@ -43,4 +82,6 @@ public class ClassesServiceTest {
         String newName = "软件2101-1";
         System.out.println(classesService.update(oldName, newName));
     }
+
+     */
 }

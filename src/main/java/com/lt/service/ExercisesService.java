@@ -1,8 +1,6 @@
 package com.lt.service;
 
-import com.lt.doadmin.CorpusDao;
-import com.lt.doadmin.Exercises;
-import com.lt.doadmin.ExercisesDao;
+import com.lt.doadmin.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -17,16 +15,25 @@ public interface ExercisesService {
     //查询-分页-根据stuID
     List<Exercises> getPage(int currentPage, int pageSize, String stuId);
 
-    //上传文件（语料资源.mp3 .mp4）
-    Long upload(MultipartFile file);
+    //查询练习-通过cid属性
+    List<Exercises> getByCid(int cid);
+
+    //上传学生练习文件（语料资源.mp3 .mp4）
+    RcCorpus upload(MultipartFile file);
 
     //上传完整的语料——语料需要通过url中添加cid属性来查找-在set进去
     int create(ExercisesDao exercises);
 
-    //更新语料——管理
-    int update(ExercisesDao exercisesself);
+    //更新语料——管理（旧版本，接口已经放弃这个方法了）
+    int update(ExercisesDao exercisesself);//随时可删除
+
+    //更新语料——管理（教师打分）
+    int updateScore(ExerciseScoreDao exerciseScoreDao);
 
     //删除语料——管理
     int delete(int eid);
+
+    //获取音量+语速分值
+    float[] getautoScore(int eid);
 
 }

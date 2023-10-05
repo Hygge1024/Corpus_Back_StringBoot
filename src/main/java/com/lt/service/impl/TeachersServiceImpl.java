@@ -7,25 +7,19 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
 import com.lt.dao.teacherDao;
-import com.lt.dao.teaclassDao;
-import com.lt.doadmin.Classes;
 import com.lt.doadmin.teachers;
-import com.lt.doadmin.teaclass;
 import com.lt.service.ClassesService;
 import com.lt.service.TeachersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class TeachersServiceImpl extends ServiceImpl<teacherDao, teachers> implements TeachersService {
     @Autowired
     private teacherDao teacherDao;
-    @Autowired
-    private teaclassDao teaclassDao;
     @Autowired
     private ClassesService classesService;
 
@@ -93,38 +87,6 @@ public class TeachersServiceImpl extends ServiceImpl<teacherDao, teachers> imple
         wrapper.eq("tnumber", tea.getTnumber().toString());
         int flag = teacherDao.update(tea, wrapper);
         return flag;
-    }
-
-    @Override
-    public List<teaclass> getAllSelfClass(String tunmber) {
-        QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("tnumber", tunmber);
-        List<teaclass> teaclassList = teaclassDao.selectList(wrapper);
-        //数量不大，此方法可行
-        for (teaclass tea : teaclassList) {
-            int cid = tea.getCid();
-            Classes classes = classesService.getOne(cid);
-            tea.setCname(classes.getCname());
-        }
-        return teaclassList;
-    }
-
-    @Override
-    public int insertSelfClass(teaclass teaclass) {
-        try {
-            return teaclassDao.insert(teaclass);
-        } catch (Exception e) {
-            throw new RuntimeException(e);//都在直接抛出异常
-        }
-
-    }
-
-    @Override
-    public int deleteSelf(teaclass teaclass) {
-        QueryWrapper<teaclass> wrapper = new QueryWrapper<>();
-        wrapper.eq("cid", teaclass.getCid())
-                .eq("tnumber", teaclass.getTnumber());
-        return teaclassDao.delete(wrapper);
     }
 
     /*

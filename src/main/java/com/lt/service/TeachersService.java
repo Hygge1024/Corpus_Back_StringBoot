@@ -3,9 +3,7 @@ package com.lt.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lt.controller.utils.Result;
-import com.lt.doadmin.students;
 import com.lt.doadmin.teachers;
-import com.lt.doadmin.teaclass;
 
 import java.util.List;
 
@@ -34,12 +32,4 @@ public interface TeachersService extends IService<teachers> {
     //更新
     int update(teachers tea);
 
-    //查询教师管理班级——所有
-    List<teaclass> getAllSelfClass(String tunmber);
-
-    //添加班级——教师个人
-    int insertSelfClass(teaclass teaclass);
-
-    //删除班级——教师个人
-    int deleteSelf(teaclass teaclass);
 }

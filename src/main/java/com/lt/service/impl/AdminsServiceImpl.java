@@ -60,7 +60,7 @@ public class AdminsServiceImpl extends ServiceImpl<adminDao, admins> implements 
         String usernumber = adm.getAnumber();
         String password = adm.getAdmpassword();
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("anumber",usernumber);
+        wrapper.eq("anumber", usernumber);
         admins user = adminDao.selectOne(wrapper);
         return user;
     }
@@ -76,30 +76,30 @@ public class AdminsServiceImpl extends ServiceImpl<adminDao, admins> implements 
         adm.setAdmpassword(hashedPassword);
         QueryWrapper wrapper = new QueryWrapper();
         String admnumber = adm.getAnumber();
-        wrapper.eq("anumber",adm.getAnumber().toString());
-        int flag = adminDao.update(adm,wrapper);
+        wrapper.eq("anumber", adm.getAnumber().toString());
+        int flag = adminDao.update(adm, wrapper);
         return flag;
     }
 
     @Override
     public int OkTea(String teanumber) {
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("tnumber",teanumber);
+        wrapper.eq("tnumber", teanumber);
         teachers tea = teacherDao.selectOne(wrapper);
         System.out.println(teanumber);
         tea.setTeastate(1);
-
-        int flag = teacherDao.update(tea,wrapper);
+        int flag = teacherDao.update(tea, wrapper);
         return flag;
     }
 
     @Override
     public int NoTea(String teanumber) {
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("tnumber",teanumber);
-        teachers tea = teacherDao.selectOne(wrapper);
-        tea.setTeastate(404);
-        int flag = teacherDao.update(tea,wrapper);
+        wrapper.eq("tnumber", teanumber);
+//        teachers tea = teacherDao.selectOne(wrapper);
+//        tea.setTeastate(404);
+//        int flag = teacherDao.update(tea, wrapper);
+        int flag = teacherDao.delete(wrapper);
         return flag;
     }
 

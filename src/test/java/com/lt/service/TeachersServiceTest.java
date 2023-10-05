@@ -3,12 +3,9 @@ package com.lt.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lt.controller.utils.Result;
 import com.lt.doadmin.teachers;
-import com.lt.doadmin.teaclass;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.List;
 
 @SpringBootTest
 public class TeachersServiceTest {
@@ -46,7 +43,7 @@ public class TeachersServiceTest {
     @Test
     void registeTest() {
         teachers newTea = new teachers();
-        newTea.setTnumber("123001");
+        newTea.setTnumber("2023910");
         newTea.setTeaname("王老师");
         newTea.setTeapassword("123456");
 //        newTea.setTeachaclass("软件2101");
@@ -78,26 +75,26 @@ public class TeachersServiceTest {
         System.out.println(teachersService.update(newTea));
     }
 
-    @Test
-    void getAllSelfClass() {
-        List<teaclass> teaclassList = teachersService.getAllSelfClass("123001");
-        System.out.println(teaclassList);
-    }
-
-    @Test
-    void insertClass() {
-        teaclass teaclass = new teaclass();
-        teaclass.setCid(100);
-        teaclass.setTnumber("100101666");
-        int flag = teachersService.insertSelfClass(teaclass);
-        System.out.println(flag);
-    }
-
-    @Test
-    void deleteSelf() {
-        teaclass teaclass = new teaclass();
-        teaclass.setCid(3);
-        teaclass.setTnumber("123001");
-        System.out.println(teachersService.deleteSelf(teaclass));
-    }
+//    @Test
+//    void getAllSelfClass() {
+//        List<teaclass> teaclassList = teachersService.getAllSelfClass("123001");
+//        System.out.println(teaclassList);
+//    }
+//
+//    @Test
+//    void insertClass() {
+//        teaclass teaclass = new teaclass();
+//        teaclass.setCid(100);
+//        teaclass.setTnumber("100101666");
+//        int flag = teachersService.insertSelfClass(teaclass);
+//        System.out.println(flag);
+//    }
+//
+//    @Test
+//    void deleteSelf() {
+//        teaclass teaclass = new teaclass();
+//        teaclass.setCid(3);
+//        teaclass.setTnumber("123001");
+//        System.out.println(teachersService.deleteSelf(teaclass));
+//    }
 }

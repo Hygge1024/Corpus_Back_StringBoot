@@ -21,6 +21,9 @@ public interface StudentsService extends IService<students> {
     //查询学生信息分页查询——常用
     IPage<students> getPage(int currentPage, int pageSize);
 
+    //查询学生信息分页查询——根据班级
+    IPage<students> getByClassPage(String cname, int currentPage, int pageSize);
+
     //注册
     Result registe(students stu);
 
@@ -28,9 +31,12 @@ public interface StudentsService extends IService<students> {
     students loginCheck(students stu);
 
     //删除
-    int deleteById(Integer sid);
+    int deleteByNumber(String stunumber);
 
     //更新
     int update(students stu);
+
+    //更新班级信息
+    int updateClass(String oldClassName, String newClassName);
 
 }

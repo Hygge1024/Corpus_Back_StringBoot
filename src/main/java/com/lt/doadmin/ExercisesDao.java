@@ -12,7 +12,7 @@ public class ExercisesDao {
     private Date published_at;
     private Date created_at;
     private Long StuFile;
-    private int Score;
+    //    private int Score;//删除属性
     private String IdentifyText;
 
 }

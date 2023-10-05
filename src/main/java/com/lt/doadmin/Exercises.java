@@ -20,10 +20,25 @@ public class Exercises {
     private Date updated_at;
     @JsonProperty("Corpus")
     private Corpus Corpus;
-    @JsonProperty("Score")
-    private int Score;
+    @JsonProperty("AllScore")
+    private float Score;
     @JsonProperty("IdentifyText")
     private String IdentifyText;
     @JsonProperty("StuFile")
     private List<FileData> StuFile;
+    @JsonProperty("Fluency")
+    private float Fluency;
+    @JsonProperty("Accuracy")
+    private float Accuracy;
+    @JsonProperty("Precision")
+    private float Precision;
+    @JsonProperty("Completeness")
+    private float Completeness;
+    @JsonProperty("Pace")
+    private float Pace;
+    @JsonProperty("Volume")
+    private float Volume;
+    @JsonProperty("TeacherComments")
+    private String TeacherComments;
+
 }

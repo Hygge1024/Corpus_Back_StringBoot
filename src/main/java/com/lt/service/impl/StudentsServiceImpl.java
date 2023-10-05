@@ -46,6 +46,15 @@ public class StudentsServiceImpl extends ServiceImpl<studentDao, students> imple
     }
 
     @Override
+    public IPage<students> getByClassPage(String cname, int currentPage, int pageSize) {
+        IPage page = new Page(currentPage, pageSize);
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("stuclass", cname);
+
+        return studentDao.selectPage(page, wrapper);
+    }
+
+    @Override
     public Result registe(students stu) {
 //        String usernumber = stu.getStunumber();
 //        QueryWrapper wrapper = new QueryWrapper();
@@ -84,8 +93,10 @@ public class StudentsServiceImpl extends ServiceImpl<studentDao, students> imple
     }
 
     @Override
-    public int deleteById(Integer sid) {
-        return studentDao.deleteById(sid);
+    public int deleteByNumber(String stunumber) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("stunumber", stunumber);
+        return studentDao.delete(wrapper);
     }
 
     @Override
@@ -97,6 +108,27 @@ public class StudentsServiceImpl extends ServiceImpl<studentDao, students> imple
         wrapper.eq("stunumber", stu.getStunumber().toString());
         int flag = studentDao.update(stu, wrapper);
         return flag;
+    }
+
+    @Override
+    public int updateClass(String oldClassName, String newClassName) {
+        System.out.println(oldClassName + "   " + newClassName);
+        if ("delete".equals(newClassName)) {
+            newClassName = " ";
+        }
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("stuclass", oldClassName);
+        List<students> studentsList = studentDao.selectList(wrapper);
+//        System.out.println("成功查询所有的班级信息");
+        wrapper.clear();
+        for (students stu : studentsList) {
+//            System.out.println(stu);
+            stu.setStuclass(newClassName);
+            wrapper.eq("stunumber", stu.getStunumber().toString());
+            studentDao.update(stu, wrapper);
+            wrapper.clear();
+        }
+        return studentsList.size();
     }
 
     /*

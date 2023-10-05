@@ -17,8 +17,9 @@ import java.util.Map;
 @Component
 public class ApiKeyInterceptor implements HandlerInterceptor {
     private static String VALID_API_KEY;
+
     @Value("${api.key}")
-    public void setKet(String key){
+    public void setKet(String key) {
         ApiKeyInterceptor.VALID_API_KEY = key;
     }
 
@@ -40,7 +41,6 @@ public class ApiKeyInterceptor implements HandlerInterceptor {
                     //密钥无效，返回未授权状态
                     response.setStatus(HttpStatus.UNAUTHORIZED.value());
                     response.setContentType("application/json;charset=UTF-8");
-//            response.getWriter().write("{\"code\":\"401\"\nmsg\": \"Invalid API key!\" \"data\":\"null\"}");
                     ObjectMapper objectMapper = new ObjectMapper();
                     Map<String, Object> responseJson = new HashMap<>();
                     responseJson.put("code", 401); // 401 表示未授权状态
@@ -51,7 +51,7 @@ public class ApiKeyInterceptor implements HandlerInterceptor {
                 }
             }
         }
-            // 没有@ApiKeyRequired注解的方法不进行API密钥认证，直接放行
-            return true;
+        // 没有@ApiKeyRequired注解的方法不进行API密钥认证，直接放行
+        return true;
     }
 }

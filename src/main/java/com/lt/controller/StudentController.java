@@ -74,22 +74,25 @@ public class StudentController {
     }
 
     /*
+    分页查询学生——根据班级
+     */
+    @GetMapping("/{teaclass}/{currentPage}/{pageSize}")
+    public Result getByClassPage(@PathVariable String teaclass, @PathVariable int currentPage, @PathVariable int pageSize) {
+        IPage page = studentsService.getByClassPage(teaclass, currentPage, pageSize);
+        if (currentPage > page.getPages()) {
+            page = studentsService.getByClassPage(teaclass, (int) page.getPages(), pageSize);
+        }
+        List<students> stuList = page.getRecords();
+        Integer code = stuList != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = stuList != null ? "查询成功_分页" : "数据查询失败,请重试!";
+        return new Result(code, msg, stuList);
+    }
+
+    /*
     学生注册功能
      */
     @PostMapping(("/register"))
     public Result registe(@RequestBody students stu) {
-//        String usernumber = stu.getStunumber();
-//        QueryWrapper wrapper = new QueryWrapper();
-//        wrapper.eq("stunumber", usernumber);
-//        students user = studentdao.selectOne(wrapper);
-//        if (user != null) {
-//            return new Result(Code.SAVE_ERR, "用户已存在，请重新输入!", stu);//失败时，返回的是用户输入的信息
-//        } else {
-//            String hashedPassword = hashPassword(stu.getStupassword());
-//            stu.setStupassword(hashedPassword);
-//            int flag = studentdao.insert(stu);
-//            return new Result(flag > 0 ? Code.SAVE_OK : Code.SAVE_ERR, "恭喜你,注册成功!", stu);//flag表示影响的行数msg
-//        }
         return studentsService.registe(stu);
     }
 
@@ -112,9 +115,9 @@ public class StudentController {
     /*
     删除功能
      */
-    @DeleteMapping("/{sid}")
-    public Result delete(@PathVariable Integer sid) {
-        int flag = studentsService.deleteById(sid);
+    @DeleteMapping("/{stunumber}")
+    public Result delete(@PathVariable String stunumber) {
+        int flag = studentsService.deleteByNumber(stunumber);
         Integer code = flag > 0 ? Code.DELETE_OK : Code.DELETE_ERR;
         String msg = flag > 0 ? "删除成功" : "删除失败";
         return new Result(code, msg, flag);
