@@ -97,9 +97,9 @@ public class FavorityController {
         return new Result(code, msg, null);
     }
 
-    @DeleteMapping("/{fid}")
-    public Result delete(@PathVariable int fid) {
-        int flag = favoritesService.delete(fid);
+    @DeleteMapping("/{cid}")
+    public Result delete(@PathVariable int cid) {
+        int flag = favoritesService.delete(cid);
         Integer code = flag > 0 ? Code.DELETE_OK : Code.DELETE_ERR;
         String msg = flag > 0 ? "删除成功" : "删除失败,该资源可能已被删除,请刷新";
         return new Result(code, msg, null);

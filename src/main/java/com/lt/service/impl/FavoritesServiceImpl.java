@@ -105,7 +105,9 @@ public class FavoritesServiceImpl extends ServiceImpl<FavoriteDao, Favorites> im
     }
 
     @Override
-    public int delete(int fid) {
-        return favoriteDao.deleteById(fid);
+    public int delete(int cid) {
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("cid", cid);
+        return favoriteDao.delete(wrapper);
     }
 }

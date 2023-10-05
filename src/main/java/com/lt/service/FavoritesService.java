@@ -35,6 +35,6 @@ public interface FavoritesService extends IService<Favorites> {
     int update(Favorites favorites);
 
     //删除
-    int delete(int fid);
+    int delete(int cid);
 
 }
