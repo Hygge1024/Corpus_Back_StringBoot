@@ -112,4 +112,12 @@ public class ExerciseController {
         String msg = flag != 0 ? "删除成功" : "删除失败";
         return new Result(code, msg, null);
     }
+
+    @GetMapping("/byClass/{clasname}")
+    public Result getExerciseByClass(@PathVariable String clasname) {
+        List<Exercises> exercisesList = exercisesService.getExerciseByClass(clasname);
+        Integer code = exercisesList != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = exercisesList != null ? "查询班级练习成功" : "查询班级练习失败";
+        return new Result(code, msg, exercisesList);
+    }
 }

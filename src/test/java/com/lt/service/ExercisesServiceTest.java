@@ -85,4 +85,9 @@ public class ExercisesServiceTest {
             }
         }
     }
+
+    @Test
+    void getExerciseByClass() {
+        System.out.println(exercisesService.getExerciseByClass("英语2101"));
+    }
 }

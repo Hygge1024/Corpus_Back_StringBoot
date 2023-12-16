@@ -1,15 +1,18 @@
 package com.lt.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.lt.dao.studentDao;
 import com.lt.doadmin.*;
 import com.lt.service.CorpusService;
 import com.lt.service.ExercisesService;
 import javazoom.jl.converter.Converter;
 import javazoom.jl.decoder.JavaLayerException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -32,17 +35,21 @@ import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Slf4j
 @Service
 public class ExercisesServiceImpl implements ExercisesService {
     private static final RestTemplate restTemplate = new RestTemplate();
     @Autowired
     private CorpusService corpusService;
+    @Autowired
+    private studentDao studentDao;
     private static String OriginalUrl;
     private static String ExercisesAll_Url;
     private static String ExercisesOne_Url;
@@ -409,6 +416,24 @@ public class ExercisesServiceImpl implements ExercisesService {
         System.out.println("语速:" + ends[1] + "字/秒");
         return ends;//返回值为int[] 数组格式，语速+音量
 
+    }
+
+    @Override
+    public List<Exercises> getExerciseByClass(String stuclas) {
+        //先通过班级查询所有的学生
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("stuclass", stuclas);
+        List<students> studentsList = studentDao.selectList(wrapper);
+        log.info("班级查询到的学生有：" + studentsList);
+        //再通过学生stuid查询exercises表查询所有满足条件的练习 -> 练习整合后返回给前端
+        List<Exercises> exercisesList = new ArrayList<>();
+        QueryWrapper wrapper1 = new QueryWrapper();
+        for (students stu : studentsList) {
+            List<Exercises> exercisesList1 = this.getAllExercises(stu.getStunumber());
+            log.info("班级" + stuclas + "里的同学" + stu.getStunumber() + "的练习有：" + exercisesList1);
+            exercisesList.addAll(exercisesList1);
+        }
+        return exercisesList;
     }
 
     //统计中文字数

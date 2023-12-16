@@ -36,4 +36,7 @@ public interface ExercisesService {
     //获取音量+语速分值
     float[] getautoScore(int eid);
 
+    //查询班级学生的所有练习Exercises
+    List<Exercises> getExerciseByClass(String stuclas);
+
 }

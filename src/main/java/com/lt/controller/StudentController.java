@@ -124,7 +124,7 @@ public class StudentController {
     }
 
     /*
-    更改个人信息:穿过来的密码仅一个，是否相同前端判断
+    更改个人信息:传过来的密码仅一个，是否相同前端判断
      */
     @PutMapping
     public Result update(@RequestBody students stu) {

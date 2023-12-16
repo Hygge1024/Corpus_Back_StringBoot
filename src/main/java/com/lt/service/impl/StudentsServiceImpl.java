@@ -10,12 +10,14 @@ import com.lt.dao.studentDao;
 import com.lt.doadmin.CorpusDao;
 import com.lt.doadmin.students;
 import com.lt.service.StudentsService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 public class StudentsServiceImpl extends ServiceImpl<studentDao, students> implements StudentsService {
     @Autowired
@@ -101,10 +103,11 @@ public class StudentsServiceImpl extends ServiceImpl<studentDao, students> imple
 
     @Override
     public int update(students stu) {
-        String hashedPassword = hashPassword(stu.getStupassword());//对新密码进行加密
-        stu.setStupassword(hashedPassword);
+//        String hashedPassword = hashPassword(stu.getStupassword());//对新密码进行加密
+//        stu.setStupassword(hashedPassword);
         QueryWrapper wrapper = new QueryWrapper();
         String stunumber = stu.getStunumber();
+        log.info("密码为：" + stu.getStupassword());
         wrapper.eq("stunumber", stu.getStunumber().toString());
         int flag = studentDao.update(stu, wrapper);
         return flag;
