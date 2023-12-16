@@ -3,15 +3,17 @@ package com.lt.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lt.dao.classDao;
-import com.lt.doadmin.Classes;
+import com.lt.domain.Classes;
 import com.lt.service.ClassesService;
 import com.lt.service.StudentsService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Slf4j
 public class ClassesServiceImpl extends ServiceImpl<classDao, Classes> implements ClassesService {
     @Autowired
     private classDao classDao;
@@ -43,11 +45,12 @@ public class ClassesServiceImpl extends ServiceImpl<classDao, Classes> implement
     }
 
     @Override
-    public int deleteByCid(int cid) {
+    public int deleteByCid(String cid) {
         //在删除前需要对改班级的学生班级信息进行清零
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("cid", cid);
+        wrapper.eq("cname", cid);
         Classes classes = classDao.selectOne(wrapper);
+        log.info("班级信息" + classes);
         String oldClassName = classes.getCname();
         String newClassName = "delete";
 //        调用学生更新班级的接口

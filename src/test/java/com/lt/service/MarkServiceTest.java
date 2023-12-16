@@ -1,7 +1,7 @@
 package com.lt.service;
 
-import com.lt.doadmin.Mark;
-import com.lt.doadmin.MarkUpDao;
+import com.lt.domain.Mark;
+import com.lt.domain.MarkUpDao;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

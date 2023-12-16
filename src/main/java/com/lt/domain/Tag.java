@@ -1,17 +1,16 @@
-package com.lt.doadmin;
+package com.lt.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import java.util.Date;
 @Data
 public class Tag {
-   @JsonProperty("id")
-   private int id;
-   @JsonProperty("tagName")
-   private String tagName;
-   @JsonProperty("introduce")
-   private String introduce;
+    @JsonProperty("id")
+    private int id;
+    @JsonProperty("tagName")
+    private String tagName;
+    @JsonProperty("introduce")
+    private String introduce;
    /*
    下面的属性，暂时不需要，就不显示了
     */

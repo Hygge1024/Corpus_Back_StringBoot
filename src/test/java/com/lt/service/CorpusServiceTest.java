@@ -1,16 +1,12 @@
 package com.lt.service;
 
-import com.lt.doadmin.Corpus;
+import com.lt.domain.Corpus;
 import com.lt.service.impl.CorpusServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 @SpringBootTest
 public class CorpusServiceTest {

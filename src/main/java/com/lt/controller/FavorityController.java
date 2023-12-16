@@ -3,7 +3,7 @@ package com.lt.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
-import com.lt.doadmin.Favorites;
+import com.lt.domain.Favorites;
 import com.lt.service.FavoritesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

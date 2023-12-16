@@ -2,7 +2,7 @@ package com.lt.controller;
 
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
-import com.lt.doadmin.Tag;
+import com.lt.domain.Tag;
 import com.lt.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

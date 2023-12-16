@@ -6,15 +6,20 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
+import com.lt.dao.TaskDao;
 import com.lt.dao.studentDao;
-import com.lt.doadmin.CorpusDao;
-import com.lt.doadmin.students;
+import com.lt.domain.Corpus;
+import com.lt.domain.Tag;
+import com.lt.domain.Task;
+import com.lt.domain.students;
+import com.lt.service.CorpusService;
 import com.lt.service.StudentsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -22,6 +27,10 @@ import java.util.List;
 public class StudentsServiceImpl extends ServiceImpl<studentDao, students> implements StudentsService {
     @Autowired
     private studentDao studentDao;
+    @Autowired
+    private TaskDao taskDao;
+    @Autowired
+    private CorpusService corpusService;
 
     @Override
     public List<students> getStuAll() {
@@ -132,6 +141,29 @@ public class StudentsServiceImpl extends ServiceImpl<studentDao, students> imple
             wrapper.clear();
         }
         return studentsList.size();
+    }
+
+    /**
+     * 获取所属班级的练习
+     *
+     * @param stunumber 学生学号
+     * @return 返回所有待练习
+     */
+    @Override
+    public List<Task> getTaskBySelf(String stunumber) {
+        students stu = this.getByStunumber(stunumber);
+        String className = stu.getStuclass();
+        //然后开始查询《Task表》中等于className的
+        QueryWrapper<Task> wrapper = new QueryWrapper();
+        wrapper.lambda()
+                .eq(Task::getClassname, className)
+                .eq(Task::getState, 1);
+        List<Task> taskList = taskDao.selectList(wrapper);//查询了所有满足条件的的练习表
+//        List<Corpus> corpusList = new ArrayList<>();
+        for (Task task : taskList) {
+            task.setCorpus(corpusService.getOneCorpus(task.getCorpusid()));
+        }
+        return taskList;
     }
 
     /*

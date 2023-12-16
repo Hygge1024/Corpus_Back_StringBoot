@@ -1,8 +1,9 @@
 package com.lt.service;
 
-import com.lt.doadmin.Corpus;
-import com.lt.doadmin.CorpusDao;
-import com.lt.doadmin.RcCorpus;
+import com.lt.domain.Corpus;
+import com.lt.domain.CorpusDao;
+import com.lt.domain.CotpusDao2;
+import com.lt.domain.RcCorpus;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -34,6 +35,8 @@ public interface CorpusService {
 
     //更新语料——管理
     int update(CorpusDao corpusSelf);
+
+    int update2(CotpusDao2 corpusSelf);
 
     //删除语料——管理
     int delete(int cid);

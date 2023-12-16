@@ -2,8 +2,8 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/corpusrole
-      #      url: jdbc:mysql://8.137.53.253:3306/corpusrole?characterEncoding=utf8&serverTimezone=GMT%2b8
+      #      url: jdbc:mysql://localhost:3306/corpusrole
+      url: jdbc:mysql://8.137.53.253:3306/corpusrole?characterEncoding=utf8&serverTimezone=GMT%2b8
       username: corpusrole
       password: CbHdmG7xF8fEyjs4
   #      username: root
@@ -38,8 +38,8 @@ strapi:
   url: http://8.137.53.253:1337/
 
   #这个可能需要更新
-  #  AuthToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzMjA2OTQzLCJleHAiOjE2OTU3OTg5NDN9.5X0WYCnCoIsLa5eHofQGpPrQtln94xnDRFMP4liB1uQ
-  AuthToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzAyNjIzNTkwLCJleHAiOjE3MDUyMTU1OTB9.1V5hn48_qBuo6Bomf2zYVoghCpSvhGgyEhlpZ7CHQqs
+  #  AuthToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzAyNjIzNTkwLCJleHAiOjE3MDUyMTU1OTB9.1V5hn48_qBuo6Bomf2zYVoghCpSvhGgyEhlpZ7CHQqs
+  AuthToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzAyNzA4NzI3LCJleHAiOjE3MDUzMDA3Mjd9.80OUAPcEXzS-5tCVaTgM51zOgUHSg6cKixOPLGwRcYw
   #上传的语料资源的地址
   #  strapiUploadUrl: http://localhost:1337/upload
   strapiUploadUrl: http://8.137.53.253:1337/upload

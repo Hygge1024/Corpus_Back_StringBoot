@@ -1,11 +1,10 @@
 package com.lt.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.lt.doadmin.Favorites;
+import com.lt.domain.Favorites;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.w3c.dom.ls.LSInput;
 
 import java.util.List;
 

@@ -1,9 +1,8 @@
 package com.lt.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lt.controller.utils.Result;
-import com.lt.doadmin.admins;
+import com.lt.domain.admins;
 
 import java.util.List;
 

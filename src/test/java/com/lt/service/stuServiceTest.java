@@ -2,7 +2,7 @@ package com.lt.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lt.controller.utils.Result;
-import com.lt.doadmin.students;
+import com.lt.domain.students;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -81,6 +81,11 @@ public class stuServiceTest {
         newStu.setStusex(1);
         newStu.setStuclass("软件2102");
         System.out.println(studentsService.update(newStu));
+    }
+
+    @Test
+    void getTaskBySelf() {
+        System.out.println(studentsService.getTaskBySelf("210003"));
     }
 
 }

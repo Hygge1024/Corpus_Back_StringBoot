@@ -3,8 +3,9 @@ package com.lt.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
-import com.lt.doadmin.Classes;
-import com.lt.doadmin.teachers;
+import com.lt.domain.Classes;
+import com.lt.domain.Task;
+import com.lt.domain.teachers;
 import com.lt.service.ClassesService;
 import com.lt.service.TeachersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -130,7 +131,7 @@ public class TeacherController {
     }
 
     @DeleteMapping("/selfclass/{cid}")
-    public Result deleteSelf(@PathVariable int cid) {
+    public Result deleteSelf(@PathVariable String cid) {
         int flag = classesService.deleteByCid(cid);
         Integer code = flag > 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
         String msg = flag > 0 ? "删除成功" : "删除失败";
@@ -142,6 +143,35 @@ public class TeacherController {
         int flag = classesService.update(classes);
         Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
         String msg = flag != 0 ? "修改班级信息成功" : "修改失败，可能新班级已存在";
+        return new Result(code, msg, null);
+    }
+
+    /**
+     * 教师发布练习
+     *
+     * @param task 练习信息
+     * @return 是否成功信息
+     */
+    @PostMapping("/publish")
+    public Result publish(@RequestBody Task task) {
+        int flag = teachersService.publish(task);
+        Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
+        String msg = flag != 0 ? "发布练习成功" : "发布练习失败,可能重复发布";
+        return new Result(code, msg, null);
+    }
+
+    /**
+     * 取消练习
+     *
+     * @param cid       语料id
+     * @param teanumber 教师账号
+     * @return 操作状态
+     */
+    @GetMapping("/notpublish/{cid}/{teanumber}")
+    public Result notpublish(@PathVariable int cid, @PathVariable String teanumber) {
+        int flag = teachersService.notpublish(cid, teanumber);
+        Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
+        String msg = flag != 0 ? "取消练习成功" : "取消练习失败";
         return new Result(code, msg, null);
     }
 

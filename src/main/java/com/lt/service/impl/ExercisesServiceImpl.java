@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.lt.dao.studentDao;
-import com.lt.doadmin.*;
+import com.lt.domain.*;
 import com.lt.service.CorpusService;
 import com.lt.service.ExercisesService;
 import javazoom.jl.converter.Converter;
@@ -34,7 +34,6 @@ import javax.sound.sampled.*;
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -271,14 +270,14 @@ public class ExercisesServiceImpl implements ExercisesService {
         这里需要添加接口用来实现 语速Pace、音量Volume 的自动识别
          */
         float ends[] = getautoScore(eid);
-        Volume = ends[0];
-        Pace = ends[1];
+        Volume = ends[0]; //音量
+        Pace = ends[1]; //语速
         //流利度、标准度、准确度、完整度、语速、音量
-        float AllScore = (float) ((float) exerciseScoreDao.getFluency() * 0.25 +
-                (float) exerciseScoreDao.getAccuracy() * 0.2 +
-                (float) exerciseScoreDao.getPrecision() * 0.3 +
-                (float) exerciseScoreDao.getCompleteness() * 0.1 +
-                Pace * 0.1 + Volume * 0.05);
+        float AllScore = (float) ((float) exerciseScoreDao.getInformation() * 0.55 +
+                (float) exerciseScoreDao.getFluency() * 0.20 +
+                (float) exerciseScoreDao.getGrammar() * 0.10 +
+                (float) exerciseScoreDao.getLogical() * 0.10 +
+                (float) exerciseScoreDao.getSkill() * 0.05);
 
         exerciseScoreDao.setAllScore(AllScore);
         exerciseScoreDao.setPublished_at(currentDate);

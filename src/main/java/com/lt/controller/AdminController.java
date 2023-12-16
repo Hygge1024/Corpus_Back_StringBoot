@@ -2,7 +2,7 @@ package com.lt.controller;
 
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
-import com.lt.doadmin.admins;
+import com.lt.domain.admins;
 import com.lt.service.AdminsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

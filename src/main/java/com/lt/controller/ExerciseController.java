@@ -2,14 +2,13 @@ package com.lt.controller;
 
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
-import com.lt.doadmin.ExerciseScoreDao;
-import com.lt.doadmin.Exercises;
-import com.lt.doadmin.ExercisesDao;
-import com.lt.doadmin.RcCorpus;
+import com.lt.domain.ExerciseScoreDao;
+import com.lt.domain.Exercises;
+import com.lt.domain.ExercisesDao;
+import com.lt.domain.RcCorpus;
 import com.lt.service.BaiduService;
 import com.lt.service.CorpusService;
 import com.lt.service.ExercisesService;
-import com.lt.service.impl.CorpusServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;

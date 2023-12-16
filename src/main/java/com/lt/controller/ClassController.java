@@ -1,14 +1,8 @@
 package com.lt.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.lt.controller.utils.Code;
-import com.lt.controller.utils.Result;
-import com.lt.doadmin.Classes;
 import com.lt.service.ClassesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 //该接口被弃用
 @RestController

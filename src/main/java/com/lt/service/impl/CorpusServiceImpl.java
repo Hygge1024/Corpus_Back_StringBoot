@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.lt.doadmin.*;
+import com.lt.domain.*;
 import com.lt.service.CorpusService;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -263,10 +263,45 @@ public class CorpusServiceImpl implements CorpusService {
         // 将更新对象转换成JSON对象
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.UPPER_CAMEL_CASE); // 设置属性名命名策略
-
         try {
             String jsonBody = objectMapper.writeValueAsString(corpus);
-//            System.out.println(jsonBody);
+            // 设置请求体为JSON格式
+            StringEntity requestEntity = new StringEntity(jsonBody, StandardCharsets.UTF_8);
+            requestEntity.setContentType("application/json; charset=utf-8");
+            httpPut.setEntity(requestEntity);
+            // 添加授权令牌到请求头
+            httpPut.addHeader("Authorization", "Bearer " + strapiAuthToken);
+            // 发送PUT请求
+            HttpResponse response = httpClient.execute(httpPut);
+            int statusCode = response.getStatusLine().getStatusCode();
+//            System.out.println(statusCode);
+            if (statusCode == 200) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        } catch (ClientProtocolException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public int update2(CotpusDao2 corpus) {
+        int cid = corpus.getId();
+        String updateUrl = CorpusAll_url + "/" + cid;
+//        System.out.println("更新路由url：" + updateUrl);
+        // 创建HttpClient请求
+        HttpClient httpClient = HttpClients.createDefault();
+        HttpPut httpPut = new HttpPut(updateUrl);
+        // 将更新对象转换成JSON对象
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.UPPER_CAMEL_CASE); // 设置属性名命名策略
+        try {
+            String jsonBody = objectMapper.writeValueAsString(corpus);
             // 设置请求体为JSON格式
             StringEntity requestEntity = new StringEntity(jsonBody, StandardCharsets.UTF_8);
             requestEntity.setContentType("application/json; charset=utf-8");
@@ -293,10 +328,8 @@ public class CorpusServiceImpl implements CorpusService {
 
     @Override
     public int delete(int cid) {
-//        System.out.println("进入了删除函数里面");
         //完善删除url路径
         String DeleteUrl = CorpusAll_url + "/" + cid;
-//        System.out.println("完善的路径为"+DeleteUrl);
         //创建HttpClient
         HttpClient httpClient = HttpClients.createDefault();
         HttpDelete httpDelete = new HttpDelete(DeleteUrl);//添加删除url

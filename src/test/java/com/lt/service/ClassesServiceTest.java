@@ -1,12 +1,9 @@
 package com.lt.service;
 
-import com.lt.doadmin.Classes;
-import com.lt.service.impl.ClassesServiceImpl;
+import com.lt.domain.Classes;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.List;
 
 @SpringBootTest
 public class ClassesServiceTest {
@@ -34,7 +31,7 @@ public class ClassesServiceTest {
 
     @Test
     void deleteByCid() {
-        System.out.println(classesService.deleteByCid(12));
+        System.out.println(classesService.deleteByCid("222"));
     }
 
     @Test

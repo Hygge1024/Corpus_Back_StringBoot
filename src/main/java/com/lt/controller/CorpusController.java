@@ -2,9 +2,9 @@ package com.lt.controller;
 
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
-import com.lt.doadmin.Corpus;
-import com.lt.doadmin.CorpusDao;
-import com.lt.doadmin.RcCorpus;
+import com.lt.domain.Corpus;
+import com.lt.domain.CorpusDao;
+import com.lt.domain.RcCorpus;
 import com.lt.service.BaiduService;
 import com.lt.service.CorpusService;
 import org.springframework.beans.factory.annotation.Autowired;

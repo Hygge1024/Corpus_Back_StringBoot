@@ -2,10 +2,7 @@ package com.lt.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.lt.doadmin.Favorites;
-import com.lt.doadmin.students;
-
-import java.util.List;
+import com.lt.domain.Favorites;
 
 public interface FavoritesService extends IService<Favorites> {
     /*

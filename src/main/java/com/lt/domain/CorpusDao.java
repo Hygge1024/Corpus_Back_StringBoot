@@ -1,4 +1,4 @@
-package com.lt.doadmin;
+package com.lt.domain;
 
 import lombok.Data;
 
@@ -21,6 +21,7 @@ public class CorpusDao {
     private Date published_at;//上传时间
     private Date created_at;//创建时间
     private int State;//有效状态 1（有效） 2（无效） 模拟删除效果
+    private int Published;//练习发布状态，0 未发布、1 发布、 2 取消发布
     private Long File;//音频文件id
     private List<String> tag_ids;//语料标签
 }

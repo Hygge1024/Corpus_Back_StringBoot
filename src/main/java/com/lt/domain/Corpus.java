@@ -1,4 +1,4 @@
-package com.lt.doadmin;
+package com.lt.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -35,6 +35,8 @@ public class Corpus {
     private Date updated_at;
     @JsonProperty("State")
     private int State;
+    @JsonProperty("Published")
+    private int Published;
     @JsonProperty("File")
     private List<FileData> File;
     @JsonProperty("Tag_ids")

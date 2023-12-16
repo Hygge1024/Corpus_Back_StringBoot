@@ -1,4 +1,4 @@
-package com.lt.doadmin;
+package com.lt.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -10,7 +10,7 @@ import lombok.Data;
 public class students {
     @TableId(type = IdType.AUTO)
     private Integer sid;
-//  @TableField("name")           // 列名映射注解，当属性名跟列名不一致时使用
+    //  @TableField("name")           // 列名映射注解，当属性名跟列名不一致时使用
     private String stunumber;
     private String stuname;
     private String stupassword;

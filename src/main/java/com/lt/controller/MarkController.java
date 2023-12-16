@@ -2,8 +2,8 @@ package com.lt.controller;
 
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
-import com.lt.doadmin.Mark;
-import com.lt.doadmin.MarkUpDao;
+import com.lt.domain.Mark;
+import com.lt.domain.MarkUpDao;
 import com.lt.service.MarkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

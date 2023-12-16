@@ -1,9 +1,8 @@
 package com.lt.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.lt.doadmin.Mark;
-import com.lt.doadmin.MarkUpDao;
-import org.apache.ibatis.annotations.Mapper;
+import com.lt.domain.Mark;
+import com.lt.domain.MarkUpDao;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.lt.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.lt.doadmin.Classes;
+import com.lt.domain.Classes;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public interface ClassesService extends IService<Classes> {
     int addClss(Classes classes);
 
     //    删除（tnumber，cid（编号））（不建议用户删除班级，学生如果遇到班级被删除，需要显示空白）
-    int deleteByCid(int cid);
+    int deleteByCid(String cid);
 
     //    更新（tnumber，cid（唯一属性），newname替换cname值）
     int update(Classes classes);

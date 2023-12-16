@@ -1,7 +1,7 @@
 package com.lt.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.lt.doadmin.admins;
+import com.lt.domain.admins;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

@@ -1,4 +1,4 @@
-package com.lt.doadmin;
+package com.lt.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
@@ -28,16 +28,18 @@ public class Exercises {
     private List<FileData> StuFile;
     @JsonProperty("Fluency")
     private float Fluency;
-    @JsonProperty("Accuracy")
-    private float Accuracy;
-    @JsonProperty("Precision")
-    private float Precision;
-    @JsonProperty("Completeness")
-    private float Completeness;
+    @JsonProperty("Information")
+    private float Information;
+    @JsonProperty("Grammar")
+    private float Grammar;
+    @JsonProperty("Logical")
+    private float Logical;
     @JsonProperty("Pace")
     private float Pace;
     @JsonProperty("Volume")
     private float Volume;
+    @JsonProperty("Skill")
+    private float Skill;
     @JsonProperty("TeacherComments")
     private String TeacherComments;
 

@@ -2,10 +2,15 @@ package com.lt.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lt.controller.utils.Result;
-import com.lt.doadmin.teachers;
+import com.lt.dao.TaskDao;
+import com.lt.domain.Task;
+import com.lt.domain.teachers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.Calendar;
+import java.util.Date;
 
 @SpringBootTest
 public class TeachersServiceTest {
@@ -73,6 +78,24 @@ public class TeachersServiceTest {
         newTea.setTeapassword("123456");
         newTea.setTsex(0);
         System.out.println(teachersService.update(newTea));
+    }
+
+    @Test
+    void publish() {
+        Calendar calendar = Calendar.getInstance();
+        Date publishTime = calendar.getTime();//上传时间
+        Task task = new Task();
+        task.setCorpusid(2);
+        task.setClassname("英语2101");
+        task.setTeanumber("100001");
+        task.setState(1);
+        task.setPublishtime(publishTime);
+        System.out.println(teachersService.publish(task));
+    }
+
+    @Test
+    void notpublish() {
+        System.out.println(teachersService.notpublish(1, "100001"));
     }
 
 //    @Test

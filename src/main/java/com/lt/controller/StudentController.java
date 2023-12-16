@@ -4,7 +4,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lt.api.ApiKeyRequired;
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
-import com.lt.doadmin.students;
+import com.lt.domain.Task;
+import com.lt.domain.students;
 import com.lt.service.StudentsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -133,6 +134,15 @@ public class StudentController {
         String msg = flag > 0 ? "更改成功" : "更改失败";
         return new Result(code, msg, flag);
     }
+
+    @GetMapping("/publish/{stunumber}")
+    public Result getAllPublish(@PathVariable String stunumber) {
+        List<Task> taskList = studentsService.getTaskBySelf(stunumber);
+        Integer code = taskList != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = taskList != null ? "查询发布练习成功" : "查询发布练习失败失败";
+        return new Result(code, msg, taskList);
+    }
+
 
     /*
     哈希加密方法

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.lt.doadmin.Tag;
+import com.lt.domain.Tag;
 import com.lt.service.TagService;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -29,9 +29,10 @@ public class TagServiceImpl implements TagService {
     private static String Tag_url;
 
     @Value("${strapi.url}")
-    public void setTag_url(String url){
-        Tag_url = url+"tags";
+    public void setTag_url(String url) {
+        Tag_url = url + "tags";
     }
+
     @Value("${strapi.AuthToken}")
     private String strapiAuthToken;
 
@@ -39,9 +40,9 @@ public class TagServiceImpl implements TagService {
     public List<Tag> findAll() {
         //发送GET请求并获得JSON数据
         System.out.println(Tag_url);
-        String jsonResponse = restTemplate.getForObject(Tag_url,String.class);
+        String jsonResponse = restTemplate.getForObject(Tag_url, String.class);
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         try {
             List<Tag> tagList = objectMapper.readValue(jsonResponse, new TypeReference<List<Tag>>() {
             });
@@ -70,9 +71,9 @@ public class TagServiceImpl implements TagService {
             HttpResponse response = httpClient.execute(httpPost);
             int statusCode = response.getStatusLine().getStatusCode();
             System.out.println("statusCode值为：" + statusCode);
-            if(statusCode == 200){
+            if (statusCode == 200) {
                 return 1;
-            }else {
+            } else {
                 return 0;
             }
         } catch (JsonProcessingException e) {
@@ -118,15 +119,15 @@ public class TagServiceImpl implements TagService {
         objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.UPPER_CAMEL_CASE);
         try {
             String jsonBody = objectMapper.writeValueAsString(tag);
-            StringEntity requestEntity = new StringEntity(jsonBody,StandardCharsets.UTF_8);
+            StringEntity requestEntity = new StringEntity(jsonBody, StandardCharsets.UTF_8);
             requestEntity.setContentType("application/json; charset=utf-8");
             httpPut.setEntity(requestEntity);
             httpPut.addHeader("Authorization", "Bearer " + strapiAuthToken);
             HttpResponse response = httpClient.execute(httpPut);
             int statusCode = response.getStatusLine().getStatusCode();
-            if(statusCode == 200){
+            if (statusCode == 200) {
                 return 1;
-            }else {
+            } else {
                 return 0;
             }
         } catch (JsonProcessingException e) {

@@ -6,8 +6,8 @@ import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
 import com.lt.dao.adminDao;
 import com.lt.dao.teacherDao;
-import com.lt.doadmin.admins;
-import com.lt.doadmin.teachers;
+import com.lt.domain.admins;
+import com.lt.domain.teachers;
 import com.lt.service.AdminsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -72,8 +72,8 @@ public class AdminsServiceImpl extends ServiceImpl<adminDao, admins> implements 
 
     @Override
     public int update(admins adm) {
-        String hashedPassword = hashPassword(adm.getAdmpassword());
-        adm.setAdmpassword(hashedPassword);
+//        String hashedPassword = hashPassword(adm.getAdmpassword());
+//        adm.setAdmpassword(hashedPassword);
         QueryWrapper wrapper = new QueryWrapper();
         String admnumber = adm.getAnumber();
         wrapper.eq("anumber", adm.getAnumber().toString());

@@ -1,4 +1,4 @@
-package com.lt.doadmin;
+package com.lt.domain;
 
 import lombok.Data;
 

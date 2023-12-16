@@ -2,7 +2,7 @@ package com.lt.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.lt.doadmin.download;
+import com.lt.domain.download;
 
 public interface DownLoadService extends IService<download> {
     /*

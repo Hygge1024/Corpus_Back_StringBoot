@@ -3,7 +3,8 @@ package com.lt.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lt.controller.utils.Result;
-import com.lt.doadmin.teachers;
+import com.lt.domain.Task;
+import com.lt.domain.teachers;
 
 import java.util.List;
 
@@ -31,5 +32,10 @@ public interface TeachersService extends IService<teachers> {
 
     //更新
     int update(teachers tea);
+
+    //教师发布自己的语料
+    int publish(Task task);
+
+    int notpublish(int cid, String teanumber);
 
 }
