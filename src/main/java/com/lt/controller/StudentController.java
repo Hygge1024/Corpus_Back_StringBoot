@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lt.api.ApiKeyRequired;
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
+import com.lt.domain.Charts;
+import com.lt.domain.Exercises;
 import com.lt.domain.Task;
 import com.lt.domain.students;
 import com.lt.service.StudentsService;
@@ -135,12 +137,40 @@ public class StudentController {
         return new Result(code, msg, flag);
     }
 
+    /**
+     * 查询分布了的练习
+     *
+     * @param stunumber 学号
+     * @return 练习
+     */
     @GetMapping("/publish/{stunumber}")
     public Result getAllPublish(@PathVariable String stunumber) {
         List<Task> taskList = studentsService.getTaskBySelf(stunumber);
         Integer code = taskList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = taskList != null ? "查询发布练习成功" : "查询发布练习失败失败";
         return new Result(code, msg, taskList);
+    }
+
+    /**
+     * 学生-成绩波动-标准得分
+     *
+     * @param stuNumber 学号
+     * @return 免租条件的
+     */
+    @GetMapping("/charts/{stuNumber}")
+    public Result getCharts(@PathVariable String stuNumber) {
+        List<Charts> chartsList = studentsService.getCharts(stuNumber);
+        Integer code = chartsList != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = chartsList != null ? "查询成功，请开始统计吧！" : "查询失败，请联系开发人员";
+        return new Result(code, msg, chartsList);
+    }
+
+    @GetMapping("/chartsExercises/{stuNumber}")
+    public Result getChartsExercise(@PathVariable String stuNumber) {
+        List<Exercises> chartsList = studentsService.getChartsExercise(stuNumber);
+        Integer code = chartsList != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = chartsList != null ? "查询成功，请开始统计吧！" : "查询失败，请联系开发人员";
+        return new Result(code, msg, chartsList);
     }
 
 

@@ -21,9 +21,9 @@ public class CorpusServiceTest {
 
     @Test
     void getOneCorpus() {
-        int cid = 34;
+        int cid = 1;
         Corpus corpus = corpusService.getOneCorpus(cid);
-        System.out.println(corpus.getDirection());
+        System.out.println(corpus);
     }
 
     @Test

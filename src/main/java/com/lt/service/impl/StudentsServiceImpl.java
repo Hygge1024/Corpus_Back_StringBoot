@@ -1,5 +1,6 @@
 package com.lt.service.impl;
 
+import com.alibaba.druid.sql.visitor.functions.Char;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -8,11 +9,9 @@ import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
 import com.lt.dao.TaskDao;
 import com.lt.dao.studentDao;
-import com.lt.domain.Corpus;
-import com.lt.domain.Tag;
-import com.lt.domain.Task;
-import com.lt.domain.students;
+import com.lt.domain.*;
 import com.lt.service.CorpusService;
+import com.lt.service.ExercisesService;
 import com.lt.service.StudentsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +30,8 @@ public class StudentsServiceImpl extends ServiceImpl<studentDao, students> imple
     private TaskDao taskDao;
     @Autowired
     private CorpusService corpusService;
+    @Autowired
+    private ExercisesService exercisesService;
 
     @Override
     public List<students> getStuAll() {
@@ -67,18 +68,6 @@ public class StudentsServiceImpl extends ServiceImpl<studentDao, students> imple
 
     @Override
     public Result registe(students stu) {
-//        String usernumber = stu.getStunumber();
-//        QueryWrapper wrapper = new QueryWrapper();
-//        wrapper.eq("stunumber", usernumber);
-//        students user = studentDao.selectOne(wrapper);//先判断是否存在
-//        if(user != null){
-//            return user;//表示已经存在了，返回空对象
-//        }else{
-//            String hashedPassword = hashPassword(stu.getStupassword());//对密码进行加密算法
-//            stu.setStupassword(hashedPassword);
-//            studentDao.insert(stu);
-//            return stu;//登录成功时，返回不为空的注册对象信息
-//        }
         String usernumber = stu.getStunumber();
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq("stunumber", usernumber);
@@ -159,11 +148,72 @@ public class StudentsServiceImpl extends ServiceImpl<studentDao, students> imple
                 .eq(Task::getClassname, className)
                 .eq(Task::getState, 1);
         List<Task> taskList = taskDao.selectList(wrapper);//查询了所有满足条件的的练习表
-//        List<Corpus> corpusList = new ArrayList<>();
         for (Task task : taskList) {
             task.setCorpus(corpusService.getOneCorpus(task.getCorpusid()));
         }
         return taskList;
+    }
+
+    /**
+     * 查询学生的练习-可视化 成绩、标准得分
+     *
+     * @param stunumber 学号
+     * @return 满足条件的练习
+     */
+    @Override
+    public List<Charts> getCharts(String stunumber) {
+        //1.查询所有的练习
+        List<Exercises> exercisesList = exercisesService.getAllExercises(stunumber);
+        //2.过滤练习-被批改了的
+        //获取班级
+        QueryWrapper<students> wrapper = new QueryWrapper<>();
+        wrapper.lambda()
+                .eq(students::getStunumber, stunumber);
+        String className = studentDao.selectOne(wrapper).getStuclass();
+        List<Charts> chartsList = new ArrayList<>();
+        for (Exercises exercises : exercisesList) {
+            if (exercises.getScore() >= 0) {
+                //3.班级信息+corpusID 得到 当前练习的 练习taskid
+                int corpusID = exercises.getCorpus().getId();
+                QueryWrapper<Task> wrapper1 = new QueryWrapper<>();
+                wrapper1.lambda()
+                        .eq(Task::getClassname, className)
+                        .eq(Task::getCorpusid, corpusID);
+                Task task = taskDao.selectOne(wrapper1);
+                //4.将上面得到的taskID + exercise 组合成charts
+                if (task != null) {
+                    int taskID = task.getTsid();
+                    Charts charts = new Charts();
+                    charts.setTaskid(taskID);
+                    charts.setExercises(exercises);
+                    chartsList.add(charts);
+                }
+            }
+        }
+        return chartsList;
+    }
+
+    /**
+     * 学生练习-可视化（对标签tag_ids进行了补充）
+     *
+     * @param stunumber 学号
+     * @return 满足条件的练习
+     */
+    @Override
+    public List<Exercises> getChartsExercise(String stunumber) {
+        //1.查询学生的所有练习
+        List<Exercises> exercisesList = exercisesService.getAllExercises(stunumber);
+        List<Exercises> exercisesList2 = new ArrayList<>();
+        //2.对练习进行 tag的补充
+        for (Exercises exercises : exercisesList) {
+            //3.过滤-被批改
+            if (exercises.getScore() >= 0) {
+                Corpus corpus = corpusService.getOneCorpus(exercises.getCorpus().getId());
+                exercises.setCorpus(corpus); //更新Tag_ids标签
+                exercisesList2.add(exercises);
+            }
+        }
+        return exercisesList2;
     }
 
     /*

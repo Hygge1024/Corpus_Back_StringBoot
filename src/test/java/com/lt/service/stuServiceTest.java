@@ -88,4 +88,13 @@ public class stuServiceTest {
         System.out.println(studentsService.getTaskBySelf("210003"));
     }
 
+    @Test
+    void getCharts() {
+        System.out.println(studentsService.getCharts("210001"));
+    }
+
+    @Test
+    void getChartsExercise() {
+        System.out.println(studentsService.getChartsExercise("210001"));
+    }
 }

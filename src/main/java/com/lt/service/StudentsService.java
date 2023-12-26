@@ -3,6 +3,8 @@ package com.lt.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lt.controller.utils.Result;
+import com.lt.domain.Charts;
+import com.lt.domain.Exercises;
 import com.lt.domain.Task;
 import com.lt.domain.students;
 
@@ -41,5 +43,11 @@ public interface StudentsService extends IService<students> {
 
     //获取发布的练习信息
     List<Task> getTaskBySelf(String stunumber);
+
+    //可视化-练习-分类展示
+    List<Charts> getCharts(String stunumber);
+
+    //可视化-练习-标签展示
+    List<Exercises> getChartsExercise(String stunumber);
 
 }

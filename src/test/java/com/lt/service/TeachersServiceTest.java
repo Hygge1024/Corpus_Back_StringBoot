@@ -98,6 +98,11 @@ public class TeachersServiceTest {
         System.out.println(teachersService.notpublish(1, "100001"));
     }
 
+    @Test
+    void getCharts() {
+        System.out.println(teachersService.getCharts("英语2101"));
+    }
+
 //    @Test
 //    void getAllSelfClass() {
 //        List<teaclass> teaclassList = teachersService.getAllSelfClass("123001");

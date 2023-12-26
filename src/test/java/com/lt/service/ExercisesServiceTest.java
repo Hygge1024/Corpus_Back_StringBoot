@@ -14,7 +14,7 @@ public class ExercisesServiceTest {
 
     @Test
     void getAllExercises() {
-        System.out.println(exercisesService.getAllExercises("123"));
+        System.out.println(exercisesService.getAllExercises("210001"));
     }
 
     @Test

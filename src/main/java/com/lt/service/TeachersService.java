@@ -3,6 +3,7 @@ package com.lt.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lt.controller.utils.Result;
+import com.lt.domain.Charts;
 import com.lt.domain.Task;
 import com.lt.domain.teachers;
 
@@ -37,5 +38,7 @@ public interface TeachersService extends IService<teachers> {
     int publish(Task task);
 
     int notpublish(int cid, String teanumber);
+
+    List<Charts> getCharts(String className);
 
 }

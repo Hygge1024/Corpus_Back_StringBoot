@@ -11,13 +11,14 @@ import com.lt.dao.teacherDao;
 import com.lt.domain.*;
 import com.lt.service.ClassesService;
 import com.lt.service.CorpusService;
+import com.lt.service.ExercisesService;
 import com.lt.service.TeachersService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -30,9 +31,13 @@ public class TeachersServiceImpl extends ServiceImpl<teacherDao, teachers> imple
     @Autowired
     private TaskDao taskDao;
     @Autowired
+    private com.lt.dao.studentDao studentDao;
+    @Autowired
     private CorpusService corpusService;
     @Autowired
     private ClassesService classesService;
+    @Autowired
+    private ExercisesService exercisesService;
 
     @Override
     public List<teachers> getTeaAll() {
@@ -105,23 +110,39 @@ public class TeachersServiceImpl extends ServiceImpl<teacherDao, teachers> imple
     public int publish(Task task) {
         Calendar calendar = Calendar.getInstance();
         Date publishTime = calendar.getTime();//上传时间
+
+        //判断是否已上传该练习
         QueryWrapper<Task> wrapper = new QueryWrapper<>();
         wrapper.lambda()
                 .eq(Task::getCorpusid, task.getCorpusid())
                 .eq(Task::getTeanumber, task.getTeanumber());
-        Task task1 = taskDao.selectOne(wrapper);
-        if (task1 != null) {
+        Task task1 = taskDao.selectOne(wrapper);//获取练习
+        if (task1 != null) {//练习非空——重新发布
+            //对Task表更新
+            task1.setState(1);
+            QueryWrapper<Task> wrapper2 = new QueryWrapper<>();
+            wrapper2.lambda()
+                    .eq(Task::getTsid, task1.getTsid());
+            taskDao.update(task1, wrapper2);
+            //对Corpus语料状态更新
+            Corpus corpus = corpusService.getOneCorpus(task1.getCorpusid());
+            CotpusDao2 corpusDao = new CotpusDao2();
+            corpusDao.setId(corpus.getId());
+            corpusDao.setPublished(1);//设置为更新状态——针对教师
+            corpusService.update2(corpusDao);
             return 0;
+        } else {//第一次发布
+            task.setState(1);//针对学生更新
+            task.setPublishtime(publishTime);
+            //对语料状态更新
+            Corpus corpus = corpusService.getOneCorpus(task.getCorpusid());
+            CotpusDao2 corpusDao = new CotpusDao2();
+            corpusDao.setId(corpus.getId());
+            corpusDao.setPublished(1);//设置为更新状态——针对教师
+            corpusService.update2(corpusDao);
+            return taskDao.insert(task);
         }
-        task.setState(1);//针对学生更新
-        task.setPublishtime(publishTime);
-        //对语料状态更新
-        Corpus corpus = corpusService.getOneCorpus(task.getCorpusid());
-        CotpusDao2 corpusDao = new CotpusDao2();
-        corpusDao.setId(corpus.getId());
-        corpusDao.setPublished(1);//设置为更新状态——针对教师
-        corpusService.update2(corpusDao);
-        return taskDao.insert(task);
+
     }
 
     /**
@@ -151,6 +172,47 @@ public class TeachersServiceImpl extends ServiceImpl<teacherDao, teachers> imple
         wrapper2.lambda()
                 .eq(Task::getTsid, task.getTsid());
         return taskDao.update(task, wrapper2);
+    }
+
+    /**
+     * 根据班级获取 练习情况
+     *
+     * @param className 班级名称
+     * @return 返回班级的练习号+学生练习
+     */
+    public List<Charts> getCharts(String className) {
+        //1.通过班级名称查询班级学生
+        QueryWrapper<students> wrapper = new QueryWrapper<>();
+        wrapper.lambda()
+                .eq(students::getStuclass, className);
+        List<students> studentsList = studentDao.selectList(wrapper);
+        //2.学号查询练习
+        List<Exercises> exercisesList = new ArrayList<>();
+        for (students students : studentsList) {
+            exercisesList.addAll(exercisesService.getAllExercises(students.getStunumber()));
+        }
+        //3.练习中的CorpusID组合班级名称得到练习的编号
+        List<Charts> chartsList = new ArrayList<>();
+        for (Exercises exercises : exercisesList) {
+            //过滤批改过的
+            if (exercises.getScore() >= 0) {
+                //4.将练习id及exercises对象 生成Charts对象
+                int corpusID = exercises.getCorpus().getId();
+                QueryWrapper<Task> wrapper1 = new QueryWrapper<>();
+                wrapper1.lambda()
+                        .eq(Task::getClassname, className)
+                        .eq(Task::getCorpusid, corpusID);
+                Task task = taskDao.selectOne(wrapper1);
+                if (null != task) {
+                    int taskID = task.getTsid();
+                    Charts charts = new Charts();
+                    charts.setTaskid(taskID);
+                    charts.setExercises(exercises);
+                    chartsList.add(charts);
+                }
+            }
+        }
+        return chartsList;
     }
 
 

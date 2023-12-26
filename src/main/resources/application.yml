@@ -2,10 +2,12 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      #      url: jdbc:mysql://localhost:3306/corpusrole
+      #远程服务器环境
       url: jdbc:mysql://8.137.53.253:3306/corpusrole?characterEncoding=utf8&serverTimezone=GMT%2b8
       username: corpusrole
       password: CbHdmG7xF8fEyjs4
+  #本地环境
+  #      url: jdbc:mysql://localhost:3306/corpusrole
   #      username: root
   #      password: 123456
   servlet:

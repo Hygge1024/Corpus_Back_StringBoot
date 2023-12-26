@@ -76,6 +76,7 @@ public class ExercisesServiceImpl implements ExercisesService {
     public List<Exercises> getAllExercises(String stuId) {
         String ExercisesAll_UrlDemo = ExercisesAll_Url + "?StuID=" + stuId;
         String jsonResponse = restTemplate.getForObject(ExercisesAll_UrlDemo, String.class);
+//        System.out.println("输出结果为：" + jsonResponse);
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);//将“未知属性异常”设置为false
         try {

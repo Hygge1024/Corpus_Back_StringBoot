@@ -3,6 +3,7 @@ package com.lt.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
+import com.lt.domain.Charts;
 import com.lt.domain.Classes;
 import com.lt.domain.Task;
 import com.lt.domain.teachers;
@@ -155,8 +156,8 @@ public class TeacherController {
     @PostMapping("/publish")
     public Result publish(@RequestBody Task task) {
         int flag = teachersService.publish(task);
-        Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
-        String msg = flag != 0 ? "发布练习成功" : "发布练习失败,可能重复发布";
+        Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_OK;
+        String msg = flag != 0 ? "发布练习成功" : "已重新发布！！！";
         return new Result(code, msg, null);
     }
 
@@ -175,6 +176,13 @@ public class TeacherController {
         return new Result(code, msg, null);
     }
 
+    @GetMapping("/charts/{className}")
+    public Result getCharts(@PathVariable String className) {
+        List<Charts> chartsList = teachersService.getCharts(className);
+        Integer code = chartsList != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = chartsList != null ? "查询成功，请开始统计吧！" : "查询失败，请联系开发人员";
+        return new Result(code, msg, chartsList);
+    }
 
     /*
     哈希加密方法

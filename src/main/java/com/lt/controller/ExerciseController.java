@@ -112,6 +112,12 @@ public class ExerciseController {
         return new Result(code, msg, null);
     }
 
+    /**
+     * 查询班级的所有提交练习
+     *
+     * @param clasname 班级名
+     * @return 所有练习
+     */
     @GetMapping("/byClass/{clasname}")
     public Result getExerciseByClass(@PathVariable String clasname) {
         List<Exercises> exercisesList = exercisesService.getExerciseByClass(clasname);
