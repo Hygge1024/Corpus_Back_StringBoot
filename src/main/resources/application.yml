@@ -33,6 +33,8 @@ api:
 baidu:
   BaiDuAPI_KEY: 1uoRnTwzQAD9Zh2dniw90HIH
   BaiDuSECRET_KEY: b1dn5GiMqRglAGyGia23dD1nbXVb1Pri
+  WenXinAPI: 8D9nuuAzMpfXUCSfbHX3rIsH
+  WenXinSecurity: mNrRXKGjE8vT6KphLEtXmKfCode5MwRT
 #存放语料的url
 strapi:
   #上线前只需要更改这里的strapi的url就可以将整改代码的url更改

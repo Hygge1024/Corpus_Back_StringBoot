@@ -7,6 +7,7 @@ import com.lt.domain.Charts;
 import com.lt.domain.Task;
 import com.lt.domain.teachers;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface TeachersService extends IService<teachers> {
@@ -40,5 +41,7 @@ public interface TeachersService extends IService<teachers> {
     int notpublish(int cid, String teanumber);
 
     List<Charts> getCharts(String className);
+
+    String getWenxin_Value(int eid, String WenXinAPI, String WenXinSecurity) throws IOException;
 
 }

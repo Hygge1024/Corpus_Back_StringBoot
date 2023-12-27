@@ -138,7 +138,7 @@ public class StudentController {
     }
 
     /**
-     * 查询分布了的练习
+     * 查询发布了的练习
      *
      * @param stunumber 学号
      * @return 练习
@@ -155,7 +155,7 @@ public class StudentController {
      * 学生-成绩波动-标准得分
      *
      * @param stuNumber 学号
-     * @return 免租条件的
+     * @return 满足条件的练习
      */
     @GetMapping("/charts/{stuNumber}")
     public Result getCharts(@PathVariable String stuNumber) {
@@ -165,6 +165,12 @@ public class StudentController {
         return new Result(code, msg, chartsList);
     }
 
+    /**
+     * 学生-题型平均分
+     *
+     * @param stuNumber 学号
+     * @return 满足条件的练习
+     */
     @GetMapping("/chartsExercises/{stuNumber}")
     public Result getChartsExercise(@PathVariable String stuNumber) {
         List<Exercises> chartsList = studentsService.getChartsExercise(stuNumber);

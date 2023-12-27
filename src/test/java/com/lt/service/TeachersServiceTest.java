@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -101,6 +102,13 @@ public class TeachersServiceTest {
     @Test
     void getCharts() {
         System.out.println(teachersService.getCharts("英语2101"));
+    }
+
+    @Test
+    void getWenxin_Value() throws IOException {
+        String API_KEY = "";
+        String SECRET_KEY = "";
+        System.out.println(teachersService.getWenxin_Value(1, API_KEY, SECRET_KEY));
     }
 
 //    @Test

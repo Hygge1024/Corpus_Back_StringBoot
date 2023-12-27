@@ -1,6 +1,7 @@
 package com.lt.service.impl;
 
 import com.lt.service.BaiduService;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -10,15 +11,41 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 @Service
+@Slf4j
 public class BaiduServiceImpl implements BaiduService {
     static final OkHttpClient HTTP_CLIENT = new OkHttpClient().newBuilder().build();
 
+    /**
+     * 音频转文本
+     *
+     * @param fileUrl         文件地址
+     * @param direction       转译方向
+     * @param BaiDuAPI_KEY    百度API
+     * @param BaiDuSECRET_KEY 密钥
+     * @return 返回转译文本
+     * @throws IOException          IO异常
+     * @throws InterruptedException 异常
+     */
     @Override
     public String Toriginaltext(String fileUrl, int direction, String BaiDuAPI_KEY, String BaiDuSECRET_KEY) throws IOException, InterruptedException {
         String result = new BaiduServiceImpl().getText(fileUrl, direction, BaiDuAPI_KEY, BaiDuSECRET_KEY);
         System.out.println("译文：" + result);
         return result;
     }
+
+    /**
+     * 文心自动化评测
+     *
+     * @param contentA 学生的文本
+     * @param contentB 语料原文
+     * @return 评价内容
+     */
+    @Override
+    public String WenXin_Value(String contentA, String contentB, String WenXinAPI, String WenXinSecurity) throws IOException {
+        String PromptString = new BaiduServiceImpl().GetPrompt(contentA, contentB);
+        return new BaiduServiceImpl().getWenXinResponse(PromptString, WenXinAPI, WenXinSecurity);
+    }
+
 
     public String getText(String audioUrl, int Direction, String API_KEY, String SECRET_KEY) throws IOException, InterruptedException {
         // 记录开始时间
@@ -116,6 +143,23 @@ public class BaiduServiceImpl implements BaiduService {
         return result;
     }
 
+    public String getWenXinResponse(String PromptString, String WenXinAPI, String WenXinSecurity) throws IOException {
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\"messages\":[{\"role\":\"user\",\"content\":\"" + PromptString + "\"}]}");
+        Request request = new Request.Builder()
+                .url("https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/eb-instant?access_token=" + getAccessToken(WenXinAPI, WenXinSecurity))
+                .method("POST", body)
+                .addHeader("Content-Type", "application/json")
+                .build();
+        Response response = HTTP_CLIENT.newCall(request).execute();
+        String ends = response.body().string();
+        JSONObject jsonObject = new JSONObject(ends);
+//        log.info("jsonObject:" + jsonObject);
+        // 获取result字段的值
+        String resultValue = jsonObject.getString("result");
+        return resultValue;
+    }
+
     //获取令牌
     static String getAccessToken(String API_KEY, String SECRET_KEY) throws IOException {
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
@@ -128,5 +172,31 @@ public class BaiduServiceImpl implements BaiduService {
                 .build();
         Response response = HTTP_CLIENT.newCall(request).execute();
         return new JSONObject(response.body().string()).getString("access_token");
+    }
+
+    //文心的指令Prompt
+    public String GetPrompt(String contentA, String contentB) {
+        String evaluation = "1. 信息完整度 (Information Completeness): 55%" +
+                "  - 解释： 信息完整度衡量学生是否能够准确、全面地传达原文中的所有关键信息。这包括确保重要概念、细节和上下文得以正确表达。" +
+                "  - 评分方法： 老师在0到100分的范围内打分，然后将得分乘以0.55，以反映这一方面在总分中的相对重要性。" +
+                "2. 陈述流畅度 (Fluency of Expression): 20%" +
+                "  - 解释： 陈述流畅度关注口译的表达是否自然、连贯、流畅，以确保译文在语言上具有自然的节奏和易于理解。" +
+                "  - 评分方法： 老师在0到100分的范围内打分，然后将得分乘以0.20，以反映这一方面在总分中的相对权重。" +
+                "3. 语法准确度 (Grammar Accuracy): 10%" +
+                "  - 解释： 语法准确度评估口译中语法结构和用词的正确性，确保学生能够在表达中避免语法错误。" +
+                "  - 评分方法： 老师在0到100分的范围内打分，然后将得分乘以0.10，以反映这一方面在总分中的相对权重。" +
+                "4. 逻辑连贯度 (Logical Coherence): 10%" +
+                "  - 解释： 逻辑连贯度关注学生口译是否能够呈现出清晰、有条理的思维结构，确保译文在逻辑上具有一致性和合理性。" +
+                "  - 评分方法： 老师在0到100分的范围内打分，然后将得分乘以0.10，以反映这一方面在总分中的相对权重。" +
+                "5. 技巧灵活度 (Skill Flexibility): 5%" +
+                "  - 解释： 技巧灵活度评估学生在口译过程中是否展现出一些创新和灵活性，包括对不同语境的适应能力和选择合适表达方式的技巧。" +
+                "  - 评分方法： 老师在0到100分的范围内打分，然后将得分乘以0.05，以反映这一方面在总分中的相对权重。";
+
+        String PromptString = "你现在是一名专业的英语口译方面的专家，下面是同学A口译后的文本内容:" + contentA +
+                "+请与标准原文:" + contentB + ",进行对比分析，下面是评分准则口译员评分准则:" + evaluation +
+                "背景信息:同学A对一段英文音频进行中文的口译后，需要对其进行评价、评分。" +
+                "补充数据:信息完整度占55%，陈述流畅度占20%，语法准确度占10%，逻辑连贯度占10%，技巧灵活度占5%,总分值为100分。" +
+                "输出格式:给出最终评分的值，满分100分,分值范围0-100。其中信息完整度占55%，陈述流畅度占20%，语法准确度占10%，逻辑连贯度占10%，技巧灵活度占5%。";
+        return PromptString;
     }
 }

@@ -9,15 +9,13 @@ import com.lt.controller.utils.Result;
 import com.lt.dao.TaskDao;
 import com.lt.dao.teacherDao;
 import com.lt.domain.*;
-import com.lt.service.ClassesService;
-import com.lt.service.CorpusService;
-import com.lt.service.ExercisesService;
-import com.lt.service.TeachersService;
+import com.lt.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,6 +36,8 @@ public class TeachersServiceImpl extends ServiceImpl<teacherDao, teachers> imple
     private ClassesService classesService;
     @Autowired
     private ExercisesService exercisesService;
+    @Autowired
+    private BaiduService baiduService;
 
     @Override
     public List<teachers> getTeaAll() {
@@ -213,6 +213,15 @@ public class TeachersServiceImpl extends ServiceImpl<teacherDao, teachers> imple
             }
         }
         return chartsList;
+    }
+
+    @Override
+    public String getWenxin_Value(int eid, String WenXinAPI, String WenXinSecurity) throws IOException {
+        Exercises exercises = exercisesService.getOneExercises(eid);
+        String contentA = exercises.getIdentifyText();//学生的文本
+        String contentB = exercises.getCorpus().getOriginaltext();//语料原文
+
+        return baiduService.WenXin_Value(contentA.replaceAll("[\\r\\n]", ""), contentB.replaceAll("[\\r\\n]", ""), WenXinAPI, WenXinSecurity);
     }
 
 

@@ -9,19 +9,35 @@ import com.lt.domain.Task;
 import com.lt.domain.teachers;
 import com.lt.service.ClassesService;
 import com.lt.service.TeachersService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/teachers")
+@Slf4j
 public class TeacherController {
     @Autowired
     private TeachersService teachersService;
     @Autowired
     private ClassesService classesService;
+    private static String WenXinAPI;
+    private static String WenXinSecurity;
+
+    @Value("${baidu.WenXinAPI}")
+    public void setWenXinAPI(String wenXinAPI) {
+        TeacherController.WenXinAPI = wenXinAPI;
+    }
+
+    @Value("${baidu.WenXinSecurity}")
+    public void setWenXinSecurity(String WenXinSecurity) {
+        TeacherController.WenXinSecurity = WenXinSecurity;
+    }
 
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -182,6 +198,14 @@ public class TeacherController {
         Integer code = chartsList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = chartsList != null ? "查询成功，请开始统计吧！" : "查询失败，请联系开发人员";
         return new Result(code, msg, chartsList);
+    }
+
+    @GetMapping("/wenxin/{eid}")
+    public Result getWenxin_Value(@PathVariable int eid) throws IOException {
+        String Value = teachersService.getWenxin_Value(eid, WenXinAPI, WenXinSecurity);
+        Integer code = Value != "" ? Code.GET_OK : Code.GET_ERR;
+        String msg = Value != "" ? "文心模型 评价成功" : "文心模型 评价失败";
+        return new Result(code, msg, Value);
     }
 
     /*
