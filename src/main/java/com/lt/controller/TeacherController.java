@@ -20,6 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/teachers")
+@CrossOrigin
 @Slf4j
 public class TeacherController {
     @Autowired

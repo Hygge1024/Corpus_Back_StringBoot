@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/download/{userid}/{who}")
+@CrossOrigin
 public class DownloadController {
     @Autowired
     private DownLoadService downLoadService;

@@ -18,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/corpus")
+@CrossOrigin
 public class CorpusController {
     @Autowired
     private CorpusService corpusService;
@@ -155,5 +156,16 @@ public class CorpusController {
         Integer code = flag != 0 ? Code.DELETE_OK : Code.DELETE_ERR;
         String msg = flag != 0 ? "删除成功" : "删除失败";
         return new Result(code, msg, null);
+    }
+
+    //部署后存在问题：不会用到的
+    @GetMapping("/d3")
+    @ResponseBody
+    public Result getD3() throws IOException {
+        String jsonFilePath = "./static/top5.json";
+        Object d3Json = corpusService.readJson(jsonFilePath, Object.class);
+        Integer code = d3Json != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = d3Json != null ? "查询成功" : "查询失败";
+        return new Result(code, msg, d3Json);
     }
 }

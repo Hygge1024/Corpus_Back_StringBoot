@@ -6,6 +6,7 @@ import com.lt.domain.CotpusDao2;
 import com.lt.domain.RcCorpus;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface CorpusService {
@@ -43,5 +44,8 @@ public interface CorpusService {
 
     //语料库——查询各自上传过的语料资源
     List<Corpus> getSelf(int currentPage, int pageSize, String AuthorID, String Title, String created_at);
+
+    //发送知识图谱信息——不会用到的
+    Object readJson(String filePath, Class<?> valueType) throws IOException;
 
 }

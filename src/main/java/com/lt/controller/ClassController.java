@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 //该接口被弃用
 @RestController
 @RequestMapping("/api/class")
+@CrossOrigin
 public class ClassController {
     @Autowired
     private ClassesService classesService;

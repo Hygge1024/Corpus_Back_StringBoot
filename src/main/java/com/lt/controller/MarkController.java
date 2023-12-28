@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/mark")
+@CrossOrigin
 public class MarkController {
     @Autowired
     private MarkService markService;

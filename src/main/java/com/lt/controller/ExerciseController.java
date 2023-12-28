@@ -19,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/exercises")
+@CrossOrigin
 public class ExerciseController {
     @Autowired
     private ExercisesService exercisesService;

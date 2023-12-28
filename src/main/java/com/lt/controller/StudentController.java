@@ -19,6 +19,7 @@ import java.util.List;
 @Slf4j   //添加日志记录信息
 @RestController
 @RequestMapping("/api/students")
+@CrossOrigin
 public class StudentController {
     @Autowired
     private StudentsService studentsService;

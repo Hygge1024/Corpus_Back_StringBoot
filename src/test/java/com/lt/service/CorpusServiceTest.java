@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.IOException;
 import java.util.List;
 
 @SpringBootTest
@@ -53,4 +54,9 @@ public class CorpusServiceTest {
         System.out.println(corpusService.getByTnumber(1, 2, "1995"));
     }
 
+//    @Test
+//    void getD3() throws IOException {
+//        String jsonFilePath = "src/main/resources/static/top5.json";
+//        System.out.println(corpusService.readJson(jsonFilePath, Object.class));
+//    }
 }

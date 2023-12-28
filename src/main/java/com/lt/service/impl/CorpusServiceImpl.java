@@ -26,6 +26,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -379,6 +381,13 @@ public class CorpusServiceImpl implements CorpusService {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public Object readJson(String filePath, Class<?> valueType) throws IOException {
+        Path path = Paths.get(filePath);
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.readValue(path.toFile(), valueType);
     }
 
 

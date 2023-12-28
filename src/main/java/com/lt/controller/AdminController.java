@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/admins")
+@CrossOrigin
 public class AdminController {
     @Autowired
     private AdminsService adminsService;

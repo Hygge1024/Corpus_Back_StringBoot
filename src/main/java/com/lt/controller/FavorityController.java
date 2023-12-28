@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/favority/{userid}")
+@CrossOrigin
 public class FavorityController {
     @Autowired
     FavoritesService favoritesService;

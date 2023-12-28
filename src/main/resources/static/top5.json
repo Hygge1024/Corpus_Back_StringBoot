@@ -1,0 +1,2900 @@
+﻿[
+  {
+    "p": {
+      "start": {
+        "identity": 110531,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(3)",
+          "setup_time": "王林",
+          "address": "2023-12-16 12:06:57",
+          "captial": "简单",
+          "credit_code": "48秒"
+        }
+      },
+      "end": {
+        "identity": 122725,
+        "labels": [
+          "Type"
+        ],
+        "properties": {
+          "name": "真题类"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 110531,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(3)",
+              "setup_time": "王林",
+              "address": "2023-12-16 12:06:57",
+              "captial": "简单",
+              "credit_code": "48秒"
+            }
+          },
+          "relationship": {
+            "identity": 621275,
+            "start": 110531,
+            "end": 122725,
+            "type": "type",
+            "properties": {
+              "name": "类型"
+            }
+          },
+          "end": {
+            "identity": 122725,
+            "labels": [
+              "Type"
+            ],
+            "properties": {
+              "name": "真题类"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.307142857142857
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 110531,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(3)",
+          "setup_time": "王林",
+          "address": "2023-12-16 12:06:57",
+          "captial": "简单",
+          "credit_code": "48秒"
+        }
+      },
+      "end": {
+        "identity": 120807,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "文化敏感度"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 110531,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(3)",
+              "setup_time": "王林",
+              "address": "2023-12-16 12:06:57",
+              "captial": "简单",
+              "credit_code": "48秒"
+            }
+          },
+          "relationship": {
+            "identity": 572542,
+            "start": 110531,
+            "end": 120807,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120807,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "文化敏感度"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.307142857142857
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 110531,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(3)",
+          "setup_time": "王林",
+          "address": "2023-12-16 12:06:57",
+          "captial": "简单",
+          "credit_code": "48秒"
+        }
+      },
+      "end": {
+        "identity": 120959,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "数字营销网络研讨会"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 110531,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(3)",
+              "setup_time": "王林",
+              "address": "2023-12-16 12:06:57",
+              "captial": "简单",
+              "credit_code": "48秒"
+            }
+          },
+          "relationship": {
+            "identity": 483409,
+            "start": 110531,
+            "end": 120959,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120959,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "数字营销网络研讨会"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.307142857142857
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 110531,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(3)",
+          "setup_time": "王林",
+          "address": "2023-12-16 12:06:57",
+          "captial": "简单",
+          "credit_code": "48秒"
+        }
+      },
+      "end": {
+        "identity": 120911,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "非营利组织会议"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 110531,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(3)",
+              "setup_time": "王林",
+              "address": "2023-12-16 12:06:57",
+              "captial": "简单",
+              "credit_code": "48秒"
+            }
+          },
+          "relationship": {
+            "identity": 448692,
+            "start": 110531,
+            "end": 120911,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120911,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "非营利组织会议"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.307142857142857
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 110531,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(3)",
+          "setup_time": "王林",
+          "address": "2023-12-16 12:06:57",
+          "captial": "简单",
+          "credit_code": "48秒"
+        }
+      },
+      "end": {
+        "identity": 120810,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "教学评估"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 110531,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(3)",
+              "setup_time": "王林",
+              "address": "2023-12-16 12:06:57",
+              "captial": "简单",
+              "credit_code": "48秒"
+            }
+          },
+          "relationship": {
+            "identity": 381870,
+            "start": 110531,
+            "end": 120810,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120810,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "教学评估"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.307142857142857
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 110531,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(3)",
+          "setup_time": "王林",
+          "address": "2023-12-16 12:06:57",
+          "captial": "简单",
+          "credit_code": "48秒"
+        }
+      },
+      "end": {
+        "identity": 120965,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "政策公告"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 110531,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(3)",
+              "setup_time": "王林",
+              "address": "2023-12-16 12:06:57",
+              "captial": "简单",
+              "credit_code": "48秒"
+            }
+          },
+          "relationship": {
+            "identity": 272148,
+            "start": 110531,
+            "end": 120965,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120965,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "政策公告"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.307142857142857
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 110531,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(3)",
+          "setup_time": "王林",
+          "address": "2023-12-16 12:06:57",
+          "captial": "简单",
+          "credit_code": "48秒"
+        }
+      },
+      "end": {
+        "identity": 120786,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "消费者协会"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 110531,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(3)",
+              "setup_time": "王林",
+              "address": "2023-12-16 12:06:57",
+              "captial": "简单",
+              "credit_code": "48秒"
+            }
+          },
+          "relationship": {
+            "identity": 237492,
+            "start": 110531,
+            "end": 120786,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120786,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "消费者协会"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.307142857142857
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 110531,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "王林",
+          "address": "2023-12-16 12:13:11",
+          "captial": "简单",
+          "credit_code": "44秒"
+        }
+      },
+      "end": {
+        "identity": 120861,
+        "labels": [
+          "Type"
+        ],
+        "properties": {
+          "name": "时政类"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 110531,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "王林",
+              "address": "2023-12-16 12:13:11",
+              "captial": "简单",
+              "credit_code": "44秒"
+            }
+          },
+          "relationship": {
+            "identity": 14691,
+            "start": 110531,
+            "end": 120861,
+            "type": "type",
+            "properties": {
+              "name": "类型"
+            }
+          },
+          "end": {
+            "identity": 120861,
+            "labels": [
+              "Type"
+            ],
+            "properties": {
+              "name": "时政类"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.307142857142857
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 46429,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(4)",
+          "setup_time": "王林",
+          "address": "2023-12-15 12:06:57",
+          "captial": "简单",
+          "credit_code": "53秒"
+        }
+      },
+      "end": {
+        "identity": 122725,
+        "labels": [
+          "Type"
+        ],
+        "properties": {
+          "name": "人文类"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 46429,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(4)",
+              "setup_time": "王林",
+              "address": "2023-12-15 12:06:57",
+              "captial": "简单",
+              "credit_code": "53秒"
+            }
+          },
+          "relationship": {
+            "identity": 727151,
+            "start": 46429,
+            "end": 122725,
+            "type": "type",
+            "properties": {
+              "name": "类型"
+            }
+          },
+          "end": {
+            "identity": 122725,
+            "labels": [
+              "Type"
+            ],
+            "properties": {
+              "name": "人文类"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.275
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 46429,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(4)",
+          "setup_time": "王林",
+          "address": "2023-12-15 12:06:57",
+          "captial": "简单",
+          "credit_code": "53秒"
+        }
+      },
+      "end": {
+        "identity": 120996,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "人口老龄化"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 46429,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(4)",
+              "setup_time": "王林",
+              "address": "2023-12-15 12:06:57",
+              "captial": "简单",
+              "credit_code": "53秒"
+            }
+          },
+          "relationship": {
+            "identity": 596245,
+            "start": 46429,
+            "end": 120996,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120996,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "人口老龄化"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.275
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 46429,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(4)",
+          "setup_time": "王林",
+          "address": "2023-12-15 12:06:57",
+          "captial": "简单",
+          "credit_code": "53秒"
+        }
+      },
+      "end": {
+        "identity": 120965,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "俄罗斯"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 46429,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(4)",
+              "setup_time": "王林",
+              "address": "2023-12-15 12:06:57",
+              "captial": "简单",
+              "credit_code": "53秒"
+            }
+          },
+          "relationship": {
+            "identity": 486085,
+            "start": 46429,
+            "end": 120965,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120965,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "俄罗斯"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.275
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 46429,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(4)",
+          "setup_time": "王林",
+          "address": "2023-12-15 12:06:57",
+          "captial": "简单",
+          "credit_code": "53秒"
+        }
+      },
+      "end": {
+        "identity": 120911,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "乌克兰"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 46429,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(4)",
+              "setup_time": "王林",
+              "address": "2023-12-15 12:06:57",
+              "captial": "简单",
+              "credit_code": "53秒"
+            }
+          },
+          "relationship": {
+            "identity": 471462,
+            "start": 46429,
+            "end": 120911,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120911,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "乌克兰"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.275
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 46429,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(4)",
+          "setup_time": "王林",
+          "address": "2023-12-15 12:06:57",
+          "captial": "简单",
+          "credit_code": "53秒"
+        }
+      },
+      "end": {
+        "identity": 120807,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "越南"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 46429,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(4)",
+              "setup_time": "王林",
+              "address": "2023-12-15 12:06:57",
+              "captial": "简单",
+              "credit_code": "53秒"
+            }
+          },
+          "relationship": {
+            "identity": 411461,
+            "start": 46429,
+            "end": 120807,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120807,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "越南"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.275
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 46429,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(4)",
+          "setup_time": "王林",
+          "address": "2023-12-15 12:06:57",
+          "captial": "简单",
+          "credit_code": "53秒"
+        }
+      },
+      "end": {
+        "identity": 120861,
+        "labels": [
+          "Region"
+        ],
+        "properties": {
+          "name": "浙江省"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 46429,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(4)",
+              "setup_time": "王林",
+              "address": "2023-12-15 12:06:57",
+              "captial": "简单",
+              "credit_code": "53秒"
+            }
+          },
+          "relationship": {
+            "identity": 29583,
+            "start": 46429,
+            "end": 120861,
+            "type": "locate",
+            "properties": {
+              "name": "类型"
+            }
+          },
+          "end": {
+            "identity": 120861,
+            "labels": [
+              "Region"
+            ],
+            "properties": {
+              "name": "浙江省"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.275
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 55345,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 11:13:31",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "47秒"
+        }
+      },
+      "end": {
+        "identity": 122725,
+        "labels": [
+          "Type"
+        ],
+        "properties": {
+          "name": "真题类"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 55345,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 11:13:31",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "47秒"
+            }
+          },
+          "relationship": {
+            "identity": 716536,
+            "start": 55345,
+            "end": 122725,
+            "type": "type",
+            "properties": {
+              "name": "类型"
+            }
+          },
+          "end": {
+            "identity": 122725,
+            "labels": [
+              "Type"
+            ],
+            "properties": {
+              "name": "真题类"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.25
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 55345,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 11:13:31",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "47秒"
+        }
+      },
+      "end": {
+        "identity": 120925,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "企业培训计划"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 55345,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 11:13:31",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "47秒"
+            }
+          },
+          "relationship": {
+            "identity": 328349,
+            "start": 55345,
+            "end": 120925,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120925,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "企业培训计划"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.25
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 55345,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 11:13:31",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "47秒"
+        }
+      },
+      "end": {
+        "identity": 120796,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "社交媒体直播"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 55345,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 11:13:31",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "47秒"
+            }
+          },
+          "relationship": {
+            "identity": 302917,
+            "start": 55345,
+            "end": 120796,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120796,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "社交媒体直播"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.25
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 55345,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 11:13:31",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "47秒"
+        }
+      },
+      "end": {
+        "identity": 120810,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "虚拟现实体验"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 55345,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 11:13:31",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "47秒"
+            }
+          },
+          "relationship": {
+            "identity": 215167,
+            "start": 55345,
+            "end": 120810,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120810,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "虚拟现实体验"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.25
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 55345,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 11:13:31",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "47秒"
+        }
+      },
+      "end": {
+        "identity": 120802,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "外交礼仪"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 55345,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 11:13:31",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "47秒"
+            }
+          },
+          "relationship": {
+            "identity": 214892,
+            "start": 55345,
+            "end": 120802,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120802,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "外交礼仪"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.25
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 55345,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 11:13:31",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "47秒"
+        }
+      },
+      "end": {
+        "identity": 120807,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "跨文化沟通"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 55345,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 11:13:31",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "47秒"
+            }
+          },
+          "relationship": {
+            "identity": 209684,
+            "start": 55345,
+            "end": 120807,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120807,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "跨文化沟通"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.25
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 55345,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 11:13:31",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "47秒"
+        }
+      },
+      "end": {
+        "identity": 120945,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "贸易法规"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 55345,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 11:13:31",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "47秒"
+            }
+          },
+          "relationship": {
+            "identity": 175225,
+            "start": 55345,
+            "end": 120945,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120945,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "贸易法规"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.25
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 55345,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 11:13:31",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "47秒"
+        }
+      },
+      "end": {
+        "identity": 120965,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "人道主义干预"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 55345,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 11:13:31",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "47秒"
+            }
+          },
+          "relationship": {
+            "identity": 138706,
+            "start": 55345,
+            "end": 120965,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120965,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "人道主义干预"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.25
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 55345,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 11:13:31",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "47秒"
+        }
+      },
+      "end": {
+        "identity": 120967,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "灾难响应"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 55345,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 11:13:31",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "47秒"
+            }
+          },
+          "relationship": {
+            "identity": 101540,
+            "start": 55345,
+            "end": 120967,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120967,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "灾难响应"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.25
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 55345,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 11:13:31",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "47秒"
+        }
+      },
+      "end": {
+        "identity": 120861,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "冲突预防"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 55345,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2011年3月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 11:13:31",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "47秒"
+            }
+          },
+          "relationship": {
+            "identity": 37085,
+            "start": 55345,
+            "end": 120861,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120861,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "冲突预防"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.25
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 61009,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "李依童",
+          "address": "2023-12-16 11:27:16",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "55秒"
+        }
+      },
+      "end": {
+        "identity": 122725,
+        "labels": [
+          "Type"
+        ],
+        "properties": {
+          "name": "真题类"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 61009,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "李依童",
+              "address": "2023-12-16 11:27:16",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "55秒"
+            }
+          },
+          "relationship": {
+            "identity": 670921,
+            "start": 61009,
+            "end": 122725,
+            "type": "type",
+            "properties": {
+              "name": "类型"
+            }
+          },
+          "end": {
+            "identity": 122725,
+            "labels": [
+              "Type"
+            ],
+            "properties": {
+              "name": "真题类"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.242857142857143
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 61009,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "李依童",
+          "address": "2023-12-16 11:27:16",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "55秒"
+        }
+      },
+      "end": {
+        "identity": 120967,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "外交礼仪"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 61009,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "李依童",
+              "address": "2023-12-16 11:27:16",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "55秒"
+            }
+          },
+          "relationship": {
+            "identity": 571233,
+            "start": 61009,
+            "end": 120967,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120967,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "外交礼仪"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.242857142857143
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 61009,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "李依童",
+          "address": "2023-12-16 11:27:16",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "55秒"
+        }
+      },
+      "end": {
+        "identity": 120810,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "危机管理"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 61009,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "李依童",
+              "address": "2023-12-16 11:27:16",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "55秒"
+            }
+          },
+          "relationship": {
+            "identity": 462927,
+            "start": 61009,
+            "end": 120810,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120810,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "危机管理"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.242857142857143
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 61009,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "李依童",
+          "address": "2023-12-16 11:27:16",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "55秒"
+        }
+      },
+      "end": {
+        "identity": 120945,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "公共演讲技巧"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 61009,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "李依童",
+              "address": "2023-12-16 11:27:16",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "55秒"
+            }
+          },
+          "relationship": {
+            "identity": 313987,
+            "start": 61009,
+            "end": 120945,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120945,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "公共演讲技巧"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.242857142857143
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 61009,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "李依童",
+          "address": "2023-12-16 11:27:16",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "55秒"
+        }
+      },
+      "end": {
+        "identity": 121013,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "人权倡导"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 61009,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "李依童",
+              "address": "2023-12-16 11:27:16",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "55秒"
+            }
+          },
+          "relationship": {
+            "identity": 238328,
+            "start": 61009,
+            "end": 121013,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 121013,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "人权倡导"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.242857142857143
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 61009,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "李依童",
+          "address": "2023-12-16 11:27:16",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "55秒"
+        }
+      },
+      "end": {
+        "identity": 120807,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "教学评估"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 61009,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "李依童",
+              "address": "2023-12-16 11:27:16",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "55秒"
+            }
+          },
+          "relationship": {
+            "identity": 220651,
+            "start": 61009,
+            "end": 120807,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120807,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "教学评估"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.242857142857143
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 61009,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+          "setup_time": "李依童",
+          "address": "2023-12-16 11:27:16",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "55秒"
+        }
+      },
+      "end": {
+        "identity": 120861,
+        "labels": [
+          "Region"
+        ],
+        "properties": {
+          "name": "浙江省"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 61009,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(2)",
+              "setup_time": "李依童",
+              "address": "2023-12-16 11:27:16",
+              "captial": "英翻中 简单 同传",
+              "credit_code": "55秒"
+            }
+          },
+          "relationship": {
+            "identity": 19112,
+            "start": 61009,
+            "end": 120861,
+            "type": "locate",
+            "properties": {
+              "name": "类型"
+            }
+          },
+          "end": {
+            "identity": 120861,
+            "labels": [
+              "Region"
+            ],
+            "properties": {
+              "name": "浙江省"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.242857142857143
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 44255,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+          "setup_time": "李依童",
+          "address": "2023-12-16 11:27:16",
+          "captial": "英翻中 简单 同传",
+          "credit_code": "55秒"
+        }
+      },
+      "end": {
+        "identity": 122725,
+        "labels": [
+          "Type"
+        ],
+        "properties": {
+          "name": "真题类"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 44255,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 13:48:16",
+              "captial": "英翻中 中等 同传",
+              "credit_code": "44秒"
+            }
+          },
+          "relationship": {
+            "identity": 704329,
+            "start": 44255,
+            "end": 122725,
+            "type": "type",
+            "properties": {
+              "name": "类型"
+            }
+          },
+          "end": {
+            "identity": 122725,
+            "labels": [
+              "Type"
+            ],
+            "properties": {
+              "name": "真题类"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.242857142857143
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 44255,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 13:48:16",
+          "captial": "英翻中 中等 同传",
+          "credit_code": "44秒"
+        }
+      },
+      "end": {
+        "identity": 122728,
+        "labels": [
+          "Type"
+        ],
+        "properties": {
+          "name": "人文类"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 44255,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 13:48:16",
+              "captial": "英翻中 中等 同传",
+              "credit_code": "44秒"
+            }
+          },
+          "relationship": {
+            "identity": 704329,
+            "start": 44255,
+            "end": 122728,
+            "type": "type",
+            "properties": {
+              "name": "类型"
+            }
+          },
+          "end": {
+            "identity": 122728,
+            "labels": [
+              "Type"
+            ],
+            "properties": {
+              "name": "人文类"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.073078749505342
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 44255,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 13:48:16",
+          "captial": "英翻中 中等 同传",
+          "credit_code": "44秒"
+        }
+      },
+      "end": {
+        "identity": 120913,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "心理咨询"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 44255,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 13:48:16",
+              "captial": "英翻中 中等 同传",
+              "credit_code": "44秒"
+            }
+          },
+          "relationship": {
+            "identity": 502695,
+            "start": 44255,
+            "end": 120913,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120913,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "心理咨询"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.073078749505342
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 44255,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 13:48:16",
+          "captial": "英翻中 中等 同传",
+          "credit_code": "44秒"
+        }
+      },
+      "end": {
+        "identity": 120968,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "企业社会责任"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 44255,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 13:48:16",
+              "captial": "英翻中 中等 同传",
+              "credit_code": "44秒"
+            }
+          },
+          "relationship": {
+            "identity": 484005,
+            "start": 44255,
+            "end": 120968,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120968,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "企业社会责任"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.073078749505342
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 44255,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 13:48:16",
+          "captial": "英翻中 中等 同传",
+          "credit_code": "44秒"
+        }
+      },
+      "end": {
+        "identity": 120815,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "金融市场"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 44255,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 13:48:16",
+              "captial": "英翻中 中等 同传",
+              "credit_code": "44秒"
+            }
+          },
+          "relationship": {
+            "identity": 478870,
+            "start": 44255,
+            "end": 120815,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120815,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "金融市场"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.073078749505342
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 44255,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 13:48:16",
+          "captial": "英翻中 中等 同传",
+          "credit_code": "44秒"
+        }
+      },
+      "end": {
+        "identity": 120787,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "机器学习"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 44255,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 13:48:16",
+              "captial": "英翻中 中等 同传",
+              "credit_code": "44秒"
+            }
+          },
+          "relationship": {
+            "identity": 274297,
+            "start": 44255,
+            "end": 120787,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120787,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "机器学习"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.073078749505342
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 44255,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 13:48:16",
+          "captial": "英翻中 中等 同传",
+          "credit_code": "44秒"
+        }
+      },
+      "end": {
+        "identity": 120807,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "企业培训计划"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 44255,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 13:48:16",
+              "captial": "英翻中 中等 同传",
+              "credit_code": "44秒"
+            }
+          },
+          "relationship": {
+            "identity": 83384,
+            "start": 44255,
+            "end": 120807,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120807,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "企业培训计划"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.073078749505342
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 44255,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+          "setup_time": "朱昕昕",
+          "address": "2023-12-16 13:48:16",
+          "captial": "英翻中 中等 同传",
+          "credit_code": "44秒"
+        }
+      },
+      "end": {
+        "identity": 120861,
+        "labels": [
+          "Region"
+        ],
+        "properties": {
+          "name": "浙江省"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 44255,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "2010年9月上海市中级口译第二阶段口试真题口译题(1)",
+              "setup_time": "朱昕昕",
+              "address": "2023-12-16 13:48:16",
+              "captial": "英翻中 中等 同传",
+              "credit_code": "44秒"
+            }
+          },
+          "relationship": {
+            "identity": 37818,
+            "start": 44255,
+            "end": 120861,
+            "type": "locate",
+            "properties": {
+              "name": "类型"
+            }
+          },
+          "end": {
+            "identity": 120861,
+            "labels": [
+              "Region"
+            ],
+            "properties": {
+              "name": "浙江省"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 2.073078749505342
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 10,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "001英译中-同传-东盟合作",
+          "setup_time": "刘思彤",
+          "address": "2023-12-17 12:45:31",
+          "captial": "英翻中 困难 会议口译",
+          "credit_code": "52秒"
+        }
+      },
+      "end": {
+        "identity": 122728,
+        "labels": [
+          "Type"
+        ],
+        "properties": {
+          "name": "人文类"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 10,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "001英译中-同传-东盟合作",
+              "setup_time": "刘思彤",
+              "address": "2023-12-17 12:45:31",
+              "captial": "英翻中 困难 会议口译",
+              "credit_code": "52秒"
+            }
+          },
+          "relationship": {
+            "identity": 624028,
+            "start": 10,
+            "end": 122728,
+            "type": "type",
+            "properties": {
+              "name": "类型"
+            }
+          },
+          "end": {
+            "identity": 122725,
+            "labels": [
+              "Type"
+            ],
+            "properties": {
+              "name": "人文类"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 0.0
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 10,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "001英译中-同传-东盟合作",
+          "setup_time": "刘思彤",
+          "address": "2023-12-17 12:45:31",
+          "captial": "英翻中 困难 会议口译",
+          "credit_code": "52秒"
+        }
+      },
+      "end": {
+        "identity": 120810,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "非营利组织会议"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 10,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "001英译中-同传-东盟合作",
+              "setup_time": "刘思彤",
+              "address": "2023-12-17 12:45:31",
+              "captial": "英翻中 困难 会议口译",
+              "credit_code": "52秒"
+            }
+          },
+          "relationship": {
+            "identity": 604982,
+            "start": 10,
+            "end": 120810,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120810,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "非营利组织会议"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 0.0
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 10,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "001英译中-同传-东盟合作",
+          "setup_time": "刘思彤",
+          "address": "2023-12-17 12:45:31",
+          "captial": "英翻中 困难 会议口译",
+          "credit_code": "52秒"
+        }
+      },
+      "end": {
+        "identity": 120965,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "政策理论"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 10,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "001英译中-同传-东盟合作",
+              "setup_time": "刘思彤",
+              "address": "2023-12-17 12:45:31",
+              "captial": "英翻中 困难 会议口译",
+              "credit_code": "52秒"
+            }
+          },
+          "relationship": {
+            "identity": 577929,
+            "start": 10,
+            "end": 120965,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120965,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "政策理论"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 0.0
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 10,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "001英译中-同传-东盟合作",
+          "setup_time": "刘思彤",
+          "address": "2023-12-17 12:45:31",
+          "captial": "英翻中 困难 会议口译",
+          "credit_code": "52秒"
+        }
+      },
+      "end": {
+        "identity": 120911,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "文化素养"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 10,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "001英译中-同传-东盟合作",
+              "setup_time": "刘思彤",
+              "address": "2023-12-17 12:45:31",
+              "captial": "英翻中 困难 会议口译",
+              "credit_code": "52秒"
+            }
+          },
+          "relationship": {
+            "identity": 406404,
+            "start": 10,
+            "end": 120911,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120911,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "文化素养"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 0.0
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 10,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "001英译中-同传-东盟合作",
+          "setup_time": "刘思彤",
+          "address": "2023-12-17 12:45:31",
+          "captial": "英翻中 困难 会议口译",
+          "credit_code": "52秒"
+        }
+      },
+      "end": {
+        "identity": 120945,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "职业理念"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 10,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "001英译中-同传-东盟合作",
+              "setup_time": "刘思彤",
+              "address": "2023-12-17 12:45:31",
+              "captial": "英翻中 困难 会议口译",
+              "credit_code": "52秒"
+            }
+          },
+          "relationship": {
+            "identity": 219530,
+            "start": 10,
+            "end": 120945,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120945,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "职业理念"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 0.0
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 10,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "001英译中-同传-东盟合作",
+          "setup_time": "刘思彤",
+          "address": "2023-12-17 12:45:31",
+          "captial": "英翻中 困难 会议口译",
+          "credit_code": "52秒"
+        }
+      },
+      "end": {
+        "identity": 120807,
+        "labels": [
+          "Country"
+        ],
+        "properties": {
+          "name": "越南"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 10,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "001英译中-同传-东盟合作",
+              "setup_time": "刘思彤",
+              "address": "2023-12-17 12:45:31",
+              "captial": "英翻中 困难 会议口译",
+              "credit_code": "52秒"
+            }
+          },
+          "relationship": {
+            "identity": 115562,
+            "start": 10,
+            "end": 120807,
+            "type": "export",
+            "properties": {
+              "name": "包含"
+            }
+          },
+          "end": {
+            "identity": 120807,
+            "labels": [
+              "Country"
+            ],
+            "properties": {
+              "name": "越南"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 0.0
+  },
+  {
+    "p": {
+      "start": {
+        "identity": 10,
+        "labels": [
+          "Enterprise"
+        ],
+        "properties": {
+          "name": "001英译中-同传-东盟合作",
+          "setup_time": "刘思彤",
+          "address": "2023-12-17 12:45:31",
+          "captial": "英翻中 困难 会议口译",
+          "credit_code": "52秒"
+        }
+      },
+      "end": {
+        "identity": 120861,
+        "labels": [
+          "Region"
+        ],
+        "properties": {
+          "name": "浙江省"
+        }
+      },
+      "segments": [
+        {
+          "start": {
+            "identity": 10,
+            "labels": [
+              "Enterprise"
+            ],
+            "properties": {
+              "name": "001英译中-同传-东盟合作",
+              "setup_time": "刘思彤",
+              "address": "2023-12-17 12:45:31",
+              "captial": "英翻中 困难 会议口译",
+              "credit_code": "52秒"
+            }
+          },
+          "relationship": {
+            "identity": 31637,
+            "start": 10,
+            "end": 120861,
+            "type": "locate",
+            "properties": {
+              "name": "类型"
+            }
+          },
+          "end": {
+            "identity": 120861,
+            "labels": [
+              "Region"
+            ],
+            "properties": {
+              "name": "浙江省"
+            }
+          }
+        }
+      ],
+      "length": 1.0
+    },
+    "score": 0.0
+  }
+]
