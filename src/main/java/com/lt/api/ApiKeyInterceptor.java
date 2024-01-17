@@ -29,7 +29,8 @@ public class ApiKeyInterceptor implements HandlerInterceptor {
             Method method = handlerMethod.getMethod();
             // 检查方法上是否有@ApiKeyRequired注解
             if (method.isAnnotationPresent(ApiKeyRequired.class)) {
-//                System.out.println("需要密钥："+VALID_API_KEY);
+//                System.out.println
+//                                    ("需要密钥："+VALID_API_KEY);
                 String apiKey = request.getHeader("Authorization");//获取请求中的API密钥
                 //下面进行判断，（是否有效）
                 if (apiKey != null && apiKey.equals("Bearer " + VALID_API_KEY)) {
