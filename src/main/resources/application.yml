@@ -3,13 +3,13 @@ spring:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
       #远程服务器环境
-      url: jdbc:mysql://8.137.53.253:3306/corpusrole?characterEncoding=utf8&serverTimezone=GMT%2b8
-      username: corpusrole
-      password: CbHdmG7xF8fEyjs4
-  #本地环境
-  #      url: jdbc:mysql://localhost:3306/corpusrole
-  #      username: root
-  #      password: 123456
+#      url: jdbc:mysql://8.137.53.253:3306/corpusrole?characterEncoding=utf8&serverTimezone=GMT%2b8
+#      username: corpusrole
+#      password: CbHdmG7xF8fEyjs4
+#  本地环境
+      url: jdbc:mysql://localhost:3306/corpusrole
+      username: root
+      password: 123456
   servlet:
     multipart: #对上传的文件大小进行设置
       max-file-size: 20MB
@@ -42,7 +42,6 @@ strapi:
   url: http://8.137.53.253:1337/
 
   #这个可能需要更新
-  #  AuthToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzAyNjIzNTkwLCJleHAiOjE3MDUyMTU1OTB9.1V5hn48_qBuo6Bomf2zYVoghCpSvhGgyEhlpZ7CHQqs
   AuthToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzAyNzA4NzI3LCJleHAiOjE3MDUzMDA3Mjd9.80OUAPcEXzS-5tCVaTgM51zOgUHSg6cKixOPLGwRcYw
   #上传的语料资源的地址
   #  strapiUploadUrl: http://localhost:1337/upload
