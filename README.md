@@ -18,3 +18,5 @@
 2. Java 1.8
 3. Mybatis-Plus 3.5.2
 4. MySQL本地 or 远程8.137.53.253:3306
+
+测试Gitee
