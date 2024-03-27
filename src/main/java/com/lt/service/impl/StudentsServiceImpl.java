@@ -68,11 +68,13 @@ public class StudentsServiceImpl extends ServiceImpl<studentDao, students> imple
 
     @Override
     public Result registe(students stu) {
+        log.info("学生用户开始了注册："+stu.getStunumber());
         String usernumber = stu.getStunumber();
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq("stunumber", usernumber);
         students user = studentDao.selectOne(wrapper);
         if (user != null) {
+            log.info("学生用户的注册信息已存在，请重新注册");
             return new Result(Code.SAVE_ERR, "用户已存在，请重新输入!", stu);//失败时，返回的是用户输入的信息
         } else {
             String hashedPassword = hashPassword(stu.getStupassword());

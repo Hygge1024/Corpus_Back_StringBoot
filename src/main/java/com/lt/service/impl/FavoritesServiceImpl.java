@@ -7,14 +7,22 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lt.dao.FavoriteDao;
 import com.lt.domain.Favorites;
 import com.lt.service.FavoritesService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+@Slf4j
 @Service
 public class FavoritesServiceImpl extends ServiceImpl<FavoriteDao, Favorites> implements FavoritesService {
     @Autowired
     private FavoriteDao favoriteDao;
 
+    /**
+     * 根据页数及用户id查询用户的收藏信息
+     * @param currentPage 当前页
+     * @param pageSize 每页的显示数量
+     * @param userid 用户id
+     * @return 收藏数组
+     */
     @Override
     public IPage<Favorites> getAllStu(int currentPage, int pageSize, String userid) {
         //创建分页对象
@@ -86,6 +94,7 @@ public class FavoritesServiceImpl extends ServiceImpl<FavoriteDao, Favorites> im
                 .eq("userid", favorites.getUserid())
                 .eq("who", favorites.getWho());
         Favorites favorites1 = favoriteDao.selectOne(wrapper);
+        log.info("tagid："+favorites.getTagids());
         if (favorites1 != null) {
             return -1;//表示已经存在，不需要再添加了
         }
