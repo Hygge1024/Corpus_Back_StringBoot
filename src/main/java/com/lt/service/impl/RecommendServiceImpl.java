@@ -29,8 +29,8 @@ public class RecommendServiceImpl implements RecommendService {
      */
     @Override
     public List<Corpus> getRecommendByUserID(String userid) {
-        int number_tags = 3;
-        int number_tag_corpus = 3;
+        int number_tags = 2;
+        int number_tag_corpus = 1;
 
         /**
          * 1.查询当前用户的收藏信息
@@ -89,6 +89,8 @@ public class RecommendServiceImpl implements RecommendService {
 //        log.info("收藏者收藏的语料："+favoriteCorpusList);
         for(int tagid : tagids){
             List<Corpus> corpusList = corpusService.getByTag_ids(tagid); //通过tagid找到的相似corpus数据（还需要下面通过相关算法实现计算）
+            // 删除corpusList中与favoriteCorpusList重合的元素
+            corpusList.removeAll(favoriteCorpusList);
             /**
              * 5.将三个数组 通过相似度算法得到最相似的 n 个corpus（具体多少后续讨论）
              */

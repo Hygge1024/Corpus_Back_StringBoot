@@ -24,4 +24,5 @@ public class CorpusDao {
     private int Published;//练习发布状态，0 未发布、1 发布、 2 取消发布
     private Long File;//音频文件id
     private List<String> tag_ids;//语料标签
+//    private int amount;//该语料被练习次数
 }

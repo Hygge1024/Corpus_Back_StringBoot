@@ -1,5 +1,6 @@
 package com.lt.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
@@ -41,4 +42,6 @@ public class Corpus {
     private List<FileData> File;
     @JsonProperty("Tag_ids")
     private List<Tag> Tag_ids;
+//    @JsonIgnore
+    private int exercise_count;//该语料被练习次数（主要服务与首页查询）
 }

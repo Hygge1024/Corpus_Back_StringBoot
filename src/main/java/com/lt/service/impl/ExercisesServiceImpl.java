@@ -302,6 +302,7 @@ public class ExercisesServiceImpl implements ExercisesService {
             // 发送PUT请求
             HttpResponse response = httpClient.execute(httpPut);
             int statusCode = response.getStatusLine().getStatusCode();
+            log.info("这里问题了吗？");
             System.out.println(statusCode); //!!!出现问题需要解决
             if (statusCode == 200) {
                 return 1;

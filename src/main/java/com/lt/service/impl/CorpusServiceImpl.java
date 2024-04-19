@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.lt.domain.*;
 import com.lt.service.CorpusService;
+import com.lt.service.ExercisesService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -15,6 +17,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -32,6 +35,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+@Slf4j
 @Service
 public class CorpusServiceImpl implements CorpusService {
     private static final RestTemplate restTemplate = new RestTemplate();
@@ -40,6 +44,16 @@ public class CorpusServiceImpl implements CorpusService {
     private static String CorpusAll_url;
     private static String CorpusOne_url;
     private static String strapiUploadUrl;
+
+    //为了避免循环依赖，单独写获取练习的接口
+    private static String ExercisesAll_Url;
+    private static String ExercisesOne_Url;
+
+    @Value("${strapi.url}")
+    public void setExercisesAll_Url(String url) {
+        ExercisesAll_Url = url + "exercises";
+    }
+
 
     @Value("${strapi.url}")
     public void setCorpusAll_url(String url) {
@@ -64,6 +78,10 @@ public class CorpusServiceImpl implements CorpusService {
         try {
             List<Corpus> corpusList = objectMapper.readValue(jsonResponse, new TypeReference<List<Corpus>>() {
             });
+            for(Corpus corpus : corpusList){
+//                log.info("当前语料"+corpus.getId() + "的被答题数量为：" + this.getExercisesByCid(corpus.getId()).size());
+                corpus.setExercise_count(this.getExercisesByCid(corpus.getId()).size());
+            }
             return corpusList;
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);//都在直接抛出异常
@@ -390,5 +408,23 @@ public class CorpusServiceImpl implements CorpusService {
         return objectMapper.readValue(path.toFile(), valueType);
     }
 
+
+    //通过语料cid获取练习的数量
+    public List<Exercises> getExercisesByCid(int cid) {
+        ExercisesOne_Url = ExercisesAll_Url + "?Corpus=";
+        ExercisesOne_Url += cid;
+//        System.out.println(ExercisesOne_Url);
+        String jsonResponse = restTemplate.getForObject(ExercisesOne_Url, String.class);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);//将“未知属性异常”设置为false
+        try {
+            List<Exercises> exercisesList = objectMapper.readValue(jsonResponse, new TypeReference<List<Exercises>>() {
+            });
+
+            return exercisesList;
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
