@@ -22,7 +22,8 @@ public class CorpusDao {
     private Date created_at;//创建时间
     private int State;//有效状态 1（有效） 2（无效） 模拟删除效果
     private int Published;//练习发布状态，0 未发布、1 发布、 2 取消发布
-    private Long File;//音频文件id
+    private Long File;//音频文件id(视频or音频)
+    private Long Picture;//图像id
     private List<String> tag_ids;//语料标签
 //    private int amount;//该语料被练习次数
 }

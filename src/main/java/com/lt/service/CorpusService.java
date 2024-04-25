@@ -31,6 +31,9 @@ public interface CorpusService {
     //上传文件（语料资源.mp3 .mp4）
     RcCorpus upload(MultipartFile file);
 
+    //上传图片 （PNG、JPG）
+    RcCorpus uploadPic(MultipartFile file);
+
     //上传完整的语料
     int create(CorpusDao corpusDao);
 

@@ -7,6 +7,7 @@ import com.lt.domain.CorpusDao;
 import com.lt.domain.RcCorpus;
 import com.lt.service.BaiduService;
 import com.lt.service.CorpusService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +15,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/corpus")
 @CrossOrigin
@@ -65,7 +69,10 @@ public class CorpusController {
         List<Corpus> corpusList = corpusService.getPage(currentPage, pageSize);
         Integer code = corpusList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = corpusList != null ? "查询成功" : "数据查询失败，请重试!";
-        return new Result(code, msg, corpusList);
+        Map<String,Object> data = new HashMap<>();
+        data.put("total",corpusService.getAllCorpus().size());
+        data.put("list",corpusList);
+        return new Result(code, msg, data);
     }
 
     @GetMapping("/byTnumber/{currentPage}/{pageSize}/{tnumber}")
@@ -101,7 +108,10 @@ public class CorpusController {
         List<Corpus> corpusList = corpusService.getByFactory(currentPage, pageSize, Direction, Difficulty, Type, Tag_ids, Title_contains);
         Integer code = corpusList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = corpusList != null ? "查询成功" : "数据查询失败，请重试!";
-        return new Result(code, msg, corpusList);
+        Map<String,Object> data = new HashMap<>();
+        data.put("total",corpusList.size());
+        data.put("list",corpusList);
+        return new Result(code, msg, data);
     }
 
     @GetMapping({"/self/{currentPage}/{pageSize}/{AuthorID}/{Title_contains}/{created_at}", "/self/{currentPage}/{pageSize}/{AuthorID}", "/self/{currentPage}/{pageSize}/{AuthorID}/{Title_contains}", "/self/{currentPage}/{pageSize}/{AuthorID}/{created_at}"})
@@ -123,17 +133,42 @@ public class CorpusController {
 
 
     @PostMapping(value = "/upload")
-    public Result uploadFile(@RequestParam("multipartFile") MultipartFile multipartFile, @ModelAttribute CorpusDao corpusDTO) throws IOException, InterruptedException {
-        RcCorpus rcCorpus = corpusService.upload(multipartFile);//获取上传的文件的id 和 线上地址，方便下面调用百度api
-        System.out.println(rcCorpus.getFileId());
-        corpusDTO.setFile(rcCorpus.getFileId());
-        //不需要调用————应该删除
-//       原文识别调用百度api，fileUrl在rcCorpus对象中
-//        System.out.println(Url.substring(0, Url.length() - 1) + rcCorpus.getFileUrl());
-//        String result = baiduService.Toriginaltext("http://8.137.53.253:1337/uploads/cancer_treatment_could_get_a_vaccine_b326cf9cd8.mp3", corpusDTO.getDirection(), BaiDuAPI_KEY, BaiDuSECRET_KEY);
-//        String result = baiduService.Toriginaltext(Url.substring(0, Url.length() - 1) + rcCorpus.getFileUrl(), corpusDTO.getDirection(), BaiDuAPI_KEY, BaiDuSECRET_KEY);
-//        corpusDTO.setOriginaltext(result);
+    public Result uploadFile(@RequestParam("multipartFiles") MultipartFile[] multipartFiles, @ModelAttribute CorpusDao corpusDTO) throws IOException, InterruptedException {
+        log.info("开始上传语料资源");
+        RcCorpus rcCorpus = new RcCorpus();
+        RcCorpus rcCorpus1 = new RcCorpus();
 
+        String file1ContentType = "";
+        String file2ContentType = "";
+        if (multipartFiles.length < 2) {
+//            return new Result(Code.UPDATE_ERR, "文件类型符合要求", null);
+            file1ContentType = multipartFiles[0].getContentType();
+        }else{
+            file1ContentType = multipartFiles[0].getContentType();
+            file2ContentType = multipartFiles[1].getContentType();
+        }
+        //对文件进行类型的判断，multipartFiles[0]是视频或者音频，
+
+        log.info("第一个进行的是:"+file1ContentType);
+        log.info("第二个进行的是:"+file2ContentType);
+
+
+        if(file1ContentType != null && (file1ContentType.equals("audio/mp3") || file1ContentType.equals("audio/mp4") || file1ContentType.equals("application/json"))){
+            rcCorpus = corpusService.upload(multipartFiles[0]);//获取上传的文件的id 和 线上地址，方便下面调用百度api
+        }
+        if(file2ContentType != null && (file2ContentType.startsWith("image/"))){
+            rcCorpus1 = corpusService.uploadPic(multipartFiles[1]);//获取上传的图片的id 和 线上地址，方便下面调用百度api
+        }
+
+        log.info("上传音视频后的id：" + rcCorpus.getFileId());
+        log.info("上传图片后的id：" + rcCorpus1.getFileId());
+
+        corpusDTO.setFile(rcCorpus.getFileId());
+        corpusDTO.setPicture(rcCorpus1.getFileId());
+
+
+        log.info("文件上传成功，开始上传文章内容");
+        System.out.println(corpusDTO);
 //        正式上传
         int flag = corpusService.create(corpusDTO);
         Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;

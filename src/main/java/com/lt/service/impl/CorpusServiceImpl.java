@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import com.lt.domain.*;
 import com.lt.service.CorpusService;
 import com.lt.service.ExercisesService;
@@ -17,6 +18,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
@@ -175,9 +178,13 @@ public class CorpusServiceImpl implements CorpusService {
         try {
             List<Corpus> corpusList = objectMapper.readValue(jsonResponse, new TypeReference<List<Corpus>>() {
             });
-            int startIndex = (currentPage - 1) * pageSize;
-            int endIndex = Math.min(startIndex + pageSize, corpusList.size());
-            return corpusList.subList(startIndex, endIndex);
+            if(pageSize == 0 && currentPage == 0){
+                return corpusList;
+            }else{
+                int startIndex = (currentPage - 1) * pageSize;
+                int endIndex = Math.min(startIndex + pageSize, corpusList.size());
+                return corpusList.subList(startIndex, endIndex);
+            }
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);//都在直接抛出异常
         }
@@ -201,18 +208,21 @@ public class CorpusServiceImpl implements CorpusService {
             // 发送POST请求将文件上传至Strapi
             RestTemplate restTemplate = new RestTemplate();
             ResponseEntity<String> response = restTemplate.exchange(strapiUploadUrl, HttpMethod.POST, requestEntity, String.class);
+
             // 检查请求是否成功
             if (response.getStatusCode() == HttpStatus.OK) {
                 //解析JSON数据为FileData对象
                 ObjectMapper objectMapper = new ObjectMapper();
                 objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);//将“未知属性异常”设置为false
+                log.info("解析Json为FileData正常");
                 List<FileData> fileList = objectMapper.readValue(response.getBody(), new TypeReference<List<FileData>>() {
                 });
+//                log.info();
                 if (!fileList.isEmpty()) {
+                    log.info("音视频进入最终测试检验");
                     String fileUrl = fileList.get(0).getUrl();
-                    System.out.println(fileUrl);
                     Long fileId = fileList.get(0).getId();
-                    System.out.println("这个返回的fileId = " + fileId);
+                    log.info("提交正确，获取Mp3|Mp4 的URL:"+fileUrl);
                     RcCorpus rcCorpus = new RcCorpus();
                     rcCorpus.setFileUrl(fileUrl);
                     rcCorpus.setFileId(fileId);
@@ -223,7 +233,56 @@ public class CorpusServiceImpl implements CorpusService {
             } else {
                 return null;
             }
+        }
+        catch (MismatchedInputException e) {
+            e.printStackTrace();
+            // 处理无法解析的异常
+            throw new RuntimeException("无法解析 JSON 数据(数据上传格式错误！): " + e.getMessage());
         } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("解析JSON时出现异常: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public RcCorpus uploadPic(MultipartFile file) {
+        try {
+            // 准备包含文件的多部分请求
+            MultiValueMap<String, Object> bodyMap = new LinkedMultiValueMap<>();
+            bodyMap.add("files", file.getResource());
+
+            // 准备带有认证令牌的请求头
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+            headers.setBearerAuth(strapiAuthToken);
+
+            HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(bodyMap, headers);
+            // 发送POST请求将文件上传至Strapi
+            RestTemplate restTemplate = new RestTemplate();
+            ResponseEntity<String> response = restTemplate.exchange(strapiUploadUrl, HttpMethod.POST, requestEntity, String.class);
+//            log.info("返回值为："+response);
+
+            // 检查请求是否成功
+            if (response.getStatusCode() == HttpStatus.OK) {
+
+                JSONArray jsonArray = new JSONArray(response.getBody());
+                JSONObject jsonObject = jsonArray.getJSONObject(0);
+                log.info(jsonObject.toString());
+
+                RcCorpus rcCorpus = new RcCorpus();
+                rcCorpus.setFileId((long) jsonObject.getInt("id"));
+
+                JSONObject formats = jsonObject.getJSONObject("formats");
+                JSONObject largeFormat = formats.getJSONObject("small");
+                String largeUrl = largeFormat.getString("url");
+                log.info("提交正确，获取picture 的URL:"+largeUrl);
+                rcCorpus.setFileUrl(largeUrl);
+                return rcCorpus;
+            } else {
+                return null;
+            }
+        }
+        catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("解析JSON时出现异常: " + e.getMessage());
         }

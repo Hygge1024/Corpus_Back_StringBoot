@@ -17,7 +17,7 @@ public class CorpusServiceTest {
     @Test
     void getAllCorpus() {
         List<Corpus> corpusList = corpusService.getAllCorpus();
-        System.out.println(corpusList);
+        System.out.println(corpusList.size());
     }
 
     @Test
