@@ -40,6 +40,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -76,15 +77,15 @@ public class ExercisesServiceImpl implements ExercisesService {
     public List<Exercises> getAllExercises(String stuId) {
         String ExercisesAll_UrlDemo = ExercisesAll_Url + "?StuID=" + stuId;
         String jsonResponse = restTemplate.getForObject(ExercisesAll_UrlDemo, String.class);
-//        System.out.println("输出结果为：" + jsonResponse);
+        // System.out.println("输出结果为：" + jsonResponse);
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);//将“未知属性异常”设置为false
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);// 将“未知属性异常”设置为false
         try {
             List<Exercises> exercisesList = objectMapper.readValue(jsonResponse, new TypeReference<List<Exercises>>() {
             });
             return exercisesList;
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);//都在直接抛出异常
+            throw new RuntimeException(e);// 都在直接抛出异常
         }
     }
 
@@ -92,13 +93,13 @@ public class ExercisesServiceImpl implements ExercisesService {
     public Exercises getOneExercises(int eid) {
         ExercisesOne_Url = ExercisesAll_Url + "/";
         ExercisesOne_Url += eid;
-//        System.err.println(ExercisesOne_Url);
+        // System.err.println(ExercisesOne_Url);
         String jsonResponse = restTemplate.getForObject(ExercisesOne_Url, String.class);
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);//将“未知属性异常”设置为false
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);// 将“未知属性异常”设置为false
         try {
             Exercises exercises = objectMapper.readValue(jsonResponse, Exercises.class);
-            //更新部分
+            // 更新部分
             int cid = exercises.getCorpus().getId();
             List<Tag> tagsList = corpusService.getOneCorpus(cid).getTag_ids();
             exercises.getCorpus().setTag_ids(tagsList);
@@ -120,10 +121,10 @@ public class ExercisesServiceImpl implements ExercisesService {
     public List<Exercises> getByCid(int cid) {
         ExercisesOne_Url = ExercisesAll_Url + "?Corpus=";
         ExercisesOne_Url += cid;
-//        System.out.println(ExercisesOne_Url);
+        // System.out.println(ExercisesOne_Url);
         String jsonResponse = restTemplate.getForObject(ExercisesOne_Url, String.class);
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);//将“未知属性异常”设置为false
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);// 将“未知属性异常”设置为false
         try {
             List<Exercises> exercisesList = objectMapper.readValue(jsonResponse, new TypeReference<List<Exercises>>() {
             });
@@ -149,14 +150,16 @@ public class ExercisesServiceImpl implements ExercisesService {
             HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(bodyMap, headers);
             // 发送POST请求将文件上传至Strapi
             RestTemplate restTemplate = new RestTemplate();
-            ResponseEntity<String> response = restTemplate.exchange(strapiUploadUrl, HttpMethod.POST, requestEntity, String.class);
+            ResponseEntity<String> response = restTemplate.exchange(strapiUploadUrl, HttpMethod.POST, requestEntity,
+                    String.class);
             // 检查请求是否成功
             if (response.getStatusCode() == HttpStatus.OK) {
-                //解析JSON数据为FileData对象
+                // 解析JSON数据为FileData对象
                 ObjectMapper objectMapper = new ObjectMapper();
-                objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);//将“未知属性异常”设置为false
-                List<FileData> fileList = objectMapper.readValue(response.getBody(), new TypeReference<List<FileData>>() {
-                });
+                objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);// 将“未知属性异常”设置为false
+                List<FileData> fileList = objectMapper.readValue(response.getBody(),
+                        new TypeReference<List<FileData>>() {
+                        });
                 if (!fileList.isEmpty()) {
                     Long fileId = fileList.get(0).getId();
                     String fileUrl = fileList.get(0).getUrl();
@@ -180,26 +183,26 @@ public class ExercisesServiceImpl implements ExercisesService {
 
     @Override
     public int create(ExercisesDao exercises) {
-        //添加时间属性
+        // 添加时间属性
         Calendar calendar = Calendar.getInstance();
         Date currentDate = calendar.getTime();
         exercises.setPublished_at(currentDate);
         exercises.setCreated_at(currentDate);
-        //调用strapi提供的API上传信息
+        // 调用strapi提供的API上传信息
         HttpClient httpClient = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost(ExercisesAll_Url);
-        //将ExercisesDao对象转换成JSON对象
+        // 将ExercisesDao对象转换成JSON对象
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.UPPER_CAMEL_CASE); // 设置属性名命名策略
         try {
             String jsonBody = objectMapper.writeValueAsString(exercises);
-            //设置请求体为JSON格式
+            // 设置请求体为JSON格式
             StringEntity requestEntity = new StringEntity(jsonBody, StandardCharsets.UTF_8);
-            requestEntity.setContentType("application/json; charset=utf-8");//; charset=utf-8
+            requestEntity.setContentType("application/json; charset=utf-8");// ; charset=utf-8
             httpPost.setEntity(requestEntity);
-            //添加令牌到请求头
+            // 添加令牌到请求头
             httpPost.addHeader("Authorization", "Bearer " + strapiAuthToken);
-            //发送请求并处理
+            // 发送请求并处理
             HttpResponse response = httpClient.execute(httpPost);
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode == 200) {
@@ -243,7 +246,7 @@ public class ExercisesServiceImpl implements ExercisesService {
             // 发送PUT请求
             HttpResponse response = httpClient.execute(httpPut);
             int statusCode = response.getStatusLine().getStatusCode();
-            System.out.println(statusCode); //!!!出现问题需要解决
+            System.out.println(statusCode); // !!!出现问题需要解决
             if (statusCode == 200) {
                 return 1;
             } else {
@@ -268,12 +271,12 @@ public class ExercisesServiceImpl implements ExercisesService {
         float Pace = 0;
         float Volume = 0;
         /*
-        这里需要添加接口用来实现 语速Pace、音量Volume 的自动识别
+         * 这里需要添加接口用来实现 语速Pace、音量Volume 的自动识别
          */
         float ends[] = getautoScore(eid);
-        Volume = ends[0]; //音量
-        Pace = ends[1]; //语速
-        //流利度、标准度、准确度、完整度、语速、音量
+        Volume = ends[0]; // 音量
+        Pace = ends[1]; // 语速
+        // 流利度、标准度、准确度、完整度、语速、音量
         float AllScore = (float) ((float) exerciseScoreDao.getInformation() * 0.55 +
                 (float) exerciseScoreDao.getFluency() * 0.20 +
                 (float) exerciseScoreDao.getGrammar() * 0.10 +
@@ -303,7 +306,7 @@ public class ExercisesServiceImpl implements ExercisesService {
             HttpResponse response = httpClient.execute(httpPut);
             int statusCode = response.getStatusLine().getStatusCode();
             log.info("这里问题了吗？");
-            System.out.println(statusCode); //!!!出现问题需要解决
+            System.out.println(statusCode); // !!!出现问题需要解决
             if (statusCode == 200) {
                 return 1;
             } else {
@@ -321,15 +324,15 @@ public class ExercisesServiceImpl implements ExercisesService {
 
     @Override
     public int delete(int eid) {
-        //完善删除url路径
+        // 完善删除url路径
         String DeleteUrl = ExercisesAll_Url + "/" + eid;
-        //创建HttpClient
+        // 创建HttpClient
         HttpClient httpClient = HttpClients.createDefault();
-        HttpDelete httpDelete = new HttpDelete(DeleteUrl);//添加删除url
-        //添加授权令牌到请求头
+        HttpDelete httpDelete = new HttpDelete(DeleteUrl);// 添加删除url
+        // 添加授权令牌到请求头
         httpDelete.addHeader("Authorization", "Bearer " + strapiAuthToken);
         try {
-            //发送DELETE请求
+            // 发送DELETE请求
             HttpResponse response = httpClient.execute(httpDelete);
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode == 200) {
@@ -344,32 +347,32 @@ public class ExercisesServiceImpl implements ExercisesService {
         }
     }
 
-    //单独的方法，用于计算音量+语速
+    // 单独的方法，用于计算音量+语速
     /*
-    思路：
-    通过eid向strapi发送请求，得到对应的练习资源（如 音频的url + identityText）
-    音频的url：将资源格式转化成mav =》 通过算法获取 振幅+音量(db)
-    identityText（识别文本，不需要区分=》都识别） =》 通过算法获得的音频时长 计算 每分钟单词数，根据标准给出具体的得分
-    注意：统计数字的部分可能有待加强
+     * 思路：
+     * 通过eid向strapi发送请求，得到对应的练习资源（如 音频的url + identityText）
+     * 音频的url：将资源格式转化成mav =》 通过算法获取 振幅+音量(db)
+     * identityText（识别文本，不需要区分=》都识别） =》 通过算法获得的音频时长 计算 每分钟单词数，根据标准给出具体的得分
+     * 注意：统计数字的部分可能有待加强
      */
     @Override
     public float[] getautoScore(int eid) {
         float[] ends = new float[2];
         Exercises exercises = this.getOneExercises(eid);
-        //识别文本：用于计算语速
-        String IdentifyText = exercises.getIdentifyText();//识别文本（学生上传的 翻译音频识别的结果）
+        // 识别文本：用于计算语速
+        String IdentifyText = exercises.getIdentifyText();// 识别文本（学生上传的 翻译音频识别的结果）
         List<FileData> fileDataList = exercises.getStuFile();
-//        int Direction = exercises.getCorpus().getDirection();//翻译方向，1英翻中，2中翻英
-        int textCount = countWords(IdentifyText) + countChineseCharacters(IdentifyText);//文字数量，全跑一边，统计所有
-        //文件路径：计算音量+音频时长
+        // int Direction = exercises.getCorpus().getDirection();//翻译方向，1英翻中，2中翻英
+        int textCount = countWords(IdentifyText) + countChineseCharacters(IdentifyText);// 文字数量，全跑一边，统计所有
+        // 文件路径：计算音量+音频时长
         String filePath = OriginalUrl.substring(0, OriginalUrl.length() - 1) + fileDataList.get(0).getUrl();
-        //先对音频进行格式转换
+        // 先对音频进行格式转换
         String outputFilePath;
-//        = "src/main/resources/static/temp.wav";//零时的文件——运行结束就删除了_本地
-    /*
-    针对上面：jar包中无相对路径——解决方案
-    创建零时文件，并获得其路径
-     */
+        // = "src/main/resources/static/temp.wav";//零时的文件——运行结束就删除了_本地
+        /*
+         * 针对上面：jar包中无相对路径——解决方案
+         * 创建零时文件，并获得其路径
+         */
         File tempFile = null;
         try {
             tempFile = File.createTempFile("temp", ".wav");
@@ -387,14 +390,14 @@ public class ExercisesServiceImpl implements ExercisesService {
             ends[1] = 0;
             return ends;
         }
-        //获取音频时长
+        // 获取音频时长
         double TimeLength = getLength(outputFilePath);
-        //获取音频音量信息
-        double db = calculateAmplitudeAndVolume(outputFilePath);//计算分贝值
+        // 获取音频音量信息
+        double db = calculateAmplitudeAndVolume(outputFilePath);// 计算分贝值
         double Volume = scoreVolume(db);
-        double Speed = textCount / TimeLength;//计算语速 字/每秒
+        double Speed = textCount / TimeLength;// 计算语速 字/每秒
         double Pace = scoreTranslationSpeed(Speed);
-//         删除输出文件
+        // 删除输出文件
         File outputFile = new File(outputFilePath);
         if (outputFile.exists()) {
             try {
@@ -409,24 +412,24 @@ public class ExercisesServiceImpl implements ExercisesService {
         }
         ends[0] = (float) Volume;
         ends[1] = (float) Pace;
-        //输出查看区域
+        // 输出查看区域
         System.out.println("完整的音频路径： " + filePath);
         System.out.println("文字总数量为：" + textCount);
         System.out.println("音量db： " + Volume);
         System.out.println("音频时长： " + TimeLength);
         System.out.println("语速:" + ends[1] + "字/秒");
-        return ends;//返回值为int[] 数组格式，语速+音量
+        return ends;// 返回值为int[] 数组格式，语速+音量
 
     }
 
     @Override
     public List<Exercises> getExerciseByClass(String stuclas) {
-        //先通过班级查询所有的学生
+        // 先通过班级查询所有的学生
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq("stuclass", stuclas);
         List<students> studentsList = studentDao.selectList(wrapper);
         log.info("班级查询到的学生有：" + studentsList);
-        //再通过学生stuid查询exercises表查询所有满足条件的练习 -> 练习整合后返回给前端
+        // 再通过学生stuid查询exercises表查询所有满足条件的练习 -> 练习整合后返回给前端
         List<Exercises> exercisesList = new ArrayList<>();
         QueryWrapper wrapper1 = new QueryWrapper();
         for (students stu : studentsList) {
@@ -437,7 +440,29 @@ public class ExercisesServiceImpl implements ExercisesService {
         return exercisesList;
     }
 
-    //统计中文字数
+    @Override
+    public List<Exercises> getExerciseSubmissionsByClassAndExercise(String classname, int exerciseId) {
+        // 先通过班级查询所有的学生
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("stuclass", classname);
+        List<students> studentsList = studentDao.selectList(wrapper);
+        log.info("班级查询到的学生有：" + studentsList);
+        // 再通过学生stuid查询exercises表查询所有满足条件的练习 -> 练习整合后返回给前端
+        List<Exercises> filteredExercises = new ArrayList<>();
+        for (students stu : studentsList) {
+            List<Exercises> exercisesList = this.getAllExercises(stu.getStunumber());
+            // 筛选出对应特定练习ID的练习
+            List<Exercises> specificExercises = exercisesList.stream()
+                    .filter(exercise -> exercise.getCorpus().getId() == exerciseId)
+                    .collect(Collectors.toList());
+            log.info("班级" + classname + "里的同学" + stu.getStunumber() + "提交的练习ID为" + exerciseId + "的练习有："
+                    + specificExercises);
+            filteredExercises.addAll(specificExercises);
+        }
+        return filteredExercises;
+    }
+
+    // 统计中文字数
     public static int countChineseCharacters(String text) {
         int count = 0;
         for (int i = 0; i < text.length(); i++) {
@@ -449,7 +474,7 @@ public class ExercisesServiceImpl implements ExercisesService {
         return count;
     }
 
-    //统计英文字数
+    // 统计英文字数
     public static int countWords(String text) {
         // 使用正则表达式匹配英文单词，包括单引号和逗号内的单词
         Pattern pattern = Pattern.compile("\\b[\\w']+\\b|\\b[\\w]+,[\\w']+[\\w]*\\b");
@@ -465,8 +490,8 @@ public class ExercisesServiceImpl implements ExercisesService {
         return '\u4e00' <= c && c <= '\u9fff';
     }
 
-    //转换音频格式的函数
-    //MP3文件转换成mav格式
+    // 转换音频格式的函数
+    // MP3文件转换成mav格式
     public static void convertMP3toWAV(String mp3FilePath, String wavFilePath) {
         try {
             // 创建临时文件
@@ -474,7 +499,7 @@ public class ExercisesServiceImpl implements ExercisesService {
 
             // 下载远程MP3文件到临时文件
             try (InputStream in = new URL(mp3FilePath).openStream();
-                 OutputStream out = new FileOutputStream(tempMp3File)) {
+                    OutputStream out = new FileOutputStream(tempMp3File)) {
                 byte[] buffer = new byte[1024];
                 int bytesRead;
                 while ((bytesRead = in.read(buffer)) != -1) {
@@ -499,35 +524,35 @@ public class ExercisesServiceImpl implements ExercisesService {
         }
     }
 
-    //获取音频音量函数
+    // 获取音频音量函数
     public static double calculateAmplitudeAndVolume(String filaPath) {
         try {
-//            获取音频文件的音频输入流
+            // 获取音频文件的音频输入流
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(filaPath));
-//            获取音频格式
+            // 获取音频格式
             AudioFormat format = audioInputStream.getFormat();
-//            创建缓冲区以读取音频数据
+            // 创建缓冲区以读取音频数据
             byte[] buffer = new byte[4096];
             int bytesRead;
-            long totalSquaredAmplitude = 0;//总振幅的平方和
-            long sampleCount = 0;//样本计数
-//            读取音频数据并计算总振幅的平方和
+            long totalSquaredAmplitude = 0;// 总振幅的平方和
+            long sampleCount = 0;// 样本计数
+            // 读取音频数据并计算总振幅的平方和
             while ((bytesRead = audioInputStream.read(buffer)) != -1) {
                 for (int i = 0; i < bytesRead; i += format.getFrameSize()) {
                     int sample = 0;
-//                    将字节数据合并为整数样本
+                    // 将字节数据合并为整数样本
                     for (int j = 0; j < format.getFrameSize(); j++) {
                         sample |= buffer[i + j] << (j * 8);
                     }
-//                    计算振幅的平方并累加
+                    // 计算振幅的平方并累加
                     totalSquaredAmplitude += sample * sample;
                     sampleCount++;
                 }
             }
-//            计算均方根（RMS）振幅
+            // 计算均方根（RMS）振幅
             double meanSquaredAmplitude = (double) totalSquaredAmplitude / sampleCount;
             double rmsAmplitude = Math.sqrt(meanSquaredAmplitude);
-//            将RMS振幅转换成分贝单位db
+            // 将RMS振幅转换成分贝单位db
             double db = 20 * Math.log10(rmsAmplitude);
             audioInputStream.close();
             System.out.println("音量（分贝）计算完成");
@@ -538,7 +563,7 @@ public class ExercisesServiceImpl implements ExercisesService {
         return 0;
     }
 
-    //获取音频时长函数
+    // 获取音频时长函数
     public static double getLength(String filaPath) {
         AudioInputStream audioInputStream = null;
         try {
@@ -556,7 +581,7 @@ public class ExercisesServiceImpl implements ExercisesService {
         }
     }
 
-    //计算语速分值
+    // 计算语速分值
     public static float scoreTranslationSpeed(double wordsPerSecond) {
         if (wordsPerSecond > 12.0) {
             return 100;
@@ -575,7 +600,7 @@ public class ExercisesServiceImpl implements ExercisesService {
         }
     }
 
-    //计算音量分值
+    // 计算音量分值
     public static float scoreVolume(double decibels) {
         if (decibels >= 70.0) {
             return 100;

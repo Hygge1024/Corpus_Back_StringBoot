@@ -42,5 +42,7 @@ public class Exercises {
     private float Skill;
     @JsonProperty("TeacherComments")
     private String TeacherComments;
+    @JsonProperty("keywords") // 新增字段，用于存储关键词列表
+    private List<String> keywords; // 使用List来直接操作字符串数组
 
 }

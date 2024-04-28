@@ -1,0 +1,18 @@
+2024-04-21 15:10:12.249  INFO 12512 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_401 on LAPTOP-TKPI7MAF with PID 12512 (D:\桌面\3-软件系统源代码\源代码文件\后端\new\interpretation-project-back\interpretation-project-back\interpretation-project-back\target\classes started by jiangjinwen in D:\桌面\3-软件系统源代码\源代码文件\后端\new\interpretation-project-back\interpretation-project-back\interpretation-project-back)
+2024-04-21 15:10:12.260  INFO 12512 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-04-21 15:10:13.951  INFO 12512 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-04-21 15:10:13.962  INFO 12512 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-21 15:10:13.963  INFO 12512 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
+2024-04-21 15:10:14.204  INFO 12512 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-21 15:10:14.204  INFO 12512 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1897 ms
+2024-04-21 15:10:14.354  INFO 12512 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2024-04-21 15:10:14.591  INFO 12512 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2024-04-21 15:10:15.272  WARN 12512 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.admins"
+2024-04-21 15:10:15.544  WARN 12512 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.teachers"
+2024-04-21 15:10:15.611  WARN 12512 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Classes"
+2024-04-21 15:10:15.692  WARN 12512 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tsid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Task"
+2024-04-21 15:10:16.251  WARN 12512 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.download"
+2024-04-21 15:10:16.290  WARN 12512 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Favorites"
+2024-04-21 15:10:16.331  WARN 12512 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "mid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Mark"
+2024-04-21 15:10:16.822  INFO 12512 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-04-21 15:10:16.835  INFO 12512 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 4.999 seconds (JVM running for 5.448)

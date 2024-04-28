@@ -44,6 +44,8 @@ public class Corpus {
     private List<Tag> Tag_ids;
     @JsonProperty("Picture")
     private List<PictureData> Picture;
-//    @JsonIgnore
-    private int exercise_count;//该语料被练习次数（主要服务与首页查询）
+    // @JsonIgnore
+    private int exercise_count;// 该语料被练习次数（主要服务与首页查询）
+    @JsonProperty("keywords")
+    private List<String> keywords; // 用来存储与语料相关的关键词列表
 }

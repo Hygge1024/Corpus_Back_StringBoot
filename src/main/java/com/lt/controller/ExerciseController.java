@@ -79,18 +79,23 @@ public class ExerciseController {
     }
 
     @PostMapping(value = "/upload")
-    public Result uploadStuFile(@RequestParam("multipartFile") MultipartFile multipartFile, @ModelAttribute ExercisesDao exercisesDao) throws IOException, InterruptedException {
+    public Result uploadStuFile(@RequestParam("multipartFile") MultipartFile multipartFile,
+            @ModelAttribute ExercisesDao exercisesDao) throws IOException, InterruptedException {
         RcCorpus rcCorpus = exercisesService.upload(multipartFile);
         System.out.println("上传后的文件地址为: " + rcCorpus.getFileId());
         exercisesDao.setStuFile(rcCorpus.getFileId());
-//        调用百度api，将识别结果赋值给identifyText
+        // 调用百度api，将识别结果赋值给identifyText
         System.out.println(Url.substring(0, Url.length() - 1) + rcCorpus.getFileUrl());
-//        未部署时的方法
-//        String result = baiduService.Toriginaltext("http://8.137.53.253:1337/uploads/cancer_treatment_could_get_a_vaccine_b326cf9cd8.mp3", corpusService.getOneCorpus(exercisesDao.getCorpus()).getDirection(), BaiDuAPI_KEY, BaiDuSECRET_KEY);
-//        部署后的方法
-        String result = baiduService.Toriginaltext(Url.substring(0, Url.length() - 1) + rcCorpus.getFileUrl(), corpusService.getOneCorpus(exercisesDao.getCorpus()).getDirection(), BaiDuAPI_KEY, BaiDuSECRET_KEY);
+        // 未部署时的方法
+        // String result =
+        // baiduService.Toriginaltext("http://8.137.53.253:1337/uploads/cancer_treatment_could_get_a_vaccine_b326cf9cd8.mp3",
+        // corpusService.getOneCorpus(exercisesDao.getCorpus()).getDirection(),
+        // BaiDuAPI_KEY, BaiDuSECRET_KEY);
+        // 部署后的方法
+        String result = baiduService.Toriginaltext(Url.substring(0, Url.length() - 1) + rcCorpus.getFileUrl(),
+                corpusService.getOneCorpus(exercisesDao.getCorpus()).getDirection(), BaiDuAPI_KEY, BaiDuSECRET_KEY);
         exercisesDao.setIdentifyText(result);
-//        正式上传
+        // 正式上传
         int flag = exercisesService.create(exercisesDao);
         Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
         String msg = flag != 0 ? "上传成功" : "上传失败，出现重复属性";
@@ -126,4 +131,21 @@ public class ExerciseController {
         String msg = exercisesList != null ? "查询班级练习成功" : "查询班级练习失败";
         return new Result(code, msg, exercisesList);
     }
+
+    /**
+     * 查询班级的某项练习的所有提交练习
+     *
+     * @param clasname 班级名
+     * @return 该班该练习所有提交
+     */
+    @GetMapping("/byClass/{classname}/{exerciseId}")
+    public Result getExerciseSubmissionsByClassAndExercise(@PathVariable String classname,
+            @PathVariable int exerciseId) {
+        List<Exercises> exercisesList = exercisesService.getExerciseSubmissionsByClassAndExercise(classname,
+                exerciseId);
+        Integer code = exercisesList != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = exercisesList != null ? "查询班级练习成功" : "查询班级练习失败";
+        return new Result(code, msg, exercisesList);
+    }
+
 }

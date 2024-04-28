@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Slf4j   //添加日志记录信息
+@Slf4j // 添加日志记录信息
 @RestController
 @RequestMapping("/api/students")
 @CrossOrigin
@@ -26,8 +26,8 @@ public class StudentController {
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     /*
-   查找所有学生
-    */
+     * 查找所有学生
+     */
     @GetMapping
     public Result getStuAll() {
         List<students> stuList = studentsService.getStuAll();
@@ -36,8 +36,37 @@ public class StudentController {
         return new Result(code, msg, stuList);
     }
 
+    /**
+     * 获取指定班级的学生总数
+     * 
+     * @param className 班级名称
+     * @return 返回查询结果
+     */
+    @GetMapping("/classCount/{className}")
+    public Result getClassStudentCount(@PathVariable String className) {
+        Long count = studentsService.getStudentCountByClassName(className);
+        if (count != null) {
+            return new Result(Code.GET_OK, "班级学生总数查询成功", count);
+        } else {
+            return new Result(Code.GET_ERR, "班级学生总数查询失败", null);
+        }
+    }
+
+    /**
+     * 获取指定班级的指定练习情况
+     * 
+     * @param className  班级名称
+     * @param exerciseId 练习id
+     * @return 返回查询结果
+     */
+    @GetMapping("/submissionRatio/{className}/{exerciseId}")
+    public Result getSubmissionRatio(@PathVariable String className, @PathVariable int exerciseId) {
+        String ratio = studentsService.getSubmissionRatioByClassAndExercise(className, exerciseId);
+        return new Result(Code.GET_OK, "查询成功", ratio);
+    }
+
     /*
-    根据sid查找
+     * 根据sid查找
      */
     @ApiKeyRequired
     @GetMapping("/bysid/{sid}")
@@ -49,7 +78,7 @@ public class StudentController {
     }
 
     /*
-    根据stunumber学号查找
+     * 根据stunumber学号查找
      */
     @GetMapping("/{stunumber}")
     public Result getByStunumber(@PathVariable String stunumber) {
@@ -60,12 +89,12 @@ public class StudentController {
     }
 
     /*
-    分页查询:注意->需要添加拦截器！！！
+     * 分页查询:注意->需要添加拦截器！！！
      */
     @GetMapping("{currentPage}/{pageSize}")
     public Result getPage(@PathVariable int currentPage, @PathVariable int pageSize) {
         IPage<students> page = studentsService.getPage(currentPage, pageSize);
-//        如果当前页码值大于总页码值，使用最大页码值
+        // 如果当前页码值大于总页码值，使用最大页码值
         if (currentPage > page.getPages()) {
             page = studentsService.getPage((int) page.getPages(), pageSize);
         }
@@ -78,10 +107,11 @@ public class StudentController {
     }
 
     /*
-    分页查询学生——根据班级
+     * 分页查询学生——根据班级
      */
     @GetMapping("/{teaclass}/{currentPage}/{pageSize}")
-    public Result getByClassPage(@PathVariable String teaclass, @PathVariable int currentPage, @PathVariable int pageSize) {
+    public Result getByClassPage(@PathVariable String teaclass, @PathVariable int currentPage,
+            @PathVariable int pageSize) {
         IPage page = studentsService.getByClassPage(teaclass, currentPage, pageSize);
         if (currentPage > page.getPages()) {
             page = studentsService.getByClassPage(teaclass, (int) page.getPages(), pageSize);
@@ -93,7 +123,7 @@ public class StudentController {
     }
 
     /*
-    学生注册功能
+     * 学生注册功能
      */
     @PostMapping(("/register"))
     public Result registe(@RequestBody students stu) {
@@ -101,7 +131,7 @@ public class StudentController {
     }
 
     /*
-       登录检测
+     * 登录检测
      */
     @PostMapping("/login")
     public Result loginCheck(@RequestBody students loginUser) {
@@ -117,7 +147,7 @@ public class StudentController {
     }
 
     /*
-    删除功能
+     * 删除功能
      */
     @DeleteMapping("/{stunumber}")
     public Result delete(@PathVariable String stunumber) {
@@ -128,7 +158,7 @@ public class StudentController {
     }
 
     /*
-    更改个人信息:传过来的密码仅一个，是否相同前端判断
+     * 更改个人信息:传过来的密码仅一个，是否相同前端判断
      */
     @PutMapping
     public Result update(@RequestBody students stu) {
@@ -180,9 +210,8 @@ public class StudentController {
         return new Result(code, msg, chartsList);
     }
 
-
     /*
-    哈希加密方法
+     * 哈希加密方法
      */
     private String hashPassword(String password) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
