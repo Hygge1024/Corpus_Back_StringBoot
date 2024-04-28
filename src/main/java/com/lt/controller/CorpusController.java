@@ -153,7 +153,8 @@ public class CorpusController {
         log.info("第二个进行的是:"+file2ContentType);
 
 
-        if(file1ContentType != null && (file1ContentType.equals("audio/mp3") || file1ContentType.equals("audio/mp4") || file1ContentType.equals("application/json"))){
+        if(file1ContentType != null && (file1ContentType.equals("audio/mp3") || file1ContentType.equals("audio/mp4") || file1ContentType.equals("application/json")
+            || file1ContentType.equals("audio/mpeg"))){
             rcCorpus = corpusService.upload(multipartFiles[0]);//获取上传的文件的id 和 线上地址，方便下面调用百度api
         }
         if(file2ContentType != null && (file2ContentType.startsWith("image/"))){

@@ -3,10 +3,7 @@ package com.lt.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
-import com.lt.domain.Charts;
-import com.lt.domain.Classes;
-import com.lt.domain.Task;
-import com.lt.domain.teachers;
+import com.lt.domain.*;
 import com.lt.service.ClassesService;
 import com.lt.service.TeachersService;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
@@ -171,8 +169,8 @@ public class TeacherController {
      * @return 是否成功信息
      */
     @PostMapping("/publish")
-    public Result publish(@RequestBody Task task) {
-        int flag = teachersService.publish(task);
+    public Result publish(@RequestParam("multipartFile") MultipartFile multipartFile, @ModelAttribute Task task) {
+        int flag = teachersService.publish(multipartFile,task);
         Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_OK;
         String msg = flag != 0 ? "发布练习成功" : "已重新发布！！！";
         return new Result(code, msg, null);
@@ -192,6 +190,9 @@ public class TeacherController {
         String msg = flag != 0 ? "取消练习成功" : "取消练习失败";
         return new Result(code, msg, null);
     }
+
+
+
 
     @GetMapping("/charts/{className}")
     public Result getCharts(@PathVariable String className) {

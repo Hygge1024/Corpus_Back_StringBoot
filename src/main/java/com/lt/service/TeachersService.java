@@ -6,6 +6,7 @@ import com.lt.controller.utils.Result;
 import com.lt.domain.Charts;
 import com.lt.domain.Task;
 import com.lt.domain.teachers;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
@@ -36,7 +37,7 @@ public interface TeachersService extends IService<teachers> {
     int update(teachers tea);
 
     //教师发布自己的语料
-    int publish(Task task);
+    int publish(MultipartFile file, Task task);
 
     int notpublish(int cid, String teanumber);
 

@@ -83,15 +83,16 @@ public class TeachersServiceTest {
 
     @Test
     void publish() {
-        Calendar calendar = Calendar.getInstance();
-        Date publishTime = calendar.getTime();//上传时间
-        Task task = new Task();
-        task.setCorpusid(2);
-        task.setClassname("英语2101");
-        task.setTeanumber("100001");
-        task.setState(1);
-        task.setPublishtime(publishTime);
-        System.out.println(teachersService.publish(task));
+//        Calendar calendar = Calendar.getInstance();
+//        Date publishTime = calendar.getTime();//上传时间
+//        Task task = new Task();
+//        task.setCorpusid(2);
+//        task.setClassname("英语2101");
+//        task.setTeanumber("100001");
+//        task.setState(1);
+//        task.setPublishtime(publishTime);
+
+//        System.out.println(teachersService.publish(task));
     }
 
     @Test

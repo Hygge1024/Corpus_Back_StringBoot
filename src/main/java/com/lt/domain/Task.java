@@ -22,5 +22,15 @@ public class Task {
     private String teanumber;
     @TableField(exist = false)
     private Corpus corpus;
+    private String fileurl;//音频、视频的地址链接
+    private String keywords;//本次练习的关键词
+    private double text;//文本的成绩占比
+    private double audio;//音频的成绩占比
+    private double duration_percentage;//相对于这个音频的时长
+    private String bu1;//备份数据
+    private String bu2;//备份数据
+    private String bu3;//备份数据
+
+
 
 }
