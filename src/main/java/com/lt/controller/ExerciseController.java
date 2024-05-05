@@ -2,10 +2,7 @@ package com.lt.controller;
 
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
-import com.lt.domain.ExerciseScoreDao;
-import com.lt.domain.Exercises;
-import com.lt.domain.ExercisesDao;
-import com.lt.domain.RcCorpus;
+import com.lt.domain.*;
 import com.lt.service.BaiduService;
 import com.lt.service.CorpusService;
 import com.lt.service.ExercisesService;
@@ -52,6 +49,13 @@ public class ExerciseController {
         Integer code = exercisesList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = exercisesList != null ? "查询成功" : "数据查询失败,请重试!";
         return new Result(code, msg, exercisesList);
+    }
+    @GetMapping("/history/{stuId}")
+    public Result getAllExercisesHistory(@PathVariable String stuId) {
+        List<Exercises> corpusList = exercisesService.getAllExercisesHistory(stuId);
+        Integer code = corpusList != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = corpusList != null ? "查询成功" : "数据查询失败,请重试!";
+        return new Result(code, msg, corpusList);
     }
 
     @GetMapping("/byEid/{eid}")

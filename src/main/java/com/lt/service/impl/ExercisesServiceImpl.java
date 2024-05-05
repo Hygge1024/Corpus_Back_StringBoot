@@ -34,10 +34,7 @@ import javax.sound.sampled.*;
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -83,6 +80,47 @@ public class ExercisesServiceImpl implements ExercisesService {
         try {
             List<Exercises> exercisesList = objectMapper.readValue(jsonResponse, new TypeReference<List<Exercises>>() {
             });
+            return exercisesList;
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);// 都在直接抛出异常
+        }
+    }
+
+    @Override
+    public List<Exercises> getAllExercisesHistory(String stuId) {
+        String ExercisesAll_UrlDemo = ExercisesAll_Url + "?StuID=" + stuId;
+        String jsonResponse = restTemplate.getForObject(ExercisesAll_UrlDemo, String.class);
+        // System.out.println("输出结果为：" + jsonResponse);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);// 将“未知属性异常”设置为false
+
+        List<Corpus> corpusList = new ArrayList<>();
+
+        try {
+            List<Exercises> exercisesList = objectMapper.readValue(jsonResponse, new TypeReference<List<Exercises>>() {
+            });
+            log.info("排序前的exercisesList：");
+            for(Exercises exercises: exercisesList){
+                log.info("排序前的eid："+exercises.getId());
+            }
+
+            // 对 exercisesList 进行排序
+            Collections.sort(exercisesList, new ExercisesComparator());
+
+            log.info("排序后的exercisesList：");
+            for(Exercises exercises: exercisesList){
+                log.info("排序后的eid："+exercises.getId());
+            }
+            for(Exercises exercises : exercisesList){
+                log.info("当前的exercise的ID为"+exercises.getId());
+                if(exercises.getCorpus().getId() != 0){//因为有的corpus被强制删除了
+                    Corpus corpus =  this.corpusService.getOneCorpus(exercises.getCorpus().getId());
+                    exercises.getCorpus().setExercise_count(corpus.getExercise_count());
+                }else{
+                    exercises.getCorpus().setExercise_count(-1);//表明该语料已经被删除了
+                }
+
+            }
             return exercisesList;
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);// 都在直接抛出异常
@@ -616,4 +654,15 @@ public class ExercisesServiceImpl implements ExercisesService {
             return 50;
         }
     }
+    //对语进行created_at排序
+
+
+    public class ExercisesComparator implements Comparator<Exercises> {
+        @Override
+        public int compare(Exercises o1, Exercises o2) {
+            // 比较 o1 和 o2 的 created_at 字段
+            return o2.getCreated_at().compareTo(o1.getCreated_at()); // 降序排序
+        }
+    }
+
 }

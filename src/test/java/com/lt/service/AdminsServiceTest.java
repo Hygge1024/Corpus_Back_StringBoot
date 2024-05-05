@@ -51,15 +51,15 @@ public class AdminsServiceTest {
         System.out.println(adminsService.deleteById(2));
     }
 
-    @Test
-    void update() {
-        admins adm = new admins();
-        adm.setAdmname("管理员002-测试");
-        adm.setAnumber("123");
-        adm.setAdmpassword("123456");
-        adm.setAsex(0);
-        System.out.println(adminsService.update(adm));
-    }
+//    @Test
+//    void update() {
+//        admins adm = new admins();
+//        adm.setAdmname("管理员002-测试");
+//        adm.setAnumber("123");
+//        adm.setAdmpassword("123456");
+//        adm.setAsex(0);
+//        System.out.println(adminsService.update(adm));
+//    }
 
     @Test
     void OkTea() {

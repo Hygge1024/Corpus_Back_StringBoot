@@ -9,6 +9,8 @@ public interface ExercisesService {
     // 查询所有的语料资源——不会用到的
     List<Exercises> getAllExercises(String stuId);
 
+    List<Exercises> getAllExercisesHistory(String stuId);
+
     // 查询-单个
     Exercises getOneExercises(int eid);
 

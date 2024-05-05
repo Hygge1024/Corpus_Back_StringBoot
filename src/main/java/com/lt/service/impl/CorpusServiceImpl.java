@@ -101,6 +101,7 @@ public class CorpusServiceImpl implements CorpusService {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);//将“未知属性异常”设置为false
         try {
             Corpus corpus = objectMapper.readValue(jsonResponse, Corpus.class);
+            corpus.setExercise_count(this.getExercisesByCid(corpus.getId()).size());
             return corpus;
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
