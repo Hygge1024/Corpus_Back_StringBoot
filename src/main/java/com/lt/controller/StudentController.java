@@ -14,7 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j // 添加日志记录信息
 @RestController
@@ -38,7 +40,7 @@ public class StudentController {
 
     /**
      * 获取指定班级的学生总数
-     * 
+     *
      * @param className 班级名称
      * @return 返回查询结果
      */
@@ -54,7 +56,7 @@ public class StudentController {
 
     /**
      * 获取指定班级的指定练习情况
-     * 
+     *
      * @param className  班级名称
      * @param exerciseId 练习id
      * @return 返回查询结果
@@ -110,16 +112,18 @@ public class StudentController {
      * 分页查询学生——根据班级
      */
     @GetMapping("/{teaclass}/{currentPage}/{pageSize}")
-    public Result getByClassPage(@PathVariable String teaclass, @PathVariable int currentPage,
-            @PathVariable int pageSize) {
+    public Result getByClassPage(@PathVariable String teaclass, @PathVariable int currentPage, @PathVariable int pageSize) {
         IPage page = studentsService.getByClassPage(teaclass, currentPage, pageSize);
         if (currentPage > page.getPages()) {
             page = studentsService.getByClassPage(teaclass, (int) page.getPages(), pageSize);
         }
         List<students> stuList = page.getRecords();
+        Map<String,Object> data = new HashMap<>();
+        data.put("total",page.getTotal());
+        data.put("list",stuList);
         Integer code = stuList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = stuList != null ? "查询成功_分页" : "数据查询失败,请重试!";
-        return new Result(code, msg, stuList);
+        return new Result(code, msg, data);
     }
 
     /*

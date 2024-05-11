@@ -83,12 +83,17 @@ public class CorpusController {
         return new Result(code, msg, corpusList);
     }
 
-    @GetMapping("/ByTag_ids/{Tag_ids}")
-    public Result getByTag_ids(@PathVariable int Tag_ids) {
+    @GetMapping("/ByTag_ids/{Tag_ids}/{currentPage}/{pageSize}")
+    public Result getByTag_ids(@PathVariable int Tag_ids,@PathVariable int currentPage, @PathVariable int pageSize) {
         List<Corpus> corpusList = corpusService.getByTag_ids(Tag_ids);
+        int startIndex = (currentPage - 1) * pageSize;
+        int endIndex = Math.min(startIndex + pageSize, corpusList.size());
+        Map<String,Object> data = new HashMap<>();
+        data.put("total",corpusList.size());
+        data.put("list",corpusList.subList(startIndex, endIndex));
         Integer code = corpusList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = corpusList != null ? "查询成功" : "数据查询失败，请重试!";
-        return new Result(code, msg, corpusList);
+        return new Result(code, msg, data);
     }
 
     @GetMapping("/search/{currentPage}/{pageSize}/{Direction}/{Difficulty}/{Type}/{Tag_ids}/{Title_contains}")
@@ -128,6 +133,7 @@ public class CorpusController {
         System.out.println("AuthorID: " + AuthorID + "\n" + "Title_contains: " + Title_contains + "\n" + "created_at: " + created_at);
         Integer code = corpusList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = corpusList != null ? "查询成功" : "数据查询失败，请重试!";
+
         return new Result(code, msg, corpusList);
     }
 
