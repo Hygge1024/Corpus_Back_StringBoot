@@ -33,6 +33,7 @@ public class FavoritesServiceImpl extends ServiceImpl<FavoriteDao, Favorites> im
         wrapper.eq("who", 1)
                 .eq("userid", userid);
 
+        page.setTotal(favoriteDao.selectCount(wrapper));
         return favoriteDao.selectPage(page, wrapper);
     }
 
@@ -45,6 +46,7 @@ public class FavoritesServiceImpl extends ServiceImpl<FavoriteDao, Favorites> im
         QueryWrapper<Favorites> wrapper = new QueryWrapper<>();
         wrapper.eq("who", 2)
                 .eq("userid", userid);
+        page.setTotal(favoriteDao.selectCount(wrapper));
         return favoriteDao.selectPage(page, wrapper);
     }
 
@@ -57,6 +59,7 @@ public class FavoritesServiceImpl extends ServiceImpl<FavoriteDao, Favorites> im
         QueryWrapper<Favorites> wrapper = new QueryWrapper<>();
         wrapper.eq("who", 3)
                 .eq("userid", userid);
+        page.setTotal(favoriteDao.selectCount(wrapper));
         return favoriteDao.selectPage(page, wrapper);
     }
 

@@ -4,11 +4,14 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
 import com.lt.domain.Favorites;
+import com.lt.service.CorpusService;
 import com.lt.service.FavoritesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/favority/{userid}")
@@ -16,6 +19,8 @@ import java.util.List;
 public class FavorityController {
     @Autowired
     FavoritesService favoritesService;
+    @Autowired
+    CorpusService corpusService;
 
     @GetMapping("/student/{currentPage}/{pageSize}")
     public Result getAllStu(@PathVariable int currentPage, @PathVariable int pageSize, @PathVariable String userid) {
@@ -25,9 +30,15 @@ public class FavorityController {
             page = favoritesService.getAllStu((int) page.getPages(), pageSize, userid);
         }
         List<Favorites> favoritesList = page.getRecords();
+        for(Favorites favorites : favoritesList){
+            favorites.setCorpusFileUrl(corpusService.getOneCorpus(favorites.getCid()).getFile().get(0).getUrl());
+        }
+        Map<String,Object> data = new HashMap<>();
+        data.put("total",page.getTotal());
+        data.put("list",favoritesList);
         Integer code = favoritesList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = page.getTotal() != 0 ? "查询成功" : "该用户收藏为0,或查询出现异常";
-        return new Result(code, msg, favoritesList);
+        return new Result(code, msg, data);
     }
 
     @GetMapping("/teacher/{currentPage}/{pageSize}")
@@ -38,9 +49,12 @@ public class FavorityController {
             page = favoritesService.getAllTea((int) page.getPages(), pageSize, userid);
         }
         List<Favorites> favoritesList = page.getRecords();
+        Map<String,Object> data = new HashMap<>();
+        data.put("total",page.getTotal());
+        data.put("list",favoritesList);
         Integer code = favoritesList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = page.getTotal() != 0 ? "查询成功" : "该用户收藏为0,或查询出现异常";
-        return new Result(code, msg, favoritesList);
+        return new Result(code, msg, data);
     }
 
     @GetMapping("/admins/{currentPage}/{pageSize}")
@@ -51,9 +65,12 @@ public class FavorityController {
             page = favoritesService.getAllAdm((int) page.getPages(), pageSize, userid);
         }
         List<Favorites> favoritesList = page.getRecords();
+        Map<String,Object> data = new HashMap<>();
+        data.put("total",page.getTotal());
+        data.put("list",favoritesList);
         Integer code = favoritesList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = page.getTotal() != 0 ? "查询成功" : "该用户收藏为0,或查询出现异常";
-        return new Result(code, msg, favoritesList);
+        return new Result(code, msg, data);
     }
 
     @GetMapping("/byTag/{who}/{currentPage}/{pageSize}/{tagid}")
