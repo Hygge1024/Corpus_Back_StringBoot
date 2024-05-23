@@ -3,6 +3,7 @@ package com.lt.service.impl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
@@ -18,6 +19,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -118,7 +120,7 @@ public class CorpusServiceImpl implements CorpusService {
     }
 
     @Override
-    public List<Corpus> getByTnumber(int currentPage, int pageSize, String tnumber) {
+    public List<Corpus> getByTnumber(String tnumber) {
         CorpusOne_url = CorpusAll_url + "?AuthorID=";
         CorpusOne_url += tnumber;
         String jsonResponse = restTemplate.getForObject(CorpusOne_url, String.class);
@@ -127,9 +129,7 @@ public class CorpusServiceImpl implements CorpusService {
         try {
             List<Corpus> corpusList = objectMapper.readValue(jsonResponse, new TypeReference<List<Corpus>>() {
             });
-            int startIndex = (currentPage - 1) * pageSize;
-            int endIndex = Math.min(startIndex + pageSize, corpusList.size());
-            return corpusList.subList(startIndex, endIndex);
+            return corpusList;
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
@@ -314,10 +314,25 @@ public class CorpusServiceImpl implements CorpusService {
             //发送请求并处理
             HttpResponse response = httpClient.execute(httpPost);
             int statusCode = response.getStatusLine().getStatusCode();
-//            System.out.println("传递的JSON格式为：" + jsonBody);
-//            System.out.println("statusCode值为：" + statusCode);
             if (statusCode == 200) {
-                return 1;
+                // 解析响应体
+                org.apache.http.HttpEntity responseEntity  = response.getEntity();
+                if (responseEntity != null) {
+                    String responseString = EntityUtils.toString(responseEntity, StandardCharsets.UTF_8);
+                    JsonNode responseJson = objectMapper.readTree(responseString);
+
+//                  String res = EntityUtils.toString(entity);
+//                  log.info("返回体为："+res);
+                    JsonNode idNode = responseJson.get("id");
+                    if(idNode != null){
+                        int id = idNode.asInt();
+                        log.info("语料id为："+id);
+                        return id;
+                    }else{
+                        return 0;
+                    }
+                }
+                return 0;
             } else {
                 return 0;
             }

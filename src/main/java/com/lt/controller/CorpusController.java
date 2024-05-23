@@ -77,10 +77,15 @@ public class CorpusController {
 
     @GetMapping("/byTnumber/{currentPage}/{pageSize}/{tnumber}")
     public Result getByTnumber(@PathVariable int currentPage, @PathVariable int pageSize, @PathVariable String tnumber) {
-        List<Corpus> corpusList = corpusService.getByTnumber(currentPage, pageSize, tnumber);
+        List<Corpus> corpusList = corpusService.getByTnumber(tnumber);
+        int startIndex = (currentPage - 1) * pageSize;
+        int endIndex = Math.min(startIndex + pageSize, corpusList.size());
+        Map<String,Object> data = new HashMap<>();
+        data.put("total",corpusList.size());
+        data.put("list",corpusList.subList(startIndex,endIndex));
         Integer code = corpusList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = corpusList != null ? "查询成功" : "数据查询失败，请重试!";
-        return new Result(code, msg, corpusList);
+        return new Result(code, msg, data);
     }
 
     @GetMapping("/ByTag_ids/{Tag_ids}/{currentPage}/{pageSize}")
@@ -177,9 +182,10 @@ public class CorpusController {
         log.info("文件上传成功，开始上传文章内容");
         System.out.println(corpusDTO);
 //        正式上传
-        int flag = corpusService.create(corpusDTO);
-        Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
-        String msg = flag != 0 ? "上传成功" : "上传失败，出现重复属性";
+        int id = corpusService.create(corpusDTO);
+        corpusDTO.setId(id);
+        Integer code = id != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
+        String msg = id != 0 ? "上传成功" : "上传失败，出现重复属性";
         return new Result(code, msg, corpusDTO);
     }
 

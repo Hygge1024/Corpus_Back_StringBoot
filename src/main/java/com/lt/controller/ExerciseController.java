@@ -100,9 +100,10 @@ public class ExerciseController {
                 corpusService.getOneCorpus(exercisesDao.getCorpus()).getDirection(), BaiDuAPI_KEY, BaiDuSECRET_KEY);
         exercisesDao.setIdentifyText(result);
         // 正式上传
-        int flag = exercisesService.create(exercisesDao);
-        Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
-        String msg = flag != 0 ? "上传成功" : "上传失败，出现重复属性";
+        int id = exercisesService.create(exercisesDao);
+        exercisesDao.setId(id);
+        Integer code = id != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
+        String msg = id != 0 ? "上传成功" : "上传失败，出现重复属性";
         return new Result(code, msg, exercisesDao);
     }
 
@@ -139,7 +140,7 @@ public class ExerciseController {
     /**
      * 查询班级的某项练习的所有提交练习
      *
-     * @param clasname 班级名
+     * @param classname 班级名
      * @return 该班该练习所有提交
      */
     @GetMapping("/byClass/{classname}/{exerciseId}")

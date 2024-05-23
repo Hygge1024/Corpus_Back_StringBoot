@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.lt.dao.studentDao;
@@ -21,6 +22,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
@@ -244,7 +246,24 @@ public class ExercisesServiceImpl implements ExercisesService {
             HttpResponse response = httpClient.execute(httpPost);
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode == 200) {
-                return 1;
+                // 解析响应体
+                org.apache.http.HttpEntity responseEntity  = response.getEntity();
+                if (responseEntity != null) {
+                    String responseString = EntityUtils.toString(responseEntity, StandardCharsets.UTF_8);
+                    JsonNode responseJson = objectMapper.readTree(responseString);
+
+//                  String res = EntityUtils.toString(entity);
+//                  log.info("返回体为："+res);
+                    JsonNode idNode = responseJson.get("id");
+                    if(idNode != null){
+                        int id = idNode.asInt();
+                        log.info("练习id为："+id);
+                        return id;
+                    }else{
+                        return 0;
+                    }
+                }
+                return 0;
             } else {
                 return 0;
             }

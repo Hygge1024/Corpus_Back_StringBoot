@@ -23,7 +23,7 @@ public interface CorpusService {
     List<Corpus> getByTag_ids(int Tag_ids);
 
     //根据教师id查询所有语料
-    List<Corpus> getByTnumber(int currentPage, int pageSize, String tnumber);
+    List<Corpus> getByTnumber(String tnumber);
 
     //综合查询——没进行分页处理（查询的数据不会太多）==>或许是个bug
     List<Corpus> getByFactory(int currentPage, int pageSize, int Direction, int Difficulty, int Type, int tags, String keyWord);
