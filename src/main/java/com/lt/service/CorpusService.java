@@ -26,7 +26,7 @@ public interface CorpusService {
     List<Corpus> getByTnumber(String tnumber);
 
     //综合查询——没进行分页处理（查询的数据不会太多）==>或许是个bug
-    List<Corpus> getByFactory(int currentPage, int pageSize, int Direction, int Difficulty, int Type, int tags, String keyWord);
+    List<Corpus> getByFactory(int currentPage, int pageSize, int Direction, int Difficulty, int Type, int tags, String keyWord,String AuthorID);
 
     //上传文件（语料资源.mp3 .mp4）
     RcCorpus upload(MultipartFile file);

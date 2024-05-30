@@ -1,15 +1,21 @@
 package com.lt.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lt.dao.FavoriteDao;
 import com.lt.domain.Favorites;
 import com.lt.service.FavoritesService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 @Slf4j
 @Service
 public class FavoritesServiceImpl extends ServiceImpl<FavoriteDao, Favorites> implements FavoritesService {
@@ -119,5 +125,36 @@ public class FavoritesServiceImpl extends ServiceImpl<FavoriteDao, Favorites> im
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq("cid", cid);
         return favoriteDao.delete(wrapper);
+    }
+
+
+    @Override
+    public int isFavor(String UserID, int cid) {
+        LambdaQueryWrapper<Favorites> wrapper = new QueryWrapper<Favorites>().lambda();
+        wrapper.eq(Favorites::getUserid,UserID)
+                .eq(Favorites::getCid,cid);
+        if(favoriteDao.selectOne(wrapper) != null){
+            return 1;
+        }else{
+            return 0;
+        }
+
+//        Favorites favor = new LambdaQueryChainWrapper<>(favoriteDao)
+//                .eq(Favorites::getUserid,UserID)
+//                .eq(Favorites::getCid,cid).one();
+//        if(favor != null){
+//            return 1;
+//        }else{
+//            return 0;
+//        }
+
+//        List<Favorites> favors= lambdaQuery()
+//                .eq(Favorites::getUserid,UserID)
+//                .eq(Favorites::getCid,cid).list();
+//        if(favors != null){
+//            return 1;
+//        }else{
+//            return 0;
+//        }
     }
 }

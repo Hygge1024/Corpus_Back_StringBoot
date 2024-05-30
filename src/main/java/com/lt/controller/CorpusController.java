@@ -101,7 +101,7 @@ public class CorpusController {
         return new Result(code, msg, data);
     }
 
-    @GetMapping("/search/{currentPage}/{pageSize}/{Direction}/{Difficulty}/{Type}/{Tag_ids}/{Title_contains}")
+    @GetMapping("/search/{currentPage}/{pageSize}/{Direction}/{Difficulty}/{Type}/{Tag_ids}/{Title_contains}/{AuthorID}")
     public Result getByfactor(
             @PathVariable(name = "currentPage") int currentPage,
             @PathVariable(name = "pageSize") int pageSize,
@@ -109,13 +109,18 @@ public class CorpusController {
             @PathVariable(name = "Difficulty") int Difficulty,
             @PathVariable(name = "Type") int Type,
             @PathVariable(name = "Tag_ids") int Tag_ids,
-            @PathVariable(name = "Title_contains") String Title_contains) {
+            @PathVariable(name = "Title_contains") String Title_contains,
+            @PathVariable(name = "AuthorID") String AuthorID) {
         // 判断 Title_contains 是否等于默认值
         if (Title_contains.equals("default")) {
             // 如果等于默认值，则不使用该参数进行查询
             Title_contains = null;
         }
-        List<Corpus> corpusList = corpusService.getByFactory(currentPage, pageSize, Direction, Difficulty, Type, Tag_ids, Title_contains);
+        if (AuthorID.equals("default")) {
+            // 如果等于默认值，则不使用该参数进行查询
+            AuthorID = null;
+        }
+        List<Corpus> corpusList = corpusService.getByFactory(currentPage, pageSize, Direction, Difficulty, Type, Tag_ids, Title_contains,AuthorID);
         Integer code = corpusList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = corpusList != null ? "查询成功" : "数据查询失败，请重试!";
         Map<String,Object> data = new HashMap<>();

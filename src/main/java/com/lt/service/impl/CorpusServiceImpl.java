@@ -152,10 +152,10 @@ public class CorpusServiceImpl implements CorpusService {
 
 
     @Override
-    public List<Corpus> getByFactory(int currentPage, int pageSize, int Direction, int Difficulty, int Type, int Tag_ids, String Title_contains) {
+    public List<Corpus> getByFactory(int currentPage, int pageSize, int Direction, int Difficulty, int Type, int Tag_ids, String Title_contains,String AuthorID) {
         //先进性判断，是否为空，若不为空则添加，若为空则不管。=》最后平凑成完整的strapi的url格式
         System.out.println("这是getByFactory查询语句");
-        System.out.println("参数信息为：" + Direction + Difficulty + Type + Tag_ids + Title_contains);
+        System.out.println("参数信息为：" + Direction + Difficulty + Type + Tag_ids + Title_contains + AuthorID);
         String urlByFactory = CorpusAll_url + "?";
         if (Direction != 0) {
             urlByFactory += "Direction=" + Direction + "&";
@@ -170,7 +170,10 @@ public class CorpusServiceImpl implements CorpusService {
             urlByFactory += "Tag_ids=" + Tag_ids + "&";
         }
         if (Title_contains != null && !Title_contains.isEmpty()) {
-            urlByFactory += "Title_contains=" + Title_contains;
+            urlByFactory += "Title_contains=" + Title_contains +"&";
+        }
+        if(AuthorID != null && !AuthorID.isEmpty()){
+            urlByFactory += "AuthorID=" + AuthorID;
         }
         System.out.println(urlByFactory);
         String jsonResponse = restTemplate.getForObject(urlByFactory, String.class);

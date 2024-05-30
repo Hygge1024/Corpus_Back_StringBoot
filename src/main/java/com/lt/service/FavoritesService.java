@@ -34,4 +34,7 @@ public interface FavoritesService extends IService<Favorites> {
     //删除
     int delete(int cid);
 
+    //判断是否收藏
+    int isFavor(String UserID,int cid);
+
 }

@@ -49,12 +49,29 @@ public class FavorityController {
             page = favoritesService.getAllTea((int) page.getPages(), pageSize, userid);
         }
         List<Favorites> favoritesList = page.getRecords();
+        for(Favorites favorites : favoritesList){
+            favorites.setCorpusFileUrl(corpusService.getOneCorpus(favorites.getCid()).getFile().get(0).getUrl());
+        }
         Map<String,Object> data = new HashMap<>();
         data.put("total",page.getTotal());
         data.put("list",favoritesList);
         Integer code = favoritesList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = page.getTotal() != 0 ? "查询成功" : "该用户收藏为0,或查询出现异常";
         return new Result(code, msg, data);
+    }
+
+    /**
+     * 判断当前语料corpus是否被收藏
+     * @param userid 用户ID
+     * @param cid 语料Corpus的ID
+     * @return 返回是否存在的判断
+     */
+    @GetMapping("/{cid}")
+    public Result isFavor(@PathVariable String userid,@PathVariable int cid){
+        int flag = favoritesService.isFavor(userid,cid);
+        Integer code = flag == 1 ? Code.GET_OK : Code.GET_ERR;
+        String msg = flag == 1 ? "用户已收藏该语料" : "用户未收藏该语料";
+        return new Result(code,msg,flag);
     }
 
     @GetMapping("/admins/{currentPage}/{pageSize}")
@@ -65,6 +82,9 @@ public class FavorityController {
             page = favoritesService.getAllAdm((int) page.getPages(), pageSize, userid);
         }
         List<Favorites> favoritesList = page.getRecords();
+        for(Favorites favorites : favoritesList){
+            favorites.setCorpusFileUrl(corpusService.getOneCorpus(favorites.getCid()).getFile().get(0).getUrl());
+        }
         Map<String,Object> data = new HashMap<>();
         data.put("total",page.getTotal());
         data.put("list",favoritesList);
