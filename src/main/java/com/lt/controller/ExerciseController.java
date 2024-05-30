@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/exercises")
@@ -48,14 +50,20 @@ public class ExerciseController {
         List<Exercises> exercisesList = exercisesService.getAllExercises(stuId);
         Integer code = exercisesList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = exercisesList != null ? "查询成功" : "数据查询失败,请重试!";
-        return new Result(code, msg, exercisesList);
+        Map<String,Object> data = new HashMap<>();
+        data.put("total",exercisesList.size());
+        data.put("list",exercisesList);
+        return new Result(code, msg, data);
     }
     @GetMapping("/history/{stuId}")
     public Result getAllExercisesHistory(@PathVariable String stuId) {
         List<Exercises> corpusList = exercisesService.getAllExercisesHistory(stuId);
         Integer code = corpusList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = corpusList != null ? "查询成功" : "数据查询失败,请重试!";
-        return new Result(code, msg, corpusList);
+        Map<String,Object> data = new HashMap<>();
+        data.put("total",corpusList.size());
+        data.put("list",corpusList);
+        return new Result(code, msg, data);
     }
 
     @GetMapping("/byEid/{eid}")
@@ -71,7 +79,10 @@ public class ExerciseController {
         List<Exercises> exercisesList = exercisesService.getByCid(cid);
         Integer code = exercisesList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = exercisesList != null ? "查询成功" : "数据查询失败，请重试!";
-        return new Result(code, msg, exercisesList);
+        Map<String,Object> data = new HashMap<>();
+        data.put("total",exercisesList.size());
+        data.put("list",exercisesList);
+        return new Result(code, msg, data);
     }
 
     @GetMapping("{currentPage}/{pageSize}/{stuId}")
@@ -79,7 +90,12 @@ public class ExerciseController {
         List<Exercises> exercisesList = exercisesService.getPage(currentPage, pageSize, stuId);
         Integer code = exercisesList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = exercisesList != null ? "查询成功" : "数据查询失败，请重试!";
-        return new Result(code, msg, exercisesList);
+        int startIndex = (currentPage - 1) * pageSize;
+        int endIndex = Math.min(startIndex + pageSize, exercisesList.size());
+        Map<String,Object> data = new HashMap<>();
+        data.put("total",exercisesList.size());
+        data.put("list",exercisesList.subList(startIndex,endIndex));
+        return new Result(code, msg, data);
     }
 
     @PostMapping(value = "/upload")

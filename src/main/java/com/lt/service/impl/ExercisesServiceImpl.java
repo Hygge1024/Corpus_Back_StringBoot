@@ -152,9 +152,9 @@ public class ExercisesServiceImpl implements ExercisesService {
     @Override
     public List<Exercises> getPage(int currentPage, int pageSize, String stuId) {
         List<Exercises> exercisesList = new ExercisesServiceImpl().getAllExercises(stuId);
-        int startIndex = (currentPage - 1) * pageSize;
-        int endIndex = Math.min(startIndex + pageSize, exercisesList.size());
-        return exercisesList.subList(startIndex, endIndex);
+
+//        return exercisesList.subList(startIndex, endIndex);
+        return exercisesList;
     }
 
     @Override
