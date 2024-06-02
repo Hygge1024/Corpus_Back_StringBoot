@@ -185,9 +185,7 @@ public class CorpusServiceImpl implements CorpusService {
             if(pageSize == 0 && currentPage == 0){
                 return corpusList;
             }else{
-                int startIndex = (currentPage - 1) * pageSize;
-                int endIndex = Math.min(startIndex + pageSize, corpusList.size());
-                return corpusList.subList(startIndex, endIndex);
+                return corpusList;
             }
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);//都在直接抛出异常

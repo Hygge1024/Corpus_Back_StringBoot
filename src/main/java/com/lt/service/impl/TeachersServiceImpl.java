@@ -116,16 +116,9 @@ public class TeachersServiceImpl extends ServiceImpl<teacherDao, teachers> imple
     }
 
     @Override
-    public int publish(MultipartFile file, Task task) {
+    public int publish(Task task) {
         Calendar calendar = Calendar.getInstance();
         Date publishTime = calendar.getTime();// 上传时间
-
-        // 上传音频、视频文件
-        RcCorpus rcCorpus = corpusService.upload(file);
-        rcCorpus.setFileUrl(Url.replaceAll("/$", "") + rcCorpus.getFileUrl());
-        log.info("模板上传后的fid：" + rcCorpus.getFileId());
-        log.info("模板上传后的URL：" + rcCorpus.getFileUrl());
-        task.setFileurl(rcCorpus.getFileUrl());
 
         // 判断是否已上传该练习
         QueryWrapper<Task> wrapper = new QueryWrapper<>();
@@ -134,16 +127,8 @@ public class TeachersServiceImpl extends ServiceImpl<teacherDao, teachers> imple
                 .eq(Task::getTeanumber, task.getTeanumber());
         Task task1 = taskDao.selectOne(wrapper);// 获取练习
         if (task1 != null) {// 练习非空——重新发布
-            // 对Task表更新(state、classname、taskname、fileurl、keywords、text、audio、duration_percentage)
+            //对Task表更新
             task1.setState(1);// 更改state值，确保处于发布状态
-            task1.setClassname(task.getClassname());
-            task1.setTaskname(task.getTaskname());
-            task1.setFileurl(task.getFileurl());
-            task1.setKeywords(task.getKeywords());
-            task1.setText(task.getText());
-            task1.setAudio(task.getAudio());
-            task1.setDuration_percentage(task.getDuration_percentage());
-            log.info("更新后的task1：" + task1);
             QueryWrapper<Task> wrapper2 = new QueryWrapper<>();
             wrapper2.lambda()
                     .eq(Task::getTsid, task1.getTsid());

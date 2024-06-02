@@ -169,8 +169,8 @@ public class TeacherController {
      * @return 是否成功信息
      */
     @PostMapping("/publish")
-    public Result publish(@RequestParam("multipartFile") MultipartFile multipartFile, @ModelAttribute Task task) {
-        int flag = teachersService.publish(multipartFile,task);
+    public Result publish(@RequestBody Task task) {
+        int flag = teachersService.publish(task);
         Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_OK;
         String msg = flag != 0 ? "发布练习成功" : "已重新发布！！！";
         return new Result(code, msg, null);

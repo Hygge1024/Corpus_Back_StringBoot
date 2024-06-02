@@ -7,7 +7,10 @@ import com.lt.domain.CorpusDao;
 import com.lt.domain.RcCorpus;
 import com.lt.service.BaiduService;
 import com.lt.service.CorpusService;
+import com.lt.service.KnowledgeGraphConverter;
 import lombok.extern.slf4j.Slf4j;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +32,8 @@ public class CorpusController {
     private CorpusService corpusService;
     @Autowired
     private BaiduService baiduService;
+    @Autowired
+    private KnowledgeGraphConverter knowledgeGraphConverter;
 
     private static String BaiDuAPI_KEY;
     private static String BaiDuSECRET_KEY;
@@ -123,9 +129,11 @@ public class CorpusController {
         List<Corpus> corpusList = corpusService.getByFactory(currentPage, pageSize, Direction, Difficulty, Type, Tag_ids, Title_contains,AuthorID);
         Integer code = corpusList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = corpusList != null ? "查询成功" : "数据查询失败，请重试!";
+        int startIndex = (currentPage - 1) * pageSize;
+        int endIndex = Math.min(startIndex + pageSize, corpusList.size());
         Map<String,Object> data = new HashMap<>();
         data.put("total",corpusList.size());
-        data.put("list",corpusList);
+        data.put("list",corpusList.subList(startIndex, endIndex));
         return new Result(code, msg, data);
     }
 
@@ -215,10 +223,18 @@ public class CorpusController {
     @GetMapping("/d3")
     @ResponseBody
     public Result getD3() throws IOException {
-        String jsonFilePath = "./static/top5.json";
-        Object d3Json = corpusService.readJson(jsonFilePath, Object.class);
+//        String jsonFilePath = "./static/top5.json";
+//        Object d3Json = corpusService.readJson(jsonFilePath, Object.class);
+        JSONArray d3Json = knowledgeGraphConverter.toKnowledgeGraphConverter();
         Integer code = d3Json != null ? Code.GET_OK : Code.GET_ERR;
         String msg = d3Json != null ? "查询成功" : "查询失败";
-        return new Result(code, msg, d3Json);
+        //使用 org.json.JSONObject 的 toMap() 方法将其转换为 Map 对象，然后返回这个 Map 对象。
+        List<Map<String, Object>> d3Data = new ArrayList<>();
+        for (int i = 0; i < d3Json.length(); i++) {
+            JSONObject jsonObject = d3Json.getJSONObject(i);
+            Map<String, Object> map = jsonObject.toMap();
+            d3Data.add(map);
+        }
+        return new Result(code, msg, d3Data);
     }
 }

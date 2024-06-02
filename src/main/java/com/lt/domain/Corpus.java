@@ -25,7 +25,7 @@ public class Corpus {
     @JsonProperty("Difficulty")
     private int Difficulty;
     @JsonProperty("Type")
-    private int Type;
+    private int Type;//口译类型： 1 同传 2 交传 3 会议口译 4 陪同口译
     @JsonProperty("AuthorID")
     private String AuthorID;
     @JsonProperty("published_at")

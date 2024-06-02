@@ -37,7 +37,7 @@ public interface TeachersService extends IService<teachers> {
     int update(teachers tea);
 
     //教师发布自己的语料
-    int publish(MultipartFile file, Task task);
+    int publish(Task task);
 
     int notpublish(int cid, String teanumber);
 
