@@ -42,8 +42,9 @@ strapi:
   url: http://8.137.53.253:1337/
 
   #这个可能需要更新
-#  AuthToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzEyNDEyMTkwLCJleHAiOjE3MTUwMDQxOTB9.RTD9fcWyXVf12FtXC8EB54o--gdmDFBq2hbYRDOArdE
-  AuthToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE2NDI1MTU2LCJleHAiOjE3MTkwMTcxNTZ9.WxXFuxPPLMg9wvY-TctrlEqH9uBa8OremW6NqGixq0g
+#  AuthToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE2NDI1MTU2LCJleHAiOjE3MTkwMTcxNTZ9.WxXFuxPPLMg9wvY-TctrlEqH9uBa8OremW6NqGixq0g
+  AuthToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE3NDYzMTY1LCJleHAiOjE3MjAwNTUxNjV9.Dc5dEduLkjfRyyMMgOB7USrbbTlmdnRUGaISmWBlqFM
+
   #上传的语料资源的地址
 #  strapiUploadUrl: http://localhost:1337/upload
   strapiUploadUrl: http://8.137.53.253:1337/upload

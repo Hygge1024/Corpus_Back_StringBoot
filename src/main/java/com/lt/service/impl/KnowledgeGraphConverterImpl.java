@@ -79,7 +79,7 @@ public class KnowledgeGraphConverterImpl implements KnowledgeGraphConverter {
 
 
             JSONObject endObject = new JSONObject();//创建结束节点的 JSON 对象和属性对象。
-            endObject.put("identity", corpus.getType()); // Assuming Type as identity
+            endObject.put("identity", corpus.getType()+5000000); // Assuming Type as identity
             endObject.put("labels", new JSONArray(Arrays.asList("Type")));
 
             JSONObject endProperties = new JSONObject();
@@ -109,7 +109,7 @@ public class KnowledgeGraphConverterImpl implements KnowledgeGraphConverter {
             long randomIdentity = idGenerator.nextId();
             relationshipObject.put("identity", randomIdentity); //将关系的标识属性设置为固定值 621275
             relationshipObject.put("start", corpus.getId());//将关系的起始节点设置为语料的 ID
-            relationshipObject.put("end", corpus.getType());//将关系的结束节点设置为语料的类型
+            relationshipObject.put("end", corpus.getType()+5000000);//将关系的结束节点设置为语料的类型
             relationshipObject.put("type", "type");//将关系的类型设置为 "type"。
             relationshipObject.put("properties", new JSONObject(Collections.singletonMap("name", "类型")));//将关系的属性设置为一个 JSON 对象，表示关系的类型为 "类型"。
 
@@ -134,7 +134,8 @@ public class KnowledgeGraphConverterImpl implements KnowledgeGraphConverter {
             for(Tag tag : tagList){
 //                log.info("当前corpus"+corpus.getId()+" tag:"+tag.getTagName());
                 JSONObject tagNode = new JSONObject();
-                tagNode.put("identity",tag.getId());
+                int tagid = tag.getId()+10000000;
+                tagNode.put("identity",tagid);
                 tagNode.put("labels",new JSONArray(Arrays.asList("Tag")));
 
                 JSONObject tagProperties = new JSONObject(); // 创建一个 JSON 对象，表示标签节点的属性
@@ -149,7 +150,7 @@ public class KnowledgeGraphConverterImpl implements KnowledgeGraphConverter {
                 randomIdentity = idGenerator2.nextId();
                 tagRelationship.put("identity", randomIdentity); // 将关系的标识属性设置为随机生成的值
                 tagRelationship.put("start", corpus.getId()); // 将关系的起始节点设置为语料节点的 ID
-                tagRelationship.put("end", tag.getId()); // 将关系的结束节点设置为标签节点的 ID
+                tagRelationship.put("end", tagid); // 将关系的结束节点设置为标签节点的 ID
                 tagRelationship.put("type", "has_tag"); // 将关系的类型设置为 "has_tag"
                 tagRelationship.put("properties", new JSONObject(Collections.singletonMap("name", "标签")));//将关系的属性设置为一个 JSON 对象，表示关系的类型为 "标签"。
 
@@ -160,11 +161,6 @@ public class KnowledgeGraphConverterImpl implements KnowledgeGraphConverter {
                 tagSegment.put("start", startObject);
                 tagSegment.put("relationship", tagRelationship);
                 tagSegment.put("end", tagNode);
-//
-//                pObject.put("start", startObject);
-//                pObject.put("end", tagNode);
-//                pObject.getJSONArray("segments").put(tagSegment);// 将段落对象添加到 pObject 中的 segments 数组中
-//                pObject.put("length", 2.0);
 
                 JSONObject pObjectTag = new JSONObject();//创建一个 JSON 对象，表示知识图谱中的一个节点或关系。
                 pObjectTag.put("start", startObject);
@@ -172,19 +168,66 @@ public class KnowledgeGraphConverterImpl implements KnowledgeGraphConverter {
                 pObjectTag.put("segments", new JSONArray(Arrays.asList(tagSegment)));
                 pObjectTag.put("length", 2.0);
 
-
-//                resultObject.put("p", pObject);
-//                resultObject.put("score", 2.307142857142857); // Assuming a fixed value
-//                resultArray.put(resultObject);
                 JSONObject resultObjectTag = new JSONObject();
                 resultObjectTag.put("p", pObjectTag);
                 resultObjectTag.put("score", 2.307142857142857); // Assuming a fixed value
                 resultArray.put(resultObjectTag);
             }
+            //进行新的corpus_关键词_节点关联
+            String[] keywords = {};
+            if(corpus.getId() == 1 || corpus.getId() == 4 || corpus.getId() == 2){
+                String ketwordsString = "你好,很棒,不错,good,中国,美国";
+                keywords =ketwordsString.split(",");
+            }else if(corpus.getKeywords() != null){
+                keywords = corpus.getKeywords().get(0).split(",");
+            }
+            int keyCount = 0;
+            for(String keyword : keywords){
+                JSONObject keyNode = new JSONObject();
+                int keyid = 15000000 + corpus.getId() * 10000 + keyCount;
+                keyCount ++;//确保keyID唯一
+                keyNode.put("identity",keyid);
+                keyNode.put("labels",new JSONArray(Arrays.asList("KeyWords")));
+
+                JSONObject tagProperties = new JSONObject(); // 创建一个 JSON 对象，表示标签节点的属性
+                tagProperties.put("name",keyword);
+
+                keyNode.put("properties",tagProperties);
+
+                // 创建与标签节点相关联的关系
+                JSONObject keywordRelationship = new JSONObject(); // 创建一个 JSON 对象，表示节点之间的关系
+                SnowflakeIdGenerator idGenerator2 = new SnowflakeIdGenerator(corpus.getId()%8); // 传入一个workerId
+                randomIdentity = idGenerator2.nextId();
+                keywordRelationship.put("identity", randomIdentity); // 将关系的标识属性设置为随机生成的值
+                keywordRelationship.put("start", corpus.getId()); // 将关系的起始节点设置为语料节点的 ID
+                keywordRelationship.put("end", keyid); // 将关系的结束节点设置为标签节点的 ID
+                keywordRelationship.put("type", "has_key"); // 将关系的类型设置为 "has_tag"
+                keywordRelationship.put("properties", new JSONObject(Collections.singletonMap("name", "关键词")));//将关系的属性设置为一个 JSON 对象，表示关系的类型为 "标签"。
+
+
+                // 创建段落对象，并将标签节点和关系添加到段落中
+                JSONObject tagSegment = new JSONObject();
+
+                tagSegment.put("start", startObject);
+                tagSegment.put("relationship", keywordRelationship);
+                tagSegment.put("end", keyNode);
+
+                JSONObject pObjectTag = new JSONObject();//创建一个 JSON 对象，表示知识图谱中的一个节点或关系。
+                pObjectTag.put("start", startObject);
+                pObjectTag.put("end", keyNode);
+                pObjectTag.put("segments", new JSONArray(Arrays.asList(tagSegment)));
+                pObjectTag.put("length", 2.0);
+
+                JSONObject resultObjectTag = new JSONObject();
+                resultObjectTag.put("p", pObjectTag);
+                resultObjectTag.put("score", 2.307142857142857); // Assuming a fixed value
+                resultArray.put(resultObjectTag);
+            }
+
         }
 
         // 打印转换后的知识图谱结果，并返回结果JSONArray
-        log.info("搜索结果为:" + resultArray.toString(4));
+//        log.info("搜索结果为:" + resultArray.toString(4));
         return resultArray;
     }
     //雪花算法

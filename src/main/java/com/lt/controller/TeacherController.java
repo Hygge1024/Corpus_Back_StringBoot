@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/teachers")
@@ -45,7 +47,10 @@ public class TeacherController {
         List<teachers> teachersList = teachersService.getTeaAll();
         Integer code = teachersList != null ? Code.SAVE_OK : Code.SAVE_ERR;
         String msg = teachersList != null ? "查询成功" : "数据查询失败,请重试!";
-        return new Result(code, msg, teachersList);
+        Map<String,Object> data = new HashMap<>();
+        data.put("total",teachersList.size());
+        data.put("list",teachersList);
+        return new Result(code, msg, data);
     }
 
     @GetMapping("/bytid/{tid}")
@@ -75,7 +80,10 @@ public class TeacherController {
         List<teachers> teachersList = page.getRecords();
         Integer code = teachersList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = teachersList != null ? "查询成功_分页" : "数据查询失败,请重试!";
-        return new Result(code, msg, teachersList);
+        Map<String,Object> data = new HashMap<>();
+        data.put("total",page.getTotal());
+        data.put("list",teachersList);
+        return new Result(code, msg, data);
     }
 
     @PostMapping("/register")

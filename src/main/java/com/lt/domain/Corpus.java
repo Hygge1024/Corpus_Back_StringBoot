@@ -1,6 +1,5 @@
 package com.lt.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
@@ -47,5 +46,5 @@ public class Corpus {
     // @JsonIgnore
     private int exercise_count;// 该语料被练习次数（主要服务与首页查询）
     @JsonProperty("keywords")
-    private List<String> keywords; // 用来存储与语料相关的关键词列表
+    private List<String> keywords; // 用来.存储与语料相关的关键词列表
 }
