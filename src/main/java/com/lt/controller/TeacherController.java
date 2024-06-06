@@ -1,6 +1,7 @@
 package com.lt.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
 import com.lt.domain.*;
@@ -47,9 +48,9 @@ public class TeacherController {
         List<teachers> teachersList = teachersService.getTeaAll();
         Integer code = teachersList != null ? Code.SAVE_OK : Code.SAVE_ERR;
         String msg = teachersList != null ? "查询成功" : "数据查询失败,请重试!";
-        Map<String,Object> data = new HashMap<>();
-        data.put("total",teachersList.size());
-        data.put("list",teachersList);
+        Map<String, Object> data = new HashMap<>();
+        data.put("total", teachersList.size());
+        data.put("list", teachersList);
         return new Result(code, msg, data);
     }
 
@@ -80,9 +81,9 @@ public class TeacherController {
         List<teachers> teachersList = page.getRecords();
         Integer code = teachersList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = teachersList != null ? "查询成功_分页" : "数据查询失败,请重试!";
-        Map<String,Object> data = new HashMap<>();
-        data.put("total",page.getTotal());
-        data.put("list",teachersList);
+        Map<String, Object> data = new HashMap<>();
+        data.put("total", page.getTotal());
+        data.put("list", teachersList);
         return new Result(code, msg, data);
     }
 
@@ -111,7 +112,7 @@ public class TeacherController {
 
     }
 
-    @DeleteMapping("/{tid}")//对于删除功能 可能还需要更改——只需要将teastate有设置为0就好了，当然也可以用管理员操作
+    @DeleteMapping("/{tid}") // 对于删除功能 可能还需要更改——只需要将teastate有设置为0就好了，当然也可以用管理员操作
     public Result delete(@PathVariable Integer tid) {
         int flag = teachersService.deleteById(tid);
         Integer code = flag > 0 ? Code.DELETE_OK : Code.DELETE_ERR;
@@ -128,7 +129,7 @@ public class TeacherController {
     }
 
     /*
-    教师管理班级部分
+     * 教师管理班级部分
      */
     @GetMapping("/selfclass")
     public Result getAllClass() {
@@ -199,9 +200,6 @@ public class TeacherController {
         return new Result(code, msg, null);
     }
 
-
-
-
     @GetMapping("/charts/{className}")
     public Result getCharts(@PathVariable String className) {
         List<Charts> chartsList = teachersService.getCharts(className);
@@ -219,10 +217,108 @@ public class TeacherController {
     }
 
     /*
-    哈希加密方法
+     * 哈希加密方法
      */
     private String hashPassword(String password) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder.encode(password);
+    }
+
+    @GetMapping("/processAudio")
+    public String processAudio(@RequestParam String fileUrl) {
+        try {
+            long startTime = System.currentTimeMillis();
+
+            log.info("开始下载音频文件...");
+            String audioFeedback = baiduService.getAudioFeedback(fileUrl);
+            long endTime = System.currentTimeMillis();
+
+            log.info("下载音频文件并处理总时间: " + (endTime - startTime) + " ms");
+            return audioFeedback;
+        } catch (IOException e) {
+            log.error("处理音频文件时出错: ", e);
+            return "Failed to process audio file: " + e.getMessage();
+        }
+    }
+
+    @PostMapping("/audioScore")
+    public Result getAudioScore() {
+        try {
+            // 构建字符串数据
+            // 这里将标准答案的音频特征数据硬编码，你可以根据需要进行调整
+            String standardAudioFeedback = "{\r\n" +
+                    " \"average_energy\": 1.9734731912612915,\r\n" +
+                    " \"average_pause_duration\": 0.25543207965743175,\r\n" +
+                    " \"average_pitch\": 400.9695739746094,\r\n" +
+                    " \"feedback\": [\r\n" +
+                    " \"背景噪声较高，建议在更安静的环境中进行录音。\",\r\n" +
+                    " \"语调变化较大，表情丰富。\",\r\n" +
+                    " \"口译过程中流畅性很好，停顿控制得当。\",\r\n" +
+                    " \"音量控制得很好。\"\r\n" +
+                    " ],\r\n" +
+                    " \"fluency_rate\": 3.914935043950361,\r\n" +
+                    " \"long_pause_rate\": 0.0065005417118093175,\r\n" +
+                    " \"message\": \"处理完成\",\r\n" +
+                    " \"pitch_range\": 1420.59912109375,\r\n" +
+                    " \"pitch_std\": 352.2041015625,\r\n" +
+                    " \"saved_file_path\": \"C:\\\\Users\\\\jiangjinwen\\\\Desktop\\\\-240106_.wav\",\r\n" +
+                    " \"short_pause_rate\": 0.9089924160346695,\r\n" +
+                    " \"snr\": -5.999121982760169,\r\n" +
+                    " \"total_score\": 3.6666666666666665\r\n" +
+                    "}";
+            String studentAudioFeedback = "{\r\n" +
+                    " \"average_energy\": 0.3578665554523468,\r\n" +
+                    " \"average_pause_duration\": 0.2919494655004859,\r\n" +
+                    " \"average_pitch\": 467.9970703125,\r\n" +
+                    " \"feedback\": [\r\n" +
+                    " \"背景噪声较高，建议在更安静的环境中进行录音。\",\r\n" +
+                    " \"语调变化较大，表情丰富。\",\r\n" +
+                    " \"口译过程中流畅性很好，停顿控制得当。\",\r\n" +
+                    " \"音量控制得很好。\"\r\n" +
+                    " ],\r\n" +
+                    " \"fluency_rate\": 3.4252503195568775,\r\n" +
+                    " \"long_pause_rate\": 0.019642857142857142,\r\n" +
+                    " \"message\": \"处理完成\",\r\n" +
+                    " \"pitch_range\": 1421.129638671875,\r\n" +
+                    " \"pitch_std\": 378.0977478027344,\r\n" +
+                    " \"saved_file_path\": \"C:\\\\Users\\\\jiangjinwen\\\\Desktop\\\\-240106_.wav\",\r\n" +
+                    " \"short_pause_rate\": 0.8392857142857143,\r\n" +
+                    " \"snr\": -6.606854548539264,\r\n" +
+                    " \"total_score\": 3.6666666666666665\r\n" +
+                    "}";
+
+            // 调用百度文心API，并确保设置正确的Content-Type
+            String audioScore = baiduService.getWenXinAudioResponse(studentAudioFeedback, standardAudioFeedback,
+                    WenXinAPI, WenXinSecurity);
+            Integer code = audioScore != null ? Code.GET_OK : Code.GET_ERR;
+            String msg = audioScore != null ? "音频评分成功" : "音频评分失败";
+            return new Result(code, msg, audioScore);
+        } catch (IOException e) {
+            log.error("Error while getting audio score", e);
+            return new Result(Code.GET_ERR, "音频评分过程中发生错误", null);
+        }
+    }
+
+    /**
+     * 提交每个维度的评语和分数
+     *
+     * @param dimensionScores 包含各个维度评语和分数的Map
+     * @return 操作状态
+     */
+    @PostMapping("/submitDimensionScores")
+    public Result submitDimensionScores(@RequestBody Map<String, Map<String, Object>> dimensionScores) {
+        // 处理每个维度的评语和分数
+        System.out.println("维度评分: " + dimensionScores);
+
+        // 保存到文件或数据库中
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.writeValue(new File("dimension_scores.json"), dimensionScores);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new Result(500, "保存维度评分时出错", null);
+        }
+
+        return new Result(200, "维度评分提交成功", null);
     }
 }

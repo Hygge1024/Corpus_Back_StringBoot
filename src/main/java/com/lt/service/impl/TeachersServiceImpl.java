@@ -18,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -127,7 +128,7 @@ public class TeachersServiceImpl extends ServiceImpl<teacherDao, teachers> imple
                 .eq(Task::getTeanumber, task.getTeanumber());
         Task task1 = taskDao.selectOne(wrapper);// 获取练习
         if (task1 != null) {// 练习非空——重新发布
-            //对Task表更新
+            // 对Task表更新
             task1.setState(1);// 更改state值，确保处于发布状态
             QueryWrapper<Task> wrapper2 = new QueryWrapper<>();
             wrapper2.lambda()
@@ -230,7 +231,17 @@ public class TeachersServiceImpl extends ServiceImpl<teacherDao, teachers> imple
         String contentA = exercises.getIdentifyText();// 学生的文本
         String contentB = exercises.getCorpus().getOriginaltext();// 语料原文
         List<String> keywords = exercises.getKeywords(); // 提取关键词
+        String fileUrl = null;
 
+        String OriginalUrl = exercisesService.getOriginalUrl();
+
+        if (exercises.getStuFile() != null && !exercises.getStuFile().isEmpty()) {
+            fileUrl = OriginalUrl.substring(0, OriginalUrl.length() - 1) + exercises.getStuFile().get(0).getUrl();
+        }
+
+        if (fileUrl == null) {
+            throw new FileNotFoundException("No audio file found for the exercise.");
+        }
         // 确保关键词不为空；如果为空，则提供一个默认的空列表
         if (keywords == null) {
             keywords = new ArrayList<>();
@@ -238,7 +249,7 @@ public class TeachersServiceImpl extends ServiceImpl<teacherDao, teachers> imple
 
         // 将关键词与其他参数一起传递给AI评估服务
         return baiduService.WenXin_Value(contentA.replaceAll("[\\r\\n]", ""), contentB.replaceAll("[\\r\\n]", ""),
-                keywords, WenXinAPI, WenXinSecurity);
+                keywords, WenXinAPI, WenXinSecurity, fileUrl, eid);
     }
 
     /*

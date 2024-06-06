@@ -47,4 +47,5 @@ public interface ExercisesService {
     // 根据班级和练习id得到提交数量
     List<Exercises> getExerciseSubmissionsByClassAndExercise(String classname, int exerciseId);
 
+    public String getOriginalUrl();
 }

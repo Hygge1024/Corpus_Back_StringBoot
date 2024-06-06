@@ -27,4 +27,7 @@ public class CorpusDao {
     private List<String> tag_ids;// 语料标签
     // private int amount;//该语料被练习次数
     private List<String> keywords;// 添加关键词数组字段
+    private double durationEstimateErrorPercentage; // 持续时间估计误差百分比
+    private double textScorePercentage; // 文本成绩占比
+    private double audioScorePercentage; // 音频成绩占比
 }

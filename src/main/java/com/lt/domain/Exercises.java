@@ -44,5 +44,14 @@ public class Exercises {
     private String TeacherComments;
     @JsonProperty("keywords") // 新增字段，用于存储关键词列表
     private List<String> keywords; // 使用List来直接操作字符串数组
-
+    @JsonProperty("InformationComment") // 新增字段
+    private String informationComment;
+    @JsonProperty("FluencyComment") // 新增字段
+    private String fluencyComment; //
+    @JsonProperty("GrammarComment") // 新增字段
+    private String grammarComment;
+    @JsonProperty("LogicalComment") // 新增字段
+    private String logicalComment;
+    @JsonProperty("SkillComment") // 新增字段
+    private String skillComment;
 }

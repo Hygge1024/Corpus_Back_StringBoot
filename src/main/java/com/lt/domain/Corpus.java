@@ -24,7 +24,7 @@ public class Corpus {
     @JsonProperty("Difficulty")
     private int Difficulty;
     @JsonProperty("Type")
-    private int Type;//口译类型： 1 同传 2 交传 3 会议口译 4 陪同口译
+    private int Type;// 口译类型： 1 同传 2 交传 3 会议口译 4 陪同口译
     @JsonProperty("AuthorID")
     private String AuthorID;
     @JsonProperty("published_at")
@@ -47,4 +47,10 @@ public class Corpus {
     private int exercise_count;// 该语料被练习次数（主要服务与首页查询）
     @JsonProperty("keywords")
     private List<String> keywords; // 用来.存储与语料相关的关键词列表
+    @JsonProperty("DurationEstimateErrorPercentage")
+    private double durationEstimateErrorPercentage; // 存储误差百分比
+    @JsonProperty("TextScorePercentage")
+    private double textScorePercentage; // 文本成绩占比
+    @JsonProperty("AudioScorePercentage")
+    private double audioScorePercentage; // 音频成绩占比
 }

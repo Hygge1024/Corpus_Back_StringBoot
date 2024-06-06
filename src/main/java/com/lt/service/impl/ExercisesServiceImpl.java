@@ -59,6 +59,10 @@ public class ExercisesServiceImpl implements ExercisesService {
         OriginalUrl = url;
     }
 
+    public String getOriginalUrl() {
+        return OriginalUrl;
+    }
+
     @Value("${strapi.url}")
     public void setExercisesAll_Url(String url) {
         ExercisesAll_Url = url + "exercises";
@@ -102,24 +106,24 @@ public class ExercisesServiceImpl implements ExercisesService {
             List<Exercises> exercisesList = objectMapper.readValue(jsonResponse, new TypeReference<List<Exercises>>() {
             });
             log.info("排序前的exercisesList：");
-            for(Exercises exercises: exercisesList){
-                log.info("排序前的eid："+exercises.getId());
+            for (Exercises exercises : exercisesList) {
+                log.info("排序前的eid：" + exercises.getId());
             }
 
             // 对 exercisesList 进行排序
             Collections.sort(exercisesList, new ExercisesComparator());
 
             log.info("排序后的exercisesList：");
-            for(Exercises exercises: exercisesList){
-                log.info("排序后的eid："+exercises.getId());
+            for (Exercises exercises : exercisesList) {
+                log.info("排序后的eid：" + exercises.getId());
             }
-            for(Exercises exercises : exercisesList){
-                log.info("当前的exercise的ID为"+exercises.getId());
-                if(exercises.getCorpus().getId() != 0){//因为有的corpus被强制删除了
-                    Corpus corpus =  this.corpusService.getOneCorpus(exercises.getCorpus().getId());
+            for (Exercises exercises : exercisesList) {
+                log.info("当前的exercise的ID为" + exercises.getId());
+                if (exercises.getCorpus().getId() != 0) {// 因为有的corpus被强制删除了
+                    Corpus corpus = this.corpusService.getOneCorpus(exercises.getCorpus().getId());
                     exercises.getCorpus().setExercise_count(corpus.getExercise_count());
-                }else{
-                    exercises.getCorpus().setExercise_count(-1);//表明该语料已经被删除了
+                } else {
+                    exercises.getCorpus().setExercise_count(-1);// 表明该语料已经被删除了
                 }
 
             }
@@ -153,7 +157,7 @@ public class ExercisesServiceImpl implements ExercisesService {
     public List<Exercises> getPage(int currentPage, int pageSize, String stuId) {
         List<Exercises> exercisesList = new ExercisesServiceImpl().getAllExercises(stuId);
 
-//        return exercisesList.subList(startIndex, endIndex);
+        // return exercisesList.subList(startIndex, endIndex);
         return exercisesList;
     }
 
@@ -247,19 +251,19 @@ public class ExercisesServiceImpl implements ExercisesService {
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode == 200) {
                 // 解析响应体
-                org.apache.http.HttpEntity responseEntity  = response.getEntity();
+                org.apache.http.HttpEntity responseEntity = response.getEntity();
                 if (responseEntity != null) {
                     String responseString = EntityUtils.toString(responseEntity, StandardCharsets.UTF_8);
                     JsonNode responseJson = objectMapper.readTree(responseString);
 
-//                  String res = EntityUtils.toString(entity);
-//                  log.info("返回体为："+res);
+                    // String res = EntityUtils.toString(entity);
+                    // log.info("返回体为："+res);
                     JsonNode idNode = responseJson.get("id");
-                    if(idNode != null){
+                    if (idNode != null) {
                         int id = idNode.asInt();
-                        log.info("练习id为："+id);
+                        log.info("练习id为：" + id);
                         return id;
-                    }else{
+                    } else {
                         return 0;
                     }
                 }
@@ -673,8 +677,7 @@ public class ExercisesServiceImpl implements ExercisesService {
             return 50;
         }
     }
-    //对语进行created_at排序
-
+    // 对语进行created_at排序
 
     public class ExercisesComparator implements Comparator<Exercises> {
         @Override
