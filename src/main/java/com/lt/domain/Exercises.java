@@ -54,4 +54,15 @@ public class Exercises {
     private String logicalComment;
     @JsonProperty("SkillComment") // 新增字段
     private String skillComment;
+
+    //为批改系统服务字段（新功能）
+    @JsonProperty("Correctid")
+    private int Correctid;
+    @JsonProperty("Correcttype")
+    private int Correcttype;
+    @JsonProperty("Labourid")
+    private int Labourid;
+    @JsonProperty("TeaID")
+    private String TeaID;
+
 }

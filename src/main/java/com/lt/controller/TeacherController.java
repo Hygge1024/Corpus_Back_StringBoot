@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lt.controller.utils.Code;
 import com.lt.controller.utils.Result;
 import com.lt.domain.*;
+import com.lt.service.BaiduService;
 import com.lt.service.ClassesService;
 import com.lt.service.TeachersService;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -28,8 +30,10 @@ public class TeacherController {
     private TeachersService teachersService;
     @Autowired
     private ClassesService classesService;
+
     private static String WenXinAPI;
     private static String WenXinSecurity;
+
 
     @Value("${baidu.WenXinAPI}")
     public void setWenXinAPI(String wenXinAPI) {
@@ -222,81 +226,6 @@ public class TeacherController {
     private String hashPassword(String password) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder.encode(password);
-    }
-
-    @GetMapping("/processAudio")
-    public String processAudio(@RequestParam String fileUrl) {
-        try {
-            long startTime = System.currentTimeMillis();
-
-            log.info("开始下载音频文件...");
-            String audioFeedback = baiduService.getAudioFeedback(fileUrl);
-            long endTime = System.currentTimeMillis();
-
-            log.info("下载音频文件并处理总时间: " + (endTime - startTime) + " ms");
-            return audioFeedback;
-        } catch (IOException e) {
-            log.error("处理音频文件时出错: ", e);
-            return "Failed to process audio file: " + e.getMessage();
-        }
-    }
-
-    @PostMapping("/audioScore")
-    public Result getAudioScore() {
-        try {
-            // 构建字符串数据
-            // 这里将标准答案的音频特征数据硬编码，你可以根据需要进行调整
-            String standardAudioFeedback = "{\r\n" +
-                    " \"average_energy\": 1.9734731912612915,\r\n" +
-                    " \"average_pause_duration\": 0.25543207965743175,\r\n" +
-                    " \"average_pitch\": 400.9695739746094,\r\n" +
-                    " \"feedback\": [\r\n" +
-                    " \"背景噪声较高，建议在更安静的环境中进行录音。\",\r\n" +
-                    " \"语调变化较大，表情丰富。\",\r\n" +
-                    " \"口译过程中流畅性很好，停顿控制得当。\",\r\n" +
-                    " \"音量控制得很好。\"\r\n" +
-                    " ],\r\n" +
-                    " \"fluency_rate\": 3.914935043950361,\r\n" +
-                    " \"long_pause_rate\": 0.0065005417118093175,\r\n" +
-                    " \"message\": \"处理完成\",\r\n" +
-                    " \"pitch_range\": 1420.59912109375,\r\n" +
-                    " \"pitch_std\": 352.2041015625,\r\n" +
-                    " \"saved_file_path\": \"C:\\\\Users\\\\jiangjinwen\\\\Desktop\\\\-240106_.wav\",\r\n" +
-                    " \"short_pause_rate\": 0.9089924160346695,\r\n" +
-                    " \"snr\": -5.999121982760169,\r\n" +
-                    " \"total_score\": 3.6666666666666665\r\n" +
-                    "}";
-            String studentAudioFeedback = "{\r\n" +
-                    " \"average_energy\": 0.3578665554523468,\r\n" +
-                    " \"average_pause_duration\": 0.2919494655004859,\r\n" +
-                    " \"average_pitch\": 467.9970703125,\r\n" +
-                    " \"feedback\": [\r\n" +
-                    " \"背景噪声较高，建议在更安静的环境中进行录音。\",\r\n" +
-                    " \"语调变化较大，表情丰富。\",\r\n" +
-                    " \"口译过程中流畅性很好，停顿控制得当。\",\r\n" +
-                    " \"音量控制得很好。\"\r\n" +
-                    " ],\r\n" +
-                    " \"fluency_rate\": 3.4252503195568775,\r\n" +
-                    " \"long_pause_rate\": 0.019642857142857142,\r\n" +
-                    " \"message\": \"处理完成\",\r\n" +
-                    " \"pitch_range\": 1421.129638671875,\r\n" +
-                    " \"pitch_std\": 378.0977478027344,\r\n" +
-                    " \"saved_file_path\": \"C:\\\\Users\\\\jiangjinwen\\\\Desktop\\\\-240106_.wav\",\r\n" +
-                    " \"short_pause_rate\": 0.8392857142857143,\r\n" +
-                    " \"snr\": -6.606854548539264,\r\n" +
-                    " \"total_score\": 3.6666666666666665\r\n" +
-                    "}";
-
-            // 调用百度文心API，并确保设置正确的Content-Type
-            String audioScore = baiduService.getWenXinAudioResponse(studentAudioFeedback, standardAudioFeedback,
-                    WenXinAPI, WenXinSecurity);
-            Integer code = audioScore != null ? Code.GET_OK : Code.GET_ERR;
-            String msg = audioScore != null ? "音频评分成功" : "音频评分失败";
-            return new Result(code, msg, audioScore);
-        } catch (IOException e) {
-            log.error("Error while getting audio score", e);
-            return new Result(Code.GET_ERR, "音频评分过程中发生错误", null);
-        }
     }
 
     /**

@@ -31,4 +31,9 @@ public class ExerciseScoreDao {
     private String logicalComment;
     @JsonProperty("SkillComment") // 新增字段
     private String skillComment;
+
+    private int Correctid;//批改表id
+    private int Correcttype;//当前批改状态0未批改、1标准批改、2人工批改、3自动批改
+    private int Labourid;//批改任务id（可以配合correctid 可以确定当前练习属于那次试题批改的那次任务批改）
+    private String TeaID;//批改者（教师的工号）
 }
