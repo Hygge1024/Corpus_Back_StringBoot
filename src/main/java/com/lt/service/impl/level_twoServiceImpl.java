@@ -21,10 +21,9 @@ public class level_twoServiceImpl extends ServiceImpl<twoLevelDao, two_level> im
     @Autowired twoLevelDao twoLevelDao;
 
     @Override
-    public List<two_level> getall(int exercisesId, int type) {
+    public List<two_level> getall(int exercisesId) {
         QueryWrapper<two_level> wrapper = new QueryWrapper<>();
-        wrapper.eq("exercises_id",exercisesId)
-                .eq("type",type);
+        wrapper.eq("exercises_id",exercisesId);
         return twoLevelDao.selectList(wrapper);
     }
 
@@ -39,7 +38,8 @@ public class level_twoServiceImpl extends ServiceImpl<twoLevelDao, two_level> im
             return -1;//已有，不可再添加
         }
         System.out.println(two_level);
-        return twoLevelDao.insert(two_level);
+        twoLevelDao.insert(two_level);
+        return two_level.getTwoId();
     }
 
     /**

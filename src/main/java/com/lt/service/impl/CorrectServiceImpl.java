@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -110,7 +111,7 @@ public class CorrectServiceImpl extends ServiceImpl<correctDao, Correct> impleme
 
         //2.新增correct表
         Correct correct = new Correct();
-        correct.setCorrectId(corpus_id);
+        correct.setCorpusId(corpus_id);
         correct.setState(1);
         CorrectDao.insert(correct);
         int correct_id = correct.getCorrectId();
@@ -191,6 +192,30 @@ public class CorrectServiceImpl extends ServiceImpl<correctDao, Correct> impleme
             count++;
         }
         return 1;
+    }
+
+    @Override
+    public int updateExercises(CorrectDao correctDao) {
+        Corpus corpus = corpusService.getOneCorpus(correctDao.getCorpus_id());
+//        封装新的CorpusDao
+        CorpusDao corpusDao = new CorpusDao();
+        corpusDao.setId(corpus.getId());
+        corpusDao.setTitle(correctDao.getTitle());
+        corpusDao.setIntroduction(corpus.getIntroduction());
+        corpusDao.setOriginaltext(correctDao.getOriginaltext());
+        corpusDao.setDirection(correctDao.getDirection());
+        corpusDao.setDifficulty(corpus.getDifficulty());
+        corpusDao.setType(corpus.getType());
+        corpusDao.setAuthorID(correctDao.getUserID());
+        corpusDao.setState(corpus.getState());
+        corpusDao.setFile(corpus.getFile().get(0).getId());
+//        int tag_ids = corpus.getTag_ids().get(0).getId();
+//        List<String> tags = new ArrayList<>();
+//        tags.add(tag_ids+"");
+        corpusDao.setTag_ids(correctDao.getTag_ids());
+        corpusDao.setPublished(corpus.getPublished());
+
+        return corpusService.update(corpusDao);
     }
 
     /**

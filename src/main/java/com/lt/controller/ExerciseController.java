@@ -131,6 +131,24 @@ public class ExerciseController {
         return new Result(code, msg, null);
     }
 
+    //新接口-上传子列
+    @PutMapping("/level")
+    public Result updateLevel(@RequestBody  NewExerciseLevelDao newExerciseScoreDao){
+        int flag = exercisesService.updateLevelScore(newExerciseScoreDao);
+        Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
+        String msg = flag != 0 ? "更新二三级指标 成功" : "更新二三级指标 失败";
+        return new Result(code, msg, null);
+    }
+
+    //新接口，查询exercisesID 的所有一级、二级、三级评分细则
+    @GetMapping("/level/{exercisesId}")
+    public Result getLevel(@PathVariable int exercisesId){
+        List<NewExerciseLevelDao> newExerciseLevelDaoList = exercisesService.getLevel(exercisesId);
+        Integer code = newExerciseLevelDaoList != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = newExerciseLevelDaoList != null ? "查询二三级指标 成功" : "查询二三级指标 失败";
+        return new Result(code, msg, newExerciseLevelDaoList);
+    }
+
     @DeleteMapping("/{eid}")
     public Result delete(@PathVariable int eid) {
         int flag = exercisesService.delete(eid);

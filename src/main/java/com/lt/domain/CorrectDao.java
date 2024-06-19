@@ -6,6 +6,7 @@ import java.util.List;
 
 @Data
 public class CorrectDao {
+    private int corpus_id;//上传过程中无用，在查询过程中有用1
     private String Title;// 语料标题
     private int Type;// 口译类型 1（同传） 2（交传） 3（陪同口译） 4（会议口译）
     private int Direction;// 翻译方向 1（中译英） 2（英译中）=>需要后端自己识别

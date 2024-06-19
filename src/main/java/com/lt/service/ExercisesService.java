@@ -32,6 +32,11 @@ public interface ExercisesService {
     // 更新语料——管理（教师打分）
     int updateScore(ExerciseScoreDao exerciseScoreDao);
 
+    //更新打分-二级和三级打分
+    int updateLevelScore(NewExerciseLevelDao newExerciseLevelDao);
+    //查询练习的二三级指标信息
+    List<NewExerciseLevelDao> getLevel(int exercises_id);
+
     // 删除语料——管理
     int delete(int eid);
 

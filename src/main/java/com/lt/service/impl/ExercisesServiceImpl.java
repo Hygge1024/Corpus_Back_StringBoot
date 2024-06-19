@@ -49,6 +49,10 @@ public class ExercisesServiceImpl implements ExercisesService {
     private CorpusService corpusService;
     @Autowired
     private studentDao studentDao;
+    @Autowired
+    private level_twoServiceImpl levelTwoService;
+    @Autowired
+    private level_threeServiceImpl levelThreeService;
     private static String OriginalUrl;
     private static String ExercisesAll_Url;
     private static String ExercisesOne_Url;
@@ -381,6 +385,42 @@ public class ExercisesServiceImpl implements ExercisesService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public int updateLevelScore(NewExerciseLevelDao newExerciseLevelDao) {
+        two_level twoLevel = newExerciseLevelDao.getTwoLevel();
+        log.info("twolevel:"+twoLevel);
+        List<three_level> threeLevelList = newExerciseLevelDao.getThreeLevelList();
+        log.info("threeList:"+threeLevelList);
+        int flag = 0;
+        int two_id = levelTwoService.insert(twoLevel);//需要将返回的two_id 返回给下面的three_level值中
+        flag = two_id;
+        for(three_level threeLevel : threeLevelList){
+            if(flag == 0){
+                log.error("上传出错了！");
+                return 0;
+            }
+            threeLevel.setTwoId(two_id);
+            flag = levelThreeService.insert(threeLevel);
+        }
+        return 1;
+    }
+
+    @Override
+    public List<NewExerciseLevelDao> getLevel(int exercises_id) {
+        List<NewExerciseLevelDao> newExerciseLevelDaoList = new ArrayList<>();
+
+        List<two_level> twoLevelList = levelTwoService.getall(exercises_id);
+        for(two_level twoLevel : twoLevelList){
+            List<three_level> threeLevelList = levelThreeService.getall(twoLevel.getTwoId());
+            log.info("当前twoID："+twoLevel.getTwoId());
+            NewExerciseLevelDao temple = new NewExerciseLevelDao();
+            temple.setTwoLevel(twoLevel);
+            temple.setThreeLevelList(threeLevelList);
+            newExerciseLevelDaoList.add(temple);
+        }
+        return newExerciseLevelDaoList;
     }
 
     @Override

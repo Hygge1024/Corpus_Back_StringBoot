@@ -33,6 +33,13 @@ public class CorrectController {
         return new Result(code, msg, flag);
 
     }
+    @PutMapping("/")
+    public Result updateExercises(@ModelAttribute CorrectDao correctDao){
+        int flag = correctService.updateExercises(correctDao);
+        Integer code = flag != 0 ? Code.UPDATE_OK : Code.UPDATE_ERR;
+        String msg = flag != 0 ? "更新成功" : "更新失败!";
+        return new Result(code, msg, flag);
+    }
     @GetMapping("/all/{currentPage}/{pageSize}")
     public Result getAll(@PathVariable int currentPage, @PathVariable int pageSize){
         IPage page = correctService.getPage(currentPage,pageSize);
