@@ -17,4 +17,9 @@ public class ExercisesDao {
     private String IdentifyText;
     private List<String> keywords; // 添加关键词列表属性
 
+    private int Correctid;
+    private int Correcttype;
+    private int Labourid;
+    private String TeaID;
+
 }

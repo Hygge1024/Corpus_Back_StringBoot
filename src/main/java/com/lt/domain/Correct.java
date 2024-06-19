@@ -9,7 +9,7 @@ import lombok.Data;
 @TableName("correct")
 public class Correct {
     @TableId(type = IdType.AUTO)
-    private int correct_id;//试题批改id
-    private int corpus_id;//语料id
+    private int correctId;//试题批改id
+    private int corpusId;//语料id
     private int state;//1有效，0无效
 }

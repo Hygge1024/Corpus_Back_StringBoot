@@ -12,7 +12,7 @@ import java.util.List;
 public class CorpusDao {
     private int id;// id
     private String Title;// 语料标题
-    private String Introduction;// 语料简介
+    private String Introduction;// 语料简介1
     private String Originaltext;// 原文文本
     private int Direction;// 翻译方向 1（中译英） 2（英译中）=>需要后端自己识别
     private int Difficulty;// 翻译难度 1 （简单） 2（普通） 3（困难）
