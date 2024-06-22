@@ -390,12 +390,15 @@ public class ExercisesServiceImpl implements ExercisesService {
     @Override
     public int updateLevelScore(NewExerciseLevelDao newExerciseLevelDao) {
         two_level twoLevel = newExerciseLevelDao.getTwoLevel();
-        log.info("twolevel:" + twoLevel);
+
         List<three_level> threeLevelList = newExerciseLevelDao.getThreeLevelList();
-        log.info("threeList:" + threeLevelList);
+//        log.info("threeList:" + threeLevelList);
         int flag = 0;
-        int two_id = levelTwoService.insert(twoLevel);// 需要将返回的two_id 返回给下面的three_level值中
+        levelTwoService.insert(twoLevel);
+        int two_id = twoLevel.getTwoId();// 需要将返回的two_id 返回给下面的three_level值中
         flag = two_id;
+        twoLevel.setTwoId(two_id);
+        log.info("twolevel:" + twoLevel);
         for (three_level threeLevel : threeLevelList) {
             if (flag == 0) {
                 log.error("上传出错了！");
