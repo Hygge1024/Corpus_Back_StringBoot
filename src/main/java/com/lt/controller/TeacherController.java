@@ -7,6 +7,7 @@ import com.lt.controller.utils.Result;
 import com.lt.domain.*;
 import com.lt.service.BaiduService;
 import com.lt.service.ClassesService;
+import com.lt.service.LabourService;
 import com.lt.service.TeachersService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +30,12 @@ public class TeacherController {
     @Autowired
     private TeachersService teachersService;
     @Autowired
+    private LabourService labourService;
+    @Autowired
     private ClassesService classesService;
 
     private static String WenXinAPI;
     private static String WenXinSecurity;
-
 
     @Value("${baidu.WenXinAPI}")
     public void setWenXinAPI(String wenXinAPI) {
@@ -218,6 +220,16 @@ public class TeacherController {
         Integer code = Value != "" ? Code.GET_OK : Code.GET_ERR;
         String msg = Value != "" ? "文心模型 评价成功" : "文心模型 评价失败";
         return new Result(code, msg, Value);
+    }
+
+    @PostMapping("/autocorrect/{correctId}")
+    public Result autoCorrect(@PathVariable int correctId) {
+        try {
+            labourService.autoCorrect(correctId, WenXinAPI, WenXinSecurity);
+            return new Result(Code.UPDATE_OK, "智能批改完成", null);
+        } catch (Exception e) {
+            return new Result(Code.UPDATE_ERR, "智能批改失败", e.getMessage());
+        }
     }
 
     /*

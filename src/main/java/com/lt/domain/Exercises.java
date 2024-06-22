@@ -55,7 +55,7 @@ public class Exercises {
     @JsonProperty("SkillComment") // 新增字段
     private String skillComment;
 
-    //为批改系统服务字段（新功能）
+    // 为批改系统服务字段（新功能）
     @JsonProperty("Correctid")
     private int Correctid;
     @JsonProperty("Correcttype")
@@ -64,5 +64,16 @@ public class Exercises {
     private int Labourid;
     @JsonProperty("TeaID")
     private String TeaID;
+    @JsonProperty("startTime")
+    private Date startTime; // 使用startTime统一命名
 
+    @JsonProperty("endTime")
+    private Date endTime; // 使用endTime统一命名
+
+    @JsonProperty("state")
+    private String state;
+
+    public double getScore() {
+        return (double) this.Score;
+    }
 }

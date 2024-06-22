@@ -1,6 +1,5 @@
 package com.lt.domain;
 
-
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -33,5 +32,4 @@ public class Labour {
     private double Skill_one;
     private double Skill_two;
     private double Skill_three;
-
 }

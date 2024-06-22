@@ -1,0 +1,93 @@
+2024-06-11 21:13:19.017  INFO 34728 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_151 on LAPTOP-KP1QDL24 with PID 34728 (X:\OldCode\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by Tara in X:\OldCode\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
+2024-06-11 21:13:19.021  INFO 34728 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-06-11 21:13:19.806  INFO 34728 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-06-11 21:13:19.812  INFO 34728 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-11 21:13:19.812  INFO 34728 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
+2024-06-11 21:13:19.925  INFO 34728 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-11 21:13:19.926  INFO 34728 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 875 ms
+2024-06-11 21:13:20.008  INFO 34728 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2024-06-11 21:13:20.109  INFO 34728 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2024-06-11 21:13:20.589  WARN 34728 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.admins"
+2024-06-11 21:13:20.700  WARN 34728 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.teachers"
+2024-06-11 21:13:20.733  WARN 34728 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Classes"
+2024-06-11 21:13:20.759  WARN 34728 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tsid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Task"
+2024-06-11 21:13:21.098  WARN 34728 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.download"
+2024-06-11 21:13:21.115  WARN 34728 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Favorites"
+2024-06-11 21:13:21.133  WARN 34728 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "mid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Mark"
+2024-06-11 21:13:21.430  INFO 34728 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-06-11 21:13:21.438  INFO 34728 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.707 seconds (JVM running for 3.434)
+2024-06-11 21:13:38.453  INFO 34728 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-11 21:13:38.453  INFO 34728 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-11 21:13:38.454  INFO 34728 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-11 21:14:11.300  INFO 34728 --- [http-nio-8080-exec-1] c.lt.service.impl.ExercisesServiceImpl   : 这里问题了吗？
+2024-06-11 21:14:50.310  INFO 34728 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2024-06-11 21:17:34.878  INFO 28680 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_151 on LAPTOP-KP1QDL24 with PID 28680 (X:\OldCode\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by Tara in X:\OldCode\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
+2024-06-11 21:17:34.880  INFO 28680 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-06-11 21:17:35.562  INFO 28680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-06-11 21:17:35.567  INFO 28680 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-11 21:17:35.567  INFO 28680 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
+2024-06-11 21:17:35.672  INFO 28680 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-11 21:17:35.672  INFO 28680 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 768 ms
+2024-06-11 21:17:35.743  INFO 28680 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2024-06-11 21:17:35.838  INFO 28680 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2024-06-11 21:17:36.346  WARN 28680 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.admins"
+2024-06-11 21:17:36.476  WARN 28680 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.teachers"
+2024-06-11 21:17:36.510  WARN 28680 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Classes"
+2024-06-11 21:17:36.537  WARN 28680 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tsid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Task"
+2024-06-11 21:17:36.931  WARN 28680 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.download"
+2024-06-11 21:17:36.950  WARN 28680 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Favorites"
+2024-06-11 21:17:36.967  WARN 28680 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "mid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Mark"
+2024-06-11 21:17:37.275  INFO 28680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-06-11 21:17:37.282  INFO 28680 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.659 seconds (JVM running for 3.345)
+2024-06-11 21:17:56.548  INFO 28680 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-11 21:17:56.549  INFO 28680 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-11 21:17:56.550  INFO 28680 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-11 21:18:08.550  INFO 28680 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2024-06-11 21:20:55.055  INFO 27720 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_151 on LAPTOP-KP1QDL24 with PID 27720 (X:\OldCode\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by Tara in X:\OldCode\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
+2024-06-11 21:20:55.057  INFO 27720 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-06-11 21:20:55.720  INFO 27720 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-06-11 21:20:55.725  INFO 27720 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-11 21:20:55.725  INFO 27720 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
+2024-06-11 21:20:55.834  INFO 27720 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-11 21:20:55.834  INFO 27720 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 753 ms
+2024-06-11 21:20:55.905  INFO 27720 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2024-06-11 21:20:55.996  INFO 27720 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2024-06-11 21:20:56.432  WARN 27720 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.admins"
+2024-06-11 21:20:56.548  WARN 27720 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.teachers"
+2024-06-11 21:20:56.579  WARN 27720 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Classes"
+2024-06-11 21:20:56.606  WARN 27720 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tsid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Task"
+2024-06-11 21:20:56.923  WARN 27720 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.download"
+2024-06-11 21:20:56.941  WARN 27720 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Favorites"
+2024-06-11 21:20:56.958  WARN 27720 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "mid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Mark"
+2024-06-11 21:20:57.213  INFO 27720 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-06-11 21:20:57.220  INFO 27720 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.42 seconds (JVM running for 3.067)
+2024-06-11 21:20:59.909  INFO 27720 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-11 21:20:59.909  INFO 27720 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-11 21:20:59.910  INFO 27720 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-11 21:21:01.537  INFO 27720 --- [http-nio-8080-exec-1] c.lt.service.impl.ExercisesServiceImpl   : 这里问题了吗？
+2024-06-11 21:22:12.437  INFO 27720 --- [http-nio-8080-exec-5] c.lt.service.impl.ExercisesServiceImpl   : 这里问题了吗？
+2024-06-11 21:24:16.340  INFO 27720 --- [http-nio-8080-exec-8] c.lt.service.impl.ExercisesServiceImpl   : 这里问题了吗？
+2024-06-11 21:27:52.801  INFO 27720 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2024-06-11 21:27:57.362  INFO 35796 --- [main] com.lt.CorpusBackStringBootApplication   : Starting CorpusBackStringBootApplication using Java 1.8.0_151 on LAPTOP-KP1QDL24 with PID 35796 (X:\OldCode\intellij IDEApro\Corpus\Corpus_Back_StringBoot\target\classes started by Tara in X:\OldCode\intellij IDEApro\Corpus\Corpus_Back_StringBoot)
+2024-06-11 21:27:57.364  INFO 35796 --- [main] com.lt.CorpusBackStringBootApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-06-11 21:27:58.038  INFO 35796 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-06-11 21:27:58.043  INFO 35796 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-11 21:27:58.043  INFO 35796 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.76]
+2024-06-11 21:27:58.136  INFO 35796 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-11 21:27:58.136  INFO 35796 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 748 ms
+2024-06-11 21:27:58.209  INFO 35796 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2024-06-11 21:27:58.305  INFO 35796 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2024-06-11 21:27:58.750  WARN 35796 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "aid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.admins"
+2024-06-11 21:27:58.874  WARN 35796 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.teachers"
+2024-06-11 21:27:58.906  WARN 35796 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "cid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Classes"
+2024-06-11 21:27:58.933  WARN 35796 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "tsid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Task"
+2024-06-11 21:27:59.249  WARN 35796 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "did" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.download"
+2024-06-11 21:27:59.268  WARN 35796 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "fid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Favorites"
+2024-06-11 21:27:59.284  WARN 35796 --- [main] c.b.m.core.metadata.TableInfoHelper      : This primary key of "mid" is primitive !不建议如此请使用包装类 in Class: "com.lt.domain.Mark"
+2024-06-11 21:27:59.551  INFO 35796 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-06-11 21:27:59.558  INFO 35796 --- [main] com.lt.CorpusBackStringBootApplication   : Started CorpusBackStringBootApplication in 2.463 seconds (JVM running for 3.116)
+2024-06-11 21:28:02.062  INFO 35796 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-11 21:28:02.062  INFO 35796 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-11 21:28:02.063  INFO 35796 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-11 21:28:03.826  INFO 35796 --- [http-nio-8080-exec-1] c.lt.service.impl.ExercisesServiceImpl   : 这里问题了吗？
+2024-06-11 21:28:48.792  INFO 35796 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
